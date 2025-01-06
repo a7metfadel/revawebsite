@@ -1,0 +1,633 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="preload" href="{% static 'fonts/SomarSans-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'fonts/SomarSans-Bold.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'fonts/SomarSans-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <title>RevaPharma-Home</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/icon.svg' %}" rel="icon" type="image/svg+xml">
+    <link href="{% static 'img/icon.svg' %}" rel="apple-touch-icon">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                    <small>Syria,Aleppo</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center py-3">
+                    <small class="far fa-clock text-primary me-2"></small>
+                    <small>Sat - Thu : 08.00 AM - 04.00 PM</small>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                    <small class="fa fa-phone-alt text-primary me-2"></small>
+                    <small>+90 537 868 0830</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href="https://www.facebook.com/revapharma/"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href="https://x.com/revapharma__"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href="https://www.linkedin.com/company/e-reva-pharma/"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-0" href="https://www.instagram.com/revapharma_/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
+        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h1 class="m-0 text-primary d-flex align-items-center">
+                <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 50px; margin-right: 10px;">
+                REVA <h1 class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</h1>
+            </h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                        <a href="{% url 'job' %}" class="dropdown-item">Job Vacancies</a>
+                        <a href="{% url 'report' %}" class="dropdown-item">Report</a>
+                    </div>
+                </div>
+                <a href="{% url 'product' %}" class="nav-item nav-link">Our Products</a>
+                <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    
+
+    <!-- Header Start -->
+    <div class="container-fluid header bg-primary p-0 mb-5">
+        <div class="row g-0 align-items-center flex-column-reverse flex-lg-row ">
+            <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
+                <h1 class="display-4 text-white mb-5">We have the most efficient team.</h1>
+                <div class="row g-4">
+                    <div class="col-sm-4">
+                        <div class="border-start border-light ps-4">
+                            <h2 class="text-white mb-1" data-toggle="counter-up">248</h2>
+                            <p class="text-light mb-0">Workers and Technicians</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="border-start border-light ps-4">
+                            <h2 class="text-white mb-1" data-toggle="counter-up">74</h2>
+                            <p class="text-light mb-0">Pharmacist & Chemist</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="border-start border-light ps-4">
+                            <h2 class="text-white mb-1" data-toggle="counter-up">322</h2>
+                            <p class="text-light mb-0">Total Workforce </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="owl-carousel header-carousel">
+                    <div class="owl-carousel-item position-relative">
+                        <img class="img-fluid" src="{% static 'img/01.jpg' %}" alt="">
+                        <div class="owl-carousel-text">
+                            <h1 class="display-1 text-white mb-0"></h1>
+                        </div>
+                    </div>
+                    <div class="owl-carousel-item position-relative">
+                        <img class="img-fluid" src="{% static 'img/02.jpg' %}" alt="">
+                        <div class="owl-carousel-text">
+                            <h1 class="display-1 text-white mb-0"></h1>
+                        </div>
+                    </div>
+                    <div class="owl-carousel-item position-relative">
+                        <img class="img-fluid" src="{% static 'img/03.jpg' %}" alt="">
+                        <div class="owl-carousel-text">
+                            <h1 class="display-1 text-white mb-0"></h1>
+                        </div>
+                    </div>
+
+                    <div class="owl-carousel-item position-relative">
+                        <img class="img-fluid" src="{% static 'img/04.jpg' %}" alt="">
+                        <div class="owl-carousel-text">
+                            <h1 class="display-1 text-white mb-0"></h1>
+                        </div>
+                    </div>
+
+                    <div class="owl-carousel-item position-relative">
+                        <img class="img-fluid" src="{% static 'img/05.jpg' %}" alt="">
+                        <div class="owl-carousel-text">
+                            <h1 class="display-1 text-white mb-0"></h1>
+                        </div>
+                    </div>
+                    
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column">
+                        <img class="img-fluid rounded w-75 align-self-end" src="{% static 'img/ISO-522.jpg' %}" alt="" 
+                            style="border: 3px solid #000;">
+                        <img class="img-fluid rounded w-50 bg-white pt-3 pe-3" src="{% static 'img/ISO-348.jpg' %}" alt="" 
+                            style="margin-top: -25%; border: 3px solid #000;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <p class="d-inline-block border rounded-pill py-1 px-4">About Us</p>
+                    <h1 class="mb-4">Why You Should Trust Us?</h1>
+                    <p>Quality at Reva Pharma was not just a goal, but a belief we adopted in all stages of our work.
+                        At Reva Pharma, we realize the importance of quality in the pharmaceutical industry. </p>
+                   
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="far fa-check-circle text-primary me-3"></i>
+                        <a href="https://www.iso.org/standard/63787.html" class="nav-link p-0">ISO 45001 Occupational Health and Safety Management Certification</a>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="far fa-check-circle text-primary me-3"></i>
+                        <a href="https://www.iso.org/standard/60857.html" class="nav-link p-0">ISO 14001 Environmental Management Certification</a>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="far fa-check-circle text-primary me-3"></i>
+                        <a href="https://www.iso.org/standard/62085.html" class="nav-link p-0">ISO 9001 Certification in Quality Management</a>
+                    </div>
+                    
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="{% url 'about' %}">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Production_Line Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block border rounded-pill py-1 px-4">Production lines</p>
+                <h1>6 Production lines</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-light rounded p-5 h-auto">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <img src="{% static 'icon/icon_ampoule.png' %}" alt="Tablets Production Line" style="width: 40px; height: 40px;">
+                        </div>
+                        <h4 class="mb-3">Penicillin's Production Line</h4>
+                        <div class="content-wrapper">
+                            <p class="mb-4">
+                                <span class="short-text">Start date 2015-01-01
+                                This department was designed in accordance with the rules of Good Manufacturing Practices.</span>
+                                <span class="full-text" style="display: none">
+                                    Only Penicillins are produced in this department. The pharmaceutical forms produced in this department include:
+                                    Tablets and Film Coated Tablets 
+                                    Capsules
+                                    Dry Syrups.
+                                </span>
+                                <a href="javascript:void(0)" class="read-more-link">Read More</a>
+                            </p>
+                        </div>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>View Products</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item bg-light rounded p-5 h-auto">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <img src="{% static 'icon/icon_antiseptic.png' %}" alt="Capsules Production Line" style="width: 40px; height: 40px;">
+                        </div>
+                        <h4 class="mb-3">Oral Suspensions and Syrups Production Line</h4>
+                        <div class="content-wrapper">
+                            <p class="mb-4">
+                                <span class="short-text">Start date 2014-03-23
+                                This department is characterized by high productivity.</span>
+                                <span class="full-text" style="display: none">
+                                    Antipyretics and pain relievers such as
+                                    Anti Cold and Cough -
+                                    Antiemetics -
+                                    vitamins and minerals -
+                                    Bronchodilators -
+                                    Antihistamines-
+                                    Antibiotics-
+                                    ِAntifungals -
+                                    Corticosteroids
+                                </span>
+                                <a href="javascript:void(0)" class="read-more-link">Read More</a>
+                            </p>
+                        </div>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>View Products</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item bg-light rounded p-5 h-auto">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <img src="{% static 'icon/icon_capsule.png' %}" alt="Syrups Production Line" style="width: 40px; height: 40px;">
+                        </div>
+                        <h4 class="mb-3">Cephalosporins Production Line</h4>
+                        <div class="content-wrapper">
+                            <p class="mb-4">
+                                <span class="short-text">Start date 2015-01-01
+                                This department was designed in accordance with the rules of Good Manufacturing Practices.</span>
+                                <span class="full-text" style="display: none">
+                                    Only Cephalosporins are produced in this department. The pharmaceutical forms produced in this department include:
+                                    Capsules -
+                                    Dry Syrups
+                                </span>
+                                <a href="javascript:void(0)" class="read-more-link">Read More</a>
+                            </p>
+                        </div>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>View Products</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-light rounded p-5 h-auto">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <img src="{% static 'icon/icon_capsules.png' %}" alt="Ampoules Production Line" style="width: 40px; height: 40px;">
+                        </div>
+                        <h4 class="mb-3">Hard Gelatin Capsules Production Line</h4>
+                        <div class="content-wrapper">
+                            <p class="mb-4">
+                                <span class="short-text">Start date 2014-03-23
+                                This department contains a set of the latest machines and is managed by highly experienced employees.</span>
+                                <span class="full-text" style="display: none">
+                                    It was established in accordance with Good Manufacturing Practices.
+                                    The department produces a wide range of therapeutic category such as:
+                                    Analgesic Antipyretic and Muscle-Relaxants-
+                                    Anti Cold and Cough -
+                                    antispasmodics -
+                                    vitamins -
+                                    Proton-pump inhibitors -
+                                    Antifungal
+                                </span>
+                                <a href="javascript:void(0)" class="read-more-link">Read More</a>
+                            </p>
+                        </div>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>View Products</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item bg-light rounded p-5 h-auto">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <img src="{% static 'icon/icon_capsules2.png' %}" alt="Suppositories Production Line" style="width: 40px; height: 40px;">
+                        </div>
+                        <h4 class="mb-3">Tablets Production Line</h4>
+                        <div class="content-wrapper">
+                            <p class="mb-4">
+                                <span class="short-text">Start date 2014-03-23
+                                This department was established with latest production equipment.</span>
+                                <span class="full-text" style="display: none">
+                                    Founded with the launch of Reva Pharma and produces:
+                                    Compressed tablets -
+                                    Film-coated tablet -
+                                    Enteric Coated Tablets.
+                                </span>
+                                <a href="javascript:void(0)" class="read-more-link">Read More</a>
+                            </p>
+                        </div>
+                        <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>View Products</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item bg-light rounded p-5 h-auto">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <img src="{% static 'icon/icon_suppositories.png' %}" alt="Creams Production Line" style="width: 40px; height: 40px;">
+                        </div>
+                        <h4 class="mb-3">Suppositories Production Line</h4>
+                        <div class="content-wrapper">
+                            <p class="mb-4">
+                                <span class="short-text">Start date 2015-01-01
+                                In this production line, suppositories intended for use by children and adults.</span>
+                                <span class="full-text" style="display: none">
+                                    As well as vaginal ovels are produced.
+                                    It includes different therapeutic category such as:
+                                    Pain relievers and antipyretics -
+                                    Non-steroidal anti-inflammatory drugs -
+                                    Anti-infectives drugs -
+                                    Antispasmodics
+                                </span>
+                                <a href="javascript:void(0)" class="read-more-link">Read More</a>
+                            </p>
+                        </div>
+                        <a class="btn" href="{% url 'product' %}"><i class="fa fa-plus text-primary me-3"></i>View Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Feature Start -->
+    <div class="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
+        <div class="container feature px-lg-0">
+            <div class="row g-0 mx-lg-0">
+                <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="p-lg-5 ps-lg-0">
+                        <p class="d-inline-block border rounded-pill text-light py-1 px-4">Export & Import</p>
+                        <h1 class="text-white mb-4">Reva Export</h1>
+                        <p class="text-white mb-4 pb-2">Reva Pharma's goals are not only at the local level, but rather it aspires to establish export lines with all Arab countries and others </p>
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-user-md text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">Experience</p>
+                                        <h5 class="text-white mb-0">Doctors</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">Quality</p>
+                                        <h5 class="text-white mb-0">Services</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-comment-medical text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">Positive</p>
+                                        <h5 class="text-white mb-0">Consultation</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-headphones text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">24 Hours</p>
+                                        <h5 class="text-white mb-0">Support</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/export.png' %}" style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block border rounded-pill py-1 px-4">Managers</p>
+                <h1>Our Experience Managers</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-1.jpg' %}" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Doctor Name</h5>
+                            <p class="text-primary">Department</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-2.jpg' %}" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Doctor Name</h5>
+                            <p class="text-primary">Department</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-3.jpg' %}" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Doctor Name</h5>
+                            <p class="text-primary">Department</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-4.jpg' %}" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Doctor Name</h5>
+                            <p class="text-primary">Department</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Address</h5>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Syria,Aleppo</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+90 537 868 0830</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>e-marketing@e-revapharma.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://x.com/revapharma__"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.facebook.com/revapharma/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.instagram.com/revapharma_/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.linkedin.com/company/e-reva-pharma/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Services</h5>
+                    <a class="btn btn-link" href="{% url 'job' %}">Job Vacancies</a>
+                    <a class="btn btn-link" href="">Report an Issue</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Quick Links</h5>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Reva pharma website</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const readMoreLinks = document.querySelectorAll('.read-more-link');
+        
+        readMoreLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const container = this.parentElement;
+                const fullText = container.querySelector('.full-text');
+                const serviceItem = this.closest('.service-item');
+                
+                if (fullText.style.display === 'none') {
+                    fullText.style.display = 'inline';
+                    this.textContent = 'Read Less';
+                } else {
+                    fullText.style.display = 'none';
+                    this.textContent = 'Read More';
+                }
+                
+                // إعادة حساب الارتفاع
+                serviceItem.style.height = 'auto';
+            });
+        });
+    });
+    </script>
+
+    <style>
+    .read-more-link {
+        color: #0d6efd;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .read-more-link:hover {
+        text-decoration: underline;
+    }
+    </style>
+</body>
+
+</html>
