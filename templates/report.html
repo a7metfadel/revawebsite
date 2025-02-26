@@ -39,35 +39,7 @@
     <!-- Spinner End -->
 
 
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>Syria-Aleppo</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center py-3">
-                    <small class="far fa-clock text-primary me-2"></small>
-                    <small>Sat - Thu : 08.00 AM - 04.00 PM</small>
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-                    <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small>+90 537 868 0830</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href="https://www.facebook.com/revapharma/"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href="https://x.com/revapharma__"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href="https://www.linkedin.com/company/e-reva-pharma/"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-0" href="https://www.instagram.com/revapharma_/"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
+   
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
@@ -86,11 +58,11 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="{% url 'job' %}" class="dropdown-item">Job Vacancies</a>
+                        <a href="{% url 'job_catalog' %}" class="dropdown-item">Job Vacancies</a>
                         <a href="{% url 'report' %}" class="dropdown-item active">Report</a>
                     </div>
                 </div>
-                <a href="{% url 'product' %}" class="nav-item nav-link">Our Products</a>
+                <a href="{% url 'product_catalog' %}" class="nav-item nav-link">Our Products</a>
                 <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
                 <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
             </div>
@@ -104,67 +76,76 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="d-inline-block border rounded-pill py-1 px-4">Report</p>
-                    <h1 class="mb-4">If you have any comments on our products or our staff, <br> you can send them via this form.</h1>
-                    <p class="mb-4">We at reva pharam welcome any criticism or complaint that helps us solve a specific problem and fix errors.</p>
-                    <div class="bg-light rounded d-flex align-items-center p-5 mb-4">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
-                            <i class="fa fa-phone-alt text-primary"></i>
+                    <p class="d-inline-block border rounded-pill py-1 px-4">Submit Report</p>
+                    <h1 class="mb-4">Do you have a complaint?</h1>
+                    <p class="mb-4">We value your feedback and concerns. Please fill out the form below and we will review your complaint as soon as possible.</p>
+                    
+                    {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                        <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                        <div class="ms-4">
-                            <p class="mb-2">Call Us Now</p>
-                            <h5 class="mb-0">+90 537 868 0830</h5>
-                        </div>
+                        {% endfor %}
                     </div>
-                    <div class="bg-light rounded d-flex align-items-center p-5">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
-                            <i class="fa fa-envelope-open text-primary"></i>
-                        </div>
-                        <div class="ms-4">
-                            <p class="mb-2">Mail Us Now</p>
-                            <h5 class="mb-0">e-marketing@e-revapharma.com</h5>
-                        </div>
-                    </div>
+                    {% endif %}
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="bg-light rounded h-100 d-flex align-items-center p-5">
-                        <form>
+                        <form method="post" action="{% url 'submit_report' %}" class="w-100">
+                            {% csrf_token %}
                             <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style="height: 55px;">
-                                        
-                                        <option value="1">our products</option>
-                                        <option value="2">our team</option>
-                                    </select>
-                                </div>
-
-
-                                <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style="height: 55px;">
-                                        
-                                        <option value="1">physician</option>
-                                        <option value="2">pharmacist</option>
-                                        <option value="2">chemical</option>
-                                        <option value="2">midwife</option>
-                                        <option value="2">patient</option>
-                                    </select>
-                                </div>
-                                
-            
                                 <div class="col-12">
-                                    <textarea class="form-control border-0" rows="5" placeholder="Describe your problem"></textarea>
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                                        <label for="name">Full Name</label>
+                                    </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">send report</button>
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                                        <label for="email">Email Address</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number" required>
+                                        <label for="phone">Phone Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="report_type" name="report_type" required>
+                                            <option value="">Select Report Type</option>
+                                            <option value="our_product">Product Complaint</option>
+                                            <option value="our_team">Staff Complaint</option>
+                                        </select>
+                                        <label for="report_type">Report Type</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="complainant_type" name="complainant_type" required>
+                                            <option value="">Select Your Role</option>
+                                            <option value="doctor">Doctor</option>
+                                            <option value="pharmacist">Pharmacist</option>
+                                            <option value="patient">Patient</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        <label for="complainant_type">Your Role</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Enter complaint details here" id="description" name="description" style="height: 150px" required></textarea>
+                                        <label for="description">Complaint Details</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">
+                                        Submit Report
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -195,14 +176,14 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Services</h5>
-                    <a class="btn btn-link" href="{% url 'job' %}">Job Vacancies</a>
+                    <a class="btn btn-link" href="{% url 'job_catalog' %}">Job Vacancies</a>
                     <a class="btn btn-link" href="{% url 'report' %}">Report an Issue</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Quick Links</h5>
                     <a class="btn btn-link" href="{% url 'about' %}">About Us</a>
                     <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
-                    <a class="btn btn-link" href="{% url 'product' %}">Our Products</a>
+                    <a class="btn btn-link" href="{% url 'product_catalog' %}">Our Products</a>
                     <a class="btn btn-link" href="">Terms & Condition</a>
                     <a class="btn btn-link" href="">Support</a>
                 </div>

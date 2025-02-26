@@ -1,0 +1,285 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>REVA PHARMA - About</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link rel="mask-icon" color="#5bbad5" href="{% static 'safari-pinned-tab.svg' %}">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #ffffff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #4c6bb2;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #4c6bb2;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="{% static 'vendor2/simplebar/dist/simplebar.min.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'vendor2/tiny-slider/dist/tiny-slider.css' %}"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="{% static 'css2/theme.min.css' %}">
+    <!-- Custom styles -->
+    <link rel="stylesheet" media="screen" href="{% static 'css2/custom.css' %}">
+  </head>
+  <!-- Body-->
+  <body class="bg-light">
+    <!-- Brand Start -->
+    <div class="container-fluid bg-primary text-white pt-4 pb-5">
+      <div class="container pb-2">
+          <div class="d-flex align-items-center justify-content-between flex-wrap">
+              <div class="d-flex mb-3 mb-lg-0">
+                  <i class="bi bi-telephone-inbound fs-2"></i>
+                  <div class="ms-3">
+                      <h5 class="text-white mb-0">Call Now</h5>
+                      <span>+90 537 868 0830</span>
+                  </div>
+              </div>
+              <div class="d-flex">
+                  <i class="bi bi-envelope fs-2"></i>
+                  <div class="ms-3">
+                      <h5 class="text-white mb-0">Mail Now</h5>
+                      <span>e-marketing@e-revapharma.com</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Brand End -->
+
+
+  <!-- Navbar Start -->
+  <div class="container-fluid sticky-top">
+      <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3">
+              <div class="d-lg-none">
+                  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                      <h1 class="m-0 text-primary d-flex align-items-center">
+                          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
+                          <span style="color: #4c6bb2 !important;">REVA</span>&nbsp;<span style="color: #3d3e40 !important;">PHARMA</span>
+                      </h1>
+                  </a>
+              </div>
+              <div class="ms-auto d-none d-lg-flex">
+                  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                      <h1 class="m-0 text-primary d-flex align-items-center">
+                          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
+                          <span style="color: #4c6bb2 !important;">REVA</span>&nbsp;<span style="color: #3d3e40 !important;">PHARMA</span>
+                      </h1>
+                  </a>
+              </div>
+              <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <div class="navbar-nav ms-auto p-4 p-lg-0">
+                      <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+                      <div class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                          <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                              <a href="{% url 'report' %}" class="dropdown-item">Report</a>
+                          </div>
+                      </div>
+                      <a href="#" class="nav-item nav-link">Products</a>
+                      <a href="{% url 'about' %}" class="nav-item nav-link ">About</a>
+                      <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                  </div>
+              </div>
+          </nav>
+      </div>
+    </div>
+  <!-- Navbar End -->
+
+      <!-- Page header-->
+      <section class="container mb-5 pb-lg-5">
+        <div class="row align-items-center justify-content-lg-start justify-content-center flex-lg-nowrap gy-4">
+          <div class="col-lg-9"><img class="rounded-3" src="{% static 'img/about1.jpg' %}" alt="Hero image"></div>
+          <div class="col-lg-4 ms-lg-n5 col-sm-9 text-lg-start text-center">
+            <div class="ms-lg-n5 pe-xl-5">
+              <h1 class="mb-lg-4 text-light">About us</h1>
+              <div class="about-text">
+                <p class="mb-4 pb-lg-3 fs-lg text-light opacity-70">
+                  <span class="short-text">
+                    At <span style="color: #4c6bb2 !important;">Reva Pharma</span> , we especially value the diversity and collaborative spirit of our management and our staff. We seek to work with those who are committed to the highest standards, whether in quality and compliance, or business and ethics...
+                  <span class="full-text" style="display: none;">
+                    At <span style="color: #4c6bb2 !important;">Reva Pharma</span> , we especially value the diversity and collaborative spirit of our management and our staff, and we seek to work with those who are committed to the highest standards, whether in quality and compliance, or business and ethics. And those in whom we place our trust can also expect that we will continuously verify their behaviors, so that our regulators and customers will never doubt <span style="color: #4c6bb2 !important;">Reva</span> <span style="color: #3d3e40 !important;">Pharma's</span> integrity and commitment to its values.
+                  </span>
+                </p>
+                <button class="btn btn-lg btn-primary w-sm-auto" onclick="toggleReadMore(this)">
+                  <i class="fi-search me-2"></i>Read More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+   <!-- Our Story -->
+<section class="container mb-5 pb-lg-5 pb-3 pb-sm-4">
+  <h2 class="mb-4 pb-2 text-light text-center">Our story</h2>
+  <div class="mx-auto" style="max-width: 864px;">
+    <div class="steps steps-vertical">
+      <div class="step">
+        <span class="step-number bg-primary">1</span>
+        <div class="step-label">
+          <h3 class="h5 mb-2 pb-1">2014</h3>
+          <p class="mb-0">Odio velit, massa augue etiam in parturient volutpat orci. Pulvinar amet, at est ac curabitur mauris, semper cursus metus. Imperdiet sed massa amet at turpis.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-number bg-primary">2</span>
+        <div class="step-label">
+          <h3 class="h5 mb-2 pb-1">2018</h3>
+          <p class="mb-0">Vitae erat ornare facilisi id sollicitudin turpis tempus, semper. Velit integer et volutpat, a. Massa ut amet amet, vitae nunc nulla sed.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-number bg-primary">3</span>
+        <div class="step-label">
+          <h3 class="h5 mb-2 pb-1">2022</h3>
+          <p class="mb-0">Ut mattis nascetur aliquam neque velit nunc sed. Morbi congue mauris amet ultrices molestie tellus proin odio diam.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-number bg-primary">4</span>
+        <div class="step-label">
+          <h3 class="h5 mb-2 pb-1">2025</h3>
+          <p class="mb-0">Tempor nullam pellentesque suspendisse nec. Arcu sagittis sed ut diam in ultrices. Leo lacinia feugiat interdum.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      <!-- Personalized search-->
+      <section class="container mb-5 pb-lg-5 pb-2 pb-sm-3">
+        <div class="row gy-4 align-items-lg-center">
+          <div class="col-md-6"><img class="rounded-3" src="{% static 'img/service-1.jpg' %}" alt="Personalized search"></div>
+          <div class="col-lg-5 offset-lg-1 col-md-6 text-md-start text-center">
+            <h2 class="mb-md-4 text-light">Personalized search</h2>
+            <p class="mb-4 pb-md-3 text-light opacity-70">Ante senectus sed at lacus. Sed pellentesque dapibus nunc, cursus hendrerit at faucibus ornare lectus. Sed vitae congue mauris consectetur. Cursus tristique et porta eget sapien vivamus turpis. Ultrices vitae eget mattis varius ipsum adipiscing id. Neque, sagittis cursus aliquam volutpat tristique viverra amet amet.</p><a class="btn btn-primary w-sm-auto w-100" href="car-finder-catalog-grid.html"><i class="fi-search me-2"></i>Search car</a>
+          </div>
+        </div>
+      </section>
+      <!-- Attractive selling conditions-->
+      <section class="container mb-5 pb-lg-5 pb-2 pb-sm-3">
+        <div class="row gy-4 align-items-lg-center">
+          <div class="col-lg-5 col-md-6 order-md-1 order-2 text-md-start text-center">
+            <h2 class="mb-md-4 text-light">Attractive selling conditions</h2>
+            <p class="mb-4 pb-md-3 text-light opacity-70">In risus quam diam urna, pretium at. Platea nulla malesuada elit, enim lacus quam. Rhoncus, tincidunt mauris quis fames in. A egestas sem quisque urna et imperdiet. Blandit dolor diam urna amet semper elementum ipsum et. Nulla mi ipsum quis et id tempor amet.</p><a class="btn btn-primary w-sm-auto w-100" href="car-finder-sell-car.html"><i class="fi-plus me-2"></i>Sell car</a>
+          </div>
+          <div class="col-md-6 offset-lg-1 order-md-2 order-1"><img class="rounded-3" src="{% static 'img/service-2.jpg' %}" alt="Attractive selling conditions"></div>
+        </div>
+      </section>
+    </main>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="{% static 'vendor2/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor2/simplebar/dist/simplebar.min.js' %}"></script>
+    <script src="{% static 'vendor2/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+    <script src="{% static 'vendor2/tiny-slider/dist/min/tiny-slider.js' %}"></script>
+    <!-- Main theme script-->
+    <script src="{% static 'js2/theme.min.js' %}"></script>
+    <script>
+      function toggleReadMore(button) {
+        const aboutText = button.parentElement;
+        const shortText = aboutText.querySelector('.short-text');
+        const fullText = aboutText.querySelector('.full-text');
+        
+        if (fullText.style.display === 'none') {
+          shortText.style.display = 'none';
+          fullText.style.display = 'inline';
+          button.innerHTML = '<i class="fi-search me-2"></i>Show Less';
+        } else {
+          shortText.style.display = 'inline';
+          fullText.style.display = 'none';
+          button.innerHTML = '<i class="fi-search me-2"></i>Read More';
+        }
+      }
+    </script>
+  </body>
+</html>

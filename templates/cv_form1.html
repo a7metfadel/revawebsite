@@ -1,0 +1,819 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>REVA PHARMA-CV</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link rel="mask-icon" color="#5bbad5" href="{% static 'safari-pinned-tab.svg' %}">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/simplebar/dist/simplebar.min.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/leaflet/dist/leaflet.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'vendor/filepond/dist/filepond.min.css' %}"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="{% static 'css/theme.min.css' %}">
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+          <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
+      <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+          <h1 class="m-0 text-primary d-flex align-items-center">
+              <img src="{% static 'img/red_icon.svg' %}" alt="REVA PHARMA Logo" style="height: 50px; margin-right: 10px;">
+              REVA <h1 class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</h1>
+          </h1>
+      </a>
+      <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto p-4 p-lg-0">
+              <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+              <div class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                  <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                      <a href="{% url 'job_catalog' %}" class="dropdown-item">Job Vacancies</a>
+                      <a href="{% url 'report' %}" class="dropdown-item">Report</a>
+                  </div>
+              </div>
+              <a href="{% url 'product_catalog' %}" class="nav-item nav-link">Our Products</a>
+              <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+              <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+          </div>
+      </div>
+  </nav>
+  <!-- Navbar End -->
+      <!-- Page content-->
+      <!-- Preview modal-->
+      <div class="modal fade" id="preview-modal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen" role="document">
+          <div class="modal-content">
+            <div class="modal-header d-block d-sm-flex">
+              <h3 class="h5 text-muted fw-normal modal-title d-none d-sm-block">Property preview</h3>
+              <div class="d-flex align-items-center"><a class="btn btn-primary btn-sm me-4" href="real-estate-property-promotion.html">Save and continue</a><span class="fs-xs text-muted ms-auto me-2">[ESC]</span>
+                <button class="btn-close ms-0" type="button" data-bs-dismiss="modal"></button>
+              </div>
+            </div>
+            <div class="modal-body p-0">
+              <div class="container mt-2 mt-sm-0 py-4 py-sm-5">
+                <h1 class="h2 mb-2">Pine Apartments</h1>
+                <p class="mb-2 pb-1 fs-lg">28 Jackson Ave Long Island City, NY 67234</p>
+                <ul class="d-flex mb-4 list-unstyled">
+                  <li class="me-3 pe-3 border-end"><b class="me-1">4</b><i class="fi-bed mt-n1 lead align-middle text-muted"></i></li>
+                  <li class="me-3 pe-3 border-end"><b class="me-1">2</b><i class="fi-bath mt-n1 lead align-middle text-muted"></i></li>
+                  <li class="me-3 pe-3 border-end"><b class="me-1">2</b><i class="fi-car mt-n1 lead align-middle text-muted"></i></li>
+                  <li><b>56 </b>sq.m</li>
+                </ul>
+                <div class="overflow-auto pb-3 px-2 mx-n2 mb-4" data-simplebar>
+                  <div class="row g-2 g-md-3" style="min-width: 30rem;">
+                    <div class="col-8"><img class="rounded rounded-md-3" src="{% static 'img/real-estate/single/01.jpg' %}" alt="Gallery thumbnail"></div>
+                    <div class="col-4"><img class="rounded rounded-md-3 mb-2 mb-md-3" src="{% static 'img/real-estate/single/02.jpg' %}" alt="Gallery thumbnail"><img class="rounded rounded-md-3" src="{% static 'img/real-estate/single/03.jpg' %}" alt="Gallery thumbnail"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-7 mb-md-0 mb-4"><span class="badge bg-success me-2 mb-3">Verified</span><span class="badge bg-info me-2 mb-3">New</span>
+                    <h2 class="h3 mb-4 pb-4 border-bottom">$2,000<span class="d-inline-block ms-1 fs-base fw-normal text-body">/month</span></h2>
+                    <!-- Overview-->
+                    <div class="mb-4 pb-md-3">
+                      <h3 class="h4">Overview</h3>
+                      <p class="mb-1">Lorem tincidunt lectus vitae id vulputate diam quam. Imperdiet non scelerisque turpis sed etiam ultricies. Blandit mollis dignissim egestas consectetur porttitor. Vulputate dolor pretium, dignissim eu augue sit ut convallis. Lectus est, magna urna feugiat sed ultricies sed in lacinia. Fusce potenti sit id pharetra vel ornare. Vestibulum sed tellus ullamcorper arcu.</p>
+                      <div class="collapse" id="seeMoreOverview">
+                        <p class="mb-1">Asperiores eos molestias, aspernatur assumenda vel corporis ex, magni excepturi totam exercitationem quia inventore quod amet labore impedit quae distinctio? Officiis blanditiis consequatur alias, atque, sed est incidunt accusamus repudiandae tempora repellendus obcaecati delectus ducimus inventore tempore harum numquam autem eligendi culpa.</p>
+                      </div><a class="collapse-label collapsed" href="#seeMoreOverview" data-bs-toggle="collapse" data-bs-label-collapsed="Show more" data-bs-label-expanded="Show less" role="button" aria-expanded="false" aria-controls="seeMoreOverview"></a>
+                    </div>
+                    <!-- Property Details-->
+                    <div class="mb-4 pb-md-3">
+                      <h3 class="h4">Property Details</h3>
+                      <ul class="list-unstyled mb-0">
+                        <li><b>Type: </b>apartment</li>
+                        <li><b>Apartment area: </b>56 sq.m</li>
+                        <li><b>Built: </b>2015</li>
+                        <li><b>Bedrooms: </b>4</li>
+                        <li><b>Bathrooms: </b>2</li>
+                        <li><b>Parking places: </b>2</li>
+                        <li><b>Pets allowed: </b>No</li>
+                      </ul>
+                    </div>
+                    <!-- Amenities-->
+                    <div class="mb-sm-3">
+                      <h3 class="h4">Amenities</h3>
+                      <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
+                        <li class="col"><i class="fi-wifi mt-n1 me-2 fs-lg align-middle"></i>WiFi</li>
+                        <li class="col"><i class="fi-thermometer mt-n1 me-2 fs-lg align-middle"></i>Heating</li>
+                        <li class="col"><i class="fi-dish mt-n1 me-2 fs-lg align-middle"></i>Dishwasher</li>
+                        <li class="col"><i class="fi-parking mt-n1 me-2 fs-lg align-middle"></i>Parking place</li>
+                        <li class="col"><i class="fi-snowflake mt-n1 me-2 fs-lg align-middle"></i>Air conditioning</li>
+                        <li class="col"><i class="fi-iron mt-n1 me-2 fs-lg align-middle"></i>Iron</li>
+                        <li class="col"><i class="fi-tv mt-n1 me-2 fs-lg align-middle"></i>TV</li>
+                        <li class="col"><i class="fi-laundry mt-n1 me-2 fs-lg align-middle"></i>Laundry</li>
+                        <li class="col"><i class="fi-cctv mt-n1 me-2 fs-lg align-middle"></i>Security cameras</li>
+                      </ul>
+                      <div class="collapse" id="seeMoreAmenities">
+                        <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
+                          <li class="col"><i class="fi-no-smoke mt-n1 me-2 fs-lg align-middle"></i>No smocking</li>
+                          <li class="col"><i class="fi-pet mt-n1 me-2 fs-lg align-middle"></i>Cats</li>
+                          <li class="col"><i class="fi-swimming-pool mt-n1 me-2 fs-lg align-middle"></i>Swimming pool</li>
+                          <li class="col"><i class="fi-double-bed mt-n1 me-2 fs-lg align-middle"></i>Double bed</li>
+                          <li class="col"><i class="fi-bed mt-n1 me-2 fs-lg align-middle"></i>Single bed</li>
+                        </ul>
+                      </div><a class="collapse-label collapsed" href="#seeMoreAmenities" data-bs-toggle="collapse" data-bs-label-collapsed="Show more" data-bs-label-expanded="Show less" role="button" aria-expanded="false" aria-controls="seeMoreAmenities"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Page container-->
+      <div class="container mt-5 mb-md-4 py-5">
+        <div class="row">
+          <!-- Page content-->
+          <div class="col-lg-8">
+            <!-- Breadcrumb-->
+            <!-- Title-->
+            <div class="mb-4">
+              <h1 class="h2 mb-0">Enter  <span style="color: #fd5631;"> Your  </span> Information</h1>
+              <div class="d-lg-none pt-3 mb-2">65% content filled</div>
+              <div class="progress d-lg-none mb-4" style="height: .25rem;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <form method="post">
+              {% csrf_token %}
+              {{ ... }}
+            <!-- Personal info-->
+            <form method="post">
+              {% csrf_token %}
+              <section class="card card-body border-0 shadow-sm p-4 mb-4" id="contacts">
+                <h2 class="h4 mb-4"><i class="fi-phone text-primary fs-5 mt-n1 me-2"></i>personal  <span style="color: #fd5631;"> information</span></h2>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label" for="id_first_name">First name <span class="text-danger">*</span></label>
+                    {{ personal_form.first_name }}
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label" for="id_last_name">Last name <span class="text-danger">*</span></label>
+                    {{ personal_form.last_name }}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label" for="id_father_name">Father name<span class="text-danger">*</span></label>
+                    {{ personal_form.father_name }}
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label" for="id_mother_name">Mother name <span class="text-danger">*</span></label>
+                    {{ personal_form.mother_name }}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label" for="id_email">Email<span class="text-danger">*</span></label>
+                    {{ personal_form.email }}
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label" for="id_phone_number">Phone number <span class="text-danger">*</span></label>
+                    {{ personal_form.phone_number }}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label">Birth date<span class="text-danger">*</span></label>
+                    {{ personal_form.birth_date }}
+                  </div>
+                </div>
+              </section>
+
+              <!-- More information -->
+              <section class="card card-body border-0 shadow-sm p-4 mb-4" id="contacts">
+                <h2 class="h4 mb-4"><i class="fi-phone text-primary fs-5 mt-n1 me-2"></i>More  <span style="color: #fd5631;"> Information  </span></h2>
+                <div class="row">
+                  <div class="mb-4">
+                    <label class="form-label d-block fw-bold mb-2 pb-1">Gender<span class="text-danger">*</span></label>
+                    <div class="btn-group" role="group">
+                      {% for value, text in additional_form.gender.field.choices %}
+                        <input type="radio" class="btn-check" name="gender" id="gender_{{ value }}" value="{{ value }}" {% if additional_form.gender.value == value %}checked{% endif %}>
+                        <label class="btn btn-outline-primary" for="gender_{{ value }}">{{ text }}</label>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label">ID number<span class="text-danger">*</span></label>
+                    {{ additional_form.id_number }}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label">Address<span class="text-danger">*</span></label>
+                    {{ additional_form.address }}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="mb-4">
+                    <label class="form-label d-block fw-bold mb-2 pb-1">Marital status<span class="text-danger">*</span></label>
+                    <div class="btn-group" role="group">
+                      {% for value, text in additional_form.marital_status.field.choices %}
+                        <input type="radio" class="btn-check" name="marital_status" id="marital_{{ value }}" value="{{ value }}" {% if additional_form.marital_status.value == value %}checked{% endif %}>
+                        <label class="btn btn-outline-primary" for="marital_{{ value }}">{{ text }}</label>
+                      {% endfor %}
+                    </div>
+                    <div id="children-section" style="display: none;">
+                      <div class="mb-4">
+                        <label class="form-label d-block fw-bold mb-2 pb-1">Number of children</label>
+                        {{ additional_form.number_of_children }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Academic qualifications -->
+              <section class="card card-body border-0 shadow-sm p-4 mb-4" id="academic-qualifications">
+                <h2 class="h4 mb-4"><i class="fi-phone text-primary fs-5 mt-n1 me-2"></i>Academic <span style="color: #fd5631;">Qualifications</span></h2>
+                <div id="qualifications-container">
+                  <!-- Template for qualification form -->
+                  <template id="qualification-template">
+                    <div class="qualification-form mb-4 border-bottom pb-4">
+                      <div class="row">
+                        <div class="col-sm-6 mb-3">
+                          <label class="form-label">Qualification name</label>
+                          <input type="text" class="form-control optional-qualification" name="qualification_name">
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                          <label class="form-label">Specialization</label>
+                          <input type="text" class="form-control optional-qualification" name="specialization">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6 mb-3">
+                          <label class="form-label">Institution</label>
+                          <input type="text" class="form-control optional-qualification" name="institution">
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                          <label class="form-label">Average</label>
+                          <input type="number" class="form-control optional-qualification" name="average" step="0.01" min="0" max="100">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6 mb-3">
+                          <label class="form-label">Graduation date</label>
+                          <input type="date" class="form-control optional-qualification" name="graduation_date">
+                        </div>
+                      </div>
+                      <button type="button" class="btn btn-danger remove-qualification">
+                        <i class="fi-trash me-2"></i>Remove Qualification
+                      </button>
+                    </div>
+                  </template>
+
+                  <!-- First qualification form (always present) -->
+                  <div class="qualification-form mb-4 border-bottom pb-4">
+                    <div class="row">
+                      <div class="col-sm-6 mb-3">
+                        <label class="form-label">Qualification name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="qualification_1_qualification_name" required>
+                      </div>
+                      <div class="col-sm-6 mb-3">
+                        <label class="form-label">Specialization<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="qualification_1_specialization" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6 mb-3">
+                        <label class="form-label">Institution<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="qualification_1_institution" required>
+                      </div>
+                      <div class="col-sm-6 mb-3">
+                        <label class="form-label">Average<span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" name="qualification_1_average" step="0.01" min="0" max="100" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6 mb-3">
+                        <label class="form-label">Graduation date<span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" name="qualification_1_graduation_date" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button type="button" class="btn btn-outline-primary" id="add-qualification">
+                  <i class="fi-plus me-2"></i>Add Another Qualification
+                </button>
+              </section>
+
+              <!-- Add JavaScript for dynamic qualification forms -->
+              <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                  let qualificationCount = 1;
+                  const container = document.getElementById('qualifications-container');
+                  const addButton = document.getElementById('add-qualification');
+                  const template = document.getElementById('qualification-template');
+
+                  // Function to update form numbers
+                  function updateFormNumbers() {
+                    const forms = container.querySelectorAll('.qualification-form');
+                    forms.forEach((form, index) => {
+                      const inputs = form.querySelectorAll('input');
+                      inputs.forEach(input => {
+                        const fieldName = input.getAttribute('name').split('_').pop();
+                        input.setAttribute('name', `qualification_${index + 1}_${fieldName}`);
+                      });
+                    });
+                  }
+
+                  // Add new qualification form
+                  addButton.addEventListener('click', function() {
+                    qualificationCount++;
+                    const newForm = template.content.cloneNode(true);
+                    const formDiv = newForm.querySelector('.qualification-form');
+                    
+                    // Update input names
+                    const inputs = newForm.querySelectorAll('input');
+                    inputs.forEach(input => {
+                      const fieldName = input.getAttribute('name');
+                      input.setAttribute('name', `qualification_${qualificationCount}_${fieldName}`);
+                    });
+
+                    // Show remove button for additional forms
+                    const removeBtn = newForm.querySelector('.remove-qualification');
+                    removeBtn.style.display = 'block';
+                    
+                    // Add remove button functionality
+                    removeBtn.addEventListener('click', function() {
+                      formDiv.remove();
+                      qualificationCount--;
+                      updateFormNumbers();
+                    });
+
+                    container.appendChild(newForm);
+                  });
+                });
+              </script>
+
+              <!-- General information -->
+              <section class="card card-body border-0 shadow-sm p-4 mb-4" id="contacts">
+                <h2 class="h4 mb-4"><i class="fi-phone text-primary fs-5 mt-n1 me-2"></i>General <span style="color: #fd5631;">  personal </span>information</h2>
+                <div class="row">
+                  <div class="mb-4">
+                    <label class="form-label d-block fw-bold mb-2 pb-1">Have you ever applied for a job at Riva Pharma?<span class="text-danger">*</span></label>
+                    <div class="btn-group" role="group">
+                      <input type="radio" class="btn-check" name="previous_application" id="previous_yes" value="True">
+                      <label class="btn btn-outline-primary" for="previous_yes">Yes</label>
+                      <input type="radio" class="btn-check" name="previous_application" id="previous_no" value="False">
+                      <label class="btn btn-outline-primary" for="previous_no">No</label>
+                    </div>
+                    <div id="prev-date-section" style="display: none;">
+                      <div class="col-sm-6 mb-3 mt-3">
+                        <label class="form-label">Date of application<span class="text-danger">*</span></label>
+                        {{ general_form.previous_application_date }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label d-block fw-bold mb-2 pb-1">Do you have any health problems?<span class="text-danger">*</span></label>
+                    <div class="btn-group" role="group">
+                      <input type="radio" class="btn-check" name="health_problems" id="health_yes" value="True">
+                      <label class="btn btn-outline-primary" for="health_yes">Yes</label>
+                      <input type="radio" class="btn-check" name="health_problems" id="health_no" value="False">
+                      <label class="btn btn-outline-primary" for="health_no">No</label>
+                    </div>
+                    <div id="health-details-section" style="display: none;">
+                      <div class="col-sm-6 mb-3 mt-3">
+                        <label class="form-label">What is your health problem?<span class="text-danger">*</span></label>
+                        {{ general_form.health_problems_details }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label d-block fw-bold mb-2 pb-1">Are you a smoker?<span class="text-danger">*</span></label>
+                    <div class="btn-group" role="group">
+                      <input type="radio" class="btn-check" name="is_smoker" id="smoker_yes" value="True">
+                      <label class="btn btn-outline-primary" for="smoker_yes">Yes</label>
+                      <input type="radio" class="btn-check" name="is_smoker" id="smoker_no" value="False">
+                      <label class="btn btn-outline-primary" for="smoker_no">No</label>
+                    </div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label d-block fw-bold mb-2 pb-1">Do you have relatives or acquaintances in Reva Pharma?<span class="text-danger">*</span></label>
+                    <div class="btn-group" role="group">
+                      <input type="radio" class="btn-check" name="has_relatives" id="relatives_yes" value="True">
+                      <label class="btn btn-outline-primary" for="relatives_yes">Yes</label>
+                      <input type="radio" class="btn-check" name="has_relatives" id="relatives_no" value="False">
+                      <label class="btn btn-outline-primary" for="relatives_no">No</label>
+                    </div>
+                    <div id="relative-details-section" style="display: none;">
+                      <div class="row mt-3">
+                        <div class="col-sm-6 mb-3">
+                          <label class="form-label">Employee name<span class="text-danger">*</span></label>
+                          {{ general_form.relative_name }}
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                          <label class="form-label">Employee phone number<span class="text-danger">*</span></label>
+                          {{ general_form.relative_phone }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-bottom pb-3 mb-3">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="pe-2 w-100">
+                      <label class="form-label fw-bold">If you have any additional information</label>
+                      {{ general_form.additional_information }}
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="d-sm-flex justify-content-between pt-2">
+                <button type="submit" class="btn btn-primary btn-lg d-block mb-2">Save and continue</button>
+              </section>
+            </form>
+
+            <!-- Add JavaScript for conditional fields -->
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                // Marital status and children section
+                const maritalInputs = document.querySelectorAll('input[name="marital_status"]');
+                const childrenSection = document.getElementById('children-section');
+                
+                maritalInputs.forEach(input => {
+                  input.addEventListener('change', function() {
+                    childrenSection.style.display = this.value === 'married' ? 'block' : 'none';
+                  });
+                });
+
+                // Previous application and date section
+                const previousInputs = document.querySelectorAll('input[name="previous_application"]');
+                const prevDateSection = document.getElementById('prev-date-section');
+                
+                previousInputs.forEach(input => {
+                  input.addEventListener('change', function() {
+                    prevDateSection.style.display = this.value === 'True' ? 'block' : 'none';
+                  });
+                });
+
+                // Health problems and details section
+                const healthInputs = document.querySelectorAll('input[name="health_problems"]');
+                const healthDetailsSection = document.getElementById('health-details-section');
+                
+                healthInputs.forEach(input => {
+                  input.addEventListener('change', function() {
+                    healthDetailsSection.style.display = this.value === 'True' ? 'block' : 'none';
+                  });
+                });
+
+                // Relatives in company and details section
+                const relativesInputs = document.querySelectorAll('input[name="has_relatives"]');
+                const relativeDetailsSection = document.getElementById('relative-details-section');
+                
+                relativesInputs.forEach(input => {
+                  input.addEventListener('change', function() {
+                    relativeDetailsSection.style.display = this.value === 'True' ? 'block' : 'none';
+                  });
+                });
+
+                // Check initial states
+                document.querySelectorAll('input[type="radio"]:checked').forEach(input => {
+                  const event = new Event('change');
+                  input.dispatchEvent(event);
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </main>
+   
+
+
+
+ 
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const container = document.getElementById('qualifications-container');
+          const addButton = document.getElementById('add-qualification');
+          let qualificationCount = 1;
+
+          addButton.addEventListener('click', function() {
+              if (qualificationCount >= 4) {
+                  alert('Maximum of 4 qualifications allowed');
+                  return;
+              }
+
+              const newSection = document.createElement('div');
+              newSection.className = 'qualification-section mb-4';
+              newSection.innerHTML = `
+                <hr class="my-4">
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label">The Practical qualification<span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="qualification[]" placeholder="Enter your academic qualification name" required>
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label">Specialization<span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="specialization[]" placeholder="Enter the Specialization of your academic qualification">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label">Sinstitution granting<span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="institution_granting[]" placeholder="Enter the name of the institution granting your university degree">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label">average<span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="average[]" placeholder="Enter the average obtained for this certificate">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label">Graduation date<span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" name="graduation_date[]" min="1950-01-01" max="2025-12-31" required>
+                  </div>
+                </div>  
+              `;
+
+              container.appendChild(newSection);
+              qualificationCount++;
+
+              if (qualificationCount >= 4) {
+                addButton.style.display = 'none';
+              }
+          });
+      });
+    </script>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const maritalInputs = document.querySelectorAll('input[name="marital_status"]');
+          const childrenSection = document.getElementById('children-section');
+      
+          maritalInputs.forEach(input => {
+              input.addEventListener('change', function() {
+                  if (this.value === 'married') {
+                      childrenSection.style.display = 'block';
+                  } else {
+                      childrenSection.style.display = 'none';
+                  }
+              });
+          });
+
+          // Previous application handling
+          const prevApplicationInputs = document.querySelectorAll('input[name="previous_application"]');
+          const prevDateSection = document.getElementById('prev-date-section');
+      
+          prevApplicationInputs.forEach(input => {
+              input.addEventListener('change', function() {
+                  if (this.value === 'yes') {
+                      prevDateSection.style.display = 'block';
+                  } else {
+                      prevDateSection.style.display = 'none';
+                  }
+              });
+          });
+
+          // Health problems handling
+          const healthInputs = document.querySelectorAll('input[name="health_problems_yn"]');
+          const healthDetailsSection = document.getElementById('health-details-section');
+      
+          healthInputs.forEach(input => {
+              input.addEventListener('change', function() {
+                  if (this.value === 'yes') {
+                      healthDetailsSection.style.display = 'block';
+                  } else {
+                      healthDetailsSection.style.display = 'none';
+                  }
+              });
+          });
+
+          // Relatives in company handling
+          const relativeInputs = document.querySelectorAll('input[name="relative_yn"]');
+          const relativeDetailsSection = document.getElementById('relative-details-section');
+      
+          relativeInputs.forEach(input => {
+              input.addEventListener('change', function() {
+                  if (this.value === 'yes') {
+                      relativeDetailsSection.style.display = 'block';
+                  } else {
+                      relativeDetailsSection.style.display = 'none';
+                  }
+              });
+          });
+      });
+      </script>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          let qualificationCount = 1;
+          const container = document.getElementById('qualifications-container');
+          const addButton = document.getElementById('add-qualification');
+          const template = document.getElementById('qualification-template');
+          const form = document.querySelector('form');
+
+          // Function to check if an additional qualification form is filled
+          function isQualificationFormFilled(formDiv) {
+            const inputs = formDiv.querySelectorAll('.optional-qualification');
+            let hasValue = false;
+            let allFilled = true;
+            
+            inputs.forEach(input => {
+              if (input.value.trim() !== '') {
+                hasValue = true;
+              } else {
+                allFilled = false;
+              }
+            });
+
+            return { hasValue, allFilled };
+          }
+
+          // Function to update form validation
+          function updateFormValidation(formDiv) {
+            const inputs = formDiv.querySelectorAll('.optional-qualification');
+            const { hasValue, allFilled } = isQualificationFormFilled(formDiv);
+
+            inputs.forEach(input => {
+              input.required = hasValue;
+            });
+
+            if (hasValue && !allFilled) {
+              inputs.forEach(input => {
+                if (!input.value) {
+                  input.setCustomValidity('Please fill out all fields in this qualification or remove it');
+                } else {
+                  input.setCustomValidity('');
+                }
+              });
+            } else {
+              inputs.forEach(input => {
+                input.setCustomValidity('');
+              });
+            }
+          }
+
+          // Add new qualification form
+          addButton.addEventListener('click', function() {
+            qualificationCount++;
+            const newForm = template.content.cloneNode(true);
+            const formDiv = newForm.querySelector('.qualification-form');
+            
+            // Update input names
+            const inputs = newForm.querySelectorAll('input');
+            inputs.forEach(input => {
+              const fieldName = input.getAttribute('name');
+              input.setAttribute('name', `qualification_${qualificationCount}_${fieldName}`);
+              
+              // Add input event listener for validation
+              input.addEventListener('input', () => {
+                updateFormValidation(formDiv);
+              });
+            });
+
+            // Add remove button functionality
+            const removeBtn = newForm.querySelector('.remove-qualification');
+            removeBtn.addEventListener('click', function() {
+              formDiv.remove();
+              qualificationCount--;
+            });
+
+            container.appendChild(newForm);
+          });
+
+          // Form submit validation
+          form.addEventListener('submit', function(e) {
+            const additionalForms = container.querySelectorAll('.qualification-form:not(:first-child)');
+            
+            additionalForms.forEach(formDiv => {
+              const { hasValue, allFilled } = isQualificationFormFilled(formDiv);
+              if (hasValue && !allFilled) {
+                e.preventDefault();
+                alert('Please fill out all fields in additional qualifications or remove them');
+              }
+            });
+          });
+        });
+      </script>
+  </body>
+</html>

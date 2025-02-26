@@ -1,0 +1,492 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preload" href="{% static 'fonts/SomarSans-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'fonts/SomarSans-Bold.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'fonts/SomarSans-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <title>RevaPharma-Product</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/icon.svg' %}" rel="icon" type="image/svg+xml">
+    <link href="{% static 'img/icon.svg' %}" rel="apple-touch-icon">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    <style>
+        @media (min-width: 992px) {
+            .offcanvas-lg {
+                position: static;
+                z-index: auto;
+                flex-grow: 1;
+                width: auto !important;
+                height: auto !important;
+                visibility: visible !important;
+                background-color: transparent !important;
+                border: 0 !important;
+                transform: none !important;
+                transition: none;
+            }
+            .offcanvas-lg.offcanvas-start {
+                top: 0;
+                left: 0;
+                border-right: none;
+                transform: none;
+            }
+        }
+        @media (min-width: 992px) {
+            #offcanvasFilters {
+                position: static !important;
+                visibility: visible !important;
+                transform: none !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+    </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+  <!-- Body-->
+  <body class="fixed-bottom-btn">
+    <main class="page-wrapper">
+      <!-- Brand Start -->
+    <div class="container-fluid bg-primary text-white pt-4 pb-5">
+      <div class="container pb-2">
+          <div class="d-flex align-items-center justify-content-between flex-wrap">
+              <div class="d-flex mb-3 mb-lg-0">
+                  <i class="bi bi-telephone-inbound fs-2"></i>
+                  <div class="ms-3">
+                      <h5 class="text-white mb-0">Call Now</h5>
+                      <span>+90 537 868 0830</span>
+                  </div>
+              </div>
+              <div class="d-flex">
+                  <i class="bi bi-envelope fs-2"></i>
+                  <div class="ms-3">
+                      <h5 class="text-white mb-0">Mail Now</h5>
+                      <span>e-marketing@e-revapharma.com</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Brand End -->
+
+
+  <!-- Navbar Start -->
+  <div class="container-fluid sticky-top">
+      <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3">
+              <div class="d-lg-none">
+                  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                      <h1 class="m-0 text-primary d-flex align-items-center">
+                          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
+                          REVA <span class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</span>
+                      </h1>
+                  </a>
+              </div>
+              <div class="ms-auto d-none d-lg-flex">
+                  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                      <h1 class="m-0 text-primary d-flex align-items-center">
+                          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
+                          REVA <h1 class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</h1>
+                      </h1>
+                  </a>
+              </div>
+              <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <div class="navbar-nav ms-auto p-4 p-lg-0">
+                      <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                      <div class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                          <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                              <a href="{% url 'report' %}" class="dropdown-item">Report</a>
+                          </div>
+                      </div>
+                      <a href="#" class="nav-item nav-link active">Products</a>
+                      <a href="{% url 'about' %}" class="nav-item nav-link ">About</a>
+                      <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                  </div>
+              </div>
+          </nav>
+      </div>
+  </div>
+  <!-- Navbar End -->
+
+      <!-- Page content-->
+      <!-- Page container-->
+      <div class="container-fluid p-0">
+        <div class="row g-0">
+          <!-- Mobile filter button -->
+          <div class="d-lg-none mb-4">
+            <button class="btn btn-primary w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilters">
+              <i class="bi bi-funnel me-2"></i>filters
+            </button>
+          </div>
+
+          <!-- Filters sidebar -->
+          <aside class="col-lg-4 col-xl-3">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasFilters">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Filters</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body">
+                <!-- Search box -->
+                <div class="mb-4">
+                  <form method="get" action="" class="search-form">
+                    <div class="input-group">
+                      <input type="text" name="search" class="form-control" placeholder="Search products..." value="{{ search_query }}">
+                      <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Categories -->
+                <div class="pb-4 mb-2">
+                  <h3 class="h6">By Therapeutic Category</h3>
+                  <form id="categoryForm" method="get" action="">
+                    {% if search_query %}
+                    <input type="hidden" name="search" value="{{ search_query }}">
+                    {% endif %}
+                    <div class="overflow-auto" data-simplebar data-simplebar-auto-hide="false" style="height: 11rem;">
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input category-checkbox" id="all" 
+                               {% if not selected_category %}checked{% endif %}>
+                        <label class="form-check-label" for="all">All Categories</label>
+                      </div>
+                      {% for category, display_name in therapeutic_categories %}
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input category-checkbox" 
+                               name="category" value="{{ category }}" id="{{ category }}"
+                               {% if selected_category == category %}checked{% endif %}>
+                        <label class="form-check-label" for="{{ category }}">{{ display_name }}</label>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Pharmaceutical form -->
+                <div class="pb-4 mb-2">
+                  <h3 class="h6">By pharmaceutical form</h3>
+                  <form id="typeForm" method="get" action="">
+                    {% if search_query %}
+                    <input type="hidden" name="search" value="{{ search_query }}">
+                    {% endif %}
+                    {% if selected_category %}
+                    <input type="hidden" name="category" value="{{ selected_category }}">
+                    {% endif %}
+                    <div class="btn-group-vertical w-100" role="group" aria-label="Pharmaceutical form">
+                      <!-- All Types button -->
+                      <input class="btn-check" type="radio" name="type" id="all-types" value="" 
+                             {% if not selected_type %}checked{% endif %}>
+                      <label class="btn btn-outline-secondary" for="all-types">
+                        <i class="fas fa-layer-group me-2"></i>
+                        <span>All Forms</span>
+                      </label>
+
+                      <!-- Oral Suspension -->
+                      <input class="btn-check" type="radio" name="type" id="oral-suspension" value="Oral Suspension"
+                             {% if selected_type == 'Oral Suspension' %}checked{% endif %}>
+                      <label class="btn btn-outline-secondary" for="oral-suspension">
+                        <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M3 6h18v12H3z"/>
+                          <path d="M3 13h18"/>
+                          <path d="M8 6v12"/>
+                          <path d="M16 6v12"/>
+                        </svg>
+                        <span>Oral Suspension</span>
+                      </label>
+
+                      <!-- Oral Drops -->
+                      <input class="btn-check" type="radio" name="type" id="oral-drops" value="Oral Drops"
+                             {% if selected_type == 'Oral Drops' %}checked{% endif %}>
+                      <label class="btn btn-outline-secondary" for="oral-drops">
+                        <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M12 2L8 6l4 14 4-14z"/>
+                          <path d="M12 12v6"/>
+                        </svg>
+                        <span>Oral Drops</span>
+                      </label>
+
+                      <!-- Suppository -->
+                      <input class="btn-check" type="radio" name="type" id="suppository" value="Suppositories"
+                             {% if selected_type == 'Suppositories' %}checked{% endif %}>
+                      <label class="btn btn-outline-secondary" for="suppository">
+                        <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M12 2L8 6v12l4 4 4-4V6l-4-4z"/>
+                          <path d="M12 6v12"/>
+                        </svg>
+                        <span>Suppository</span>
+                      </label>
+
+                      <!-- Capsules -->
+                      <input class="btn-check" type="radio" name="type" id="capsules" value="Capsule"
+                             {% if selected_type == 'Capsule' %}checked{% endif %}>
+                      <label class="btn btn-outline-secondary" for="capsules">
+                        <i class="fas fa-capsules me-2"></i>
+                        <span>Capsules</span>
+                      </label>
+
+                      <!-- Tablets -->
+                      <input class="btn-check" type="radio" name="type" id="tablets" value="tablets"
+                             {% if selected_type == 'tablets' %}checked{% endif %}>
+                      <label class="btn btn-outline-secondary" for="tablets">
+                        <i class="fas fa-pills me-2"></i>
+                        <span>Tablets</span>
+                      </label>
+
+                      <!-- Syrup -->
+                      <input class="btn-check" type="radio" name="type" id="syrup" value="Syrup"
+                             {% if selected_type == 'Syrup' %}checked{% endif %}>
+                      <label class="btn btn-outline-secondary" for="syrup">
+                        <i class="fas fa-prescription-bottle me-2"></i>
+                        <span>Syrup</span>
+                      </label>
+                    </div>
+                  </form>
+                </div>
+
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Handle pharmaceutical form radio buttons
+                    const typeForm = document.getElementById('typeForm');
+                    const typeRadios = typeForm.querySelectorAll('input[type="radio"]');
+                    
+                    typeRadios.forEach(radio => {
+                        radio.addEventListener('change', function() {
+                            typeForm.submit();
+                        });
+                    });
+                });
+                </script>
+
+                <div class="border-top py-4">
+                  <button class="btn btn-outline-primary" type="button" id="resetFilters">
+                    <i class="fi-rotate-right me-2"></i>Reset filters
+                  </button>
+                </div>
+
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Handle pharmaceutical form radio buttons
+                    const typeForm = document.getElementById('typeForm');
+                    const typeRadios = typeForm.querySelectorAll('input[type="radio"]');
+                    
+                    typeRadios.forEach(radio => {
+                        radio.addEventListener('change', function() {
+                            typeForm.submit();
+                        });
+                    });
+
+                    // Reset filters button
+                    const resetButton = document.getElementById('resetFilters');
+                    resetButton.addEventListener('click', function() {
+                        // Reset search box
+                        const searchInput = document.querySelector('input[name="search"]');
+                        if (searchInput) {
+                            searchInput.value = '';
+                        }
+
+                        // Reset category checkboxes
+                        const allCategoriesCheckbox = document.getElementById('all');
+                        if (allCategoriesCheckbox) {
+                            allCategoriesCheckbox.checked = true;
+                            const categoryCheckboxes = document.querySelectorAll('.category-checkbox:not(#all)');
+                            categoryCheckboxes.forEach(checkbox => {
+                                checkbox.checked = false;
+                            });
+                        }
+
+                        // Reset pharmaceutical form
+                        const allFormsRadio = document.getElementById('all-types');
+                        if (allFormsRadio) {
+                            allFormsRadio.checked = true;
+                        }
+
+                        // Submit the form to refresh the page
+                        window.location.href = window.location.pathname;
+                    });
+                });
+                </script>
+              </div>
+            </div>
+          </aside>
+          <!-- Page content-->
+           <div class="col-lg-8 col-xl-9 position-relative overflow-hidden pb-5 px-3 px-xl-4 px-xxl-5">
+            <div class="container mt-4">
+              <div class="text-center mb-5">
+                <h2 class="section-title">Our Products</h2>
+                <p class="text-muted">Discover our wide range of high-quality pharmaceutical products</p>
+              </div>
+            </div>
+          <!-- Service Start -->
+          <div class="container-fluid container-service py-5">
+             <div class="container py-5">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+                    {% for product in products %}
+                    <div class="col">
+                        <div class="service-item rounded h-100 p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <div class="service-icon" style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center;">
+                                    {% if product.pro_photo %}
+                                    <img src="/media/{{ product.pro_photo }}" alt="{{ product.pro_name }}" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                    {% else %}
+                                    <img src="{% static 'img/default-product.png' %}" alt="{{ product.pro_name }}" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <h4 class="mb-3 text-center">{{ product.pro_name }}</h4>
+                            <p class="mb-4 text-center">{{ product.pro_composition }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+             </div>
+             <!-- Pagination -->
+             {% if products.has_other_pages %}
+             <nav class="d-flex justify-content-between pt-4" aria-label="Page navigation">
+                <ul class="pagination">
+                  {% if products.has_previous %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ products.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_type %}&type={{ selected_type }}{% endif %}">
+                      <i class="fi-chevron-left me-2"></i>
+                      Prev
+                    </a>
+                  </li>
+                  {% endif %}
+                </ul>
+                <ul class="pagination">
+                  {% for num in products.paginator.page_range %}
+                    {% if num == products.number %}
+                    <li class="page-item active" aria-current="page">
+                      <span class="page-link">{{ num }}<span class="visually-hidden">(current)</span></span>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                      <a class="page-link" href="?page={{ num }}{% if search_query %}&search={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_type %}&type={{ selected_type }}{% endif %}">{{ num }}</a>
+                    </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+                <ul class="pagination">
+                  {% if products.has_next %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ products.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_type %}&type={{ selected_type }}{% endif %}">
+                      Next
+                      <i class="fi-chevron-right ms-2"></i>
+                    </a>
+                  </li>
+                  {% endif %}
+                </ul>
+              </nav>
+             {% endif %}
+          </div>
+      </div>
+  </div>
+  <!-- Service End -->
+            <!-- Pagination-->
+            
+          </div>
+        </div>
+      </div>
+    </main>
+  
+    <!-- Filters sidebar toggle button (mobile)-->
+ <!-- Back to Top -->
+ <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+ <!-- JavaScript Libraries -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+ 
+ <!-- Library Scripts -->
+ <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+ <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+ <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+ <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+ <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+ <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+ <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+ 
+ <!-- Template Javascript -->
+ <script src="{% static 'js/main.js' %}"></script>
+    
+    <script>
+        // تهيئة القائمة الجانبية
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth >= 992) {
+                var sidebar = document.getElementById('offcanvasFilters');
+                if (sidebar) {
+                    sidebar.classList.add('show');
+                }
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.category-checkbox');
+            const form = document.getElementById('categoryForm');
+            const allCheckbox = document.getElementById('all');
+
+            // Function to handle checkbox changes
+            function handleCheckboxChange(checkbox) {
+                if (checkbox.id === 'all') {
+                    // If "All Categories" is checked, uncheck others
+                    if (checkbox.checked) {
+                        checkboxes.forEach(cb => {
+                            if (cb.id !== 'all') cb.checked = false;
+                        });
+                        form.submit();
+                    }
+                } else {
+                    // If any other checkbox is checked, uncheck "All Categories"
+                    if (checkbox.checked) {
+                        allCheckbox.checked = false;
+                        // Uncheck other category checkboxes
+                        checkboxes.forEach(cb => {
+                            if (cb !== checkbox && cb.id !== 'all') cb.checked = false;
+                        });
+                        form.submit();
+                    } else if ([...checkboxes].filter(cb => cb.checked && cb.id !== 'all').length === 0) {
+                        // If no categories are selected, check "All Categories"
+                        allCheckbox.checked = true;
+                        form.submit();
+                    }
+                }
+            }
+
+            // Add change event listeners to all checkboxes
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => handleCheckboxChange(checkbox));
+            });
+        });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,386 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="preload" href="{% static 'fonts/SomarSans-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'fonts/SomarSans-Bold.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'fonts/SomarSans-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <title>RevaPharma-Home</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/icon.svg' %}" rel="icon" type="image/svg+xml">
+    <link href="{% static 'img/icon.svg' %}" rel="apple-touch-icon">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/new_bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/new_style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Brand Start -->
+    <div class="container-fluid bg-primary text-white pt-4 pb-5">
+        <div class="container pb-2">
+            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                <div class="d-flex mb-3 mb-lg-0">
+                    <i class="bi bi-telephone-inbound fs-2"></i>
+                    <div class="ms-3">
+                        <h5 class="text-white mb-0">Call Now</h5>
+                        <span>+90 537 868 0830</span>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <i class="bi bi-envelope fs-2"></i>
+                    <div class="ms-3">
+                        <h5 class="text-white mb-0">Mail Now</h5>
+                        <span>e-marketing@e-revapharma.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Brand End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3">
+                <div class="d-lg-none">
+                    <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                        <h1 class="m-0 text-primary d-flex align-items-center">
+                            <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
+                            REVA <span class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</span>
+                        </h1>
+                    </a>
+                </div>
+                <div class="ms-auto d-none d-lg-flex">
+                    <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                        <h1 class="m-0 text-primary d-flex align-items-center">
+                            <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
+                            REVA <h1 class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</h1>
+                        </h1>
+                    </a>
+                </div>
+                <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto p-4 p-lg-0">
+                        <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                            <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                                <a href="{% url 'report' %}" class="dropdown-item">Report</a>
+                            </div>
+                        </div>
+                        <a href="{% url 'about' %}" class="nav-item nav-link ">About</a>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+     <!-- Service Start -->
+        <div class="container-fluid service bg-light overflow-hidden py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-uppercase text-primary">aspirin_reva_81</h4>
+                    <h1 class="display-3 text-capitalize mb-3"></h1>
+                </div>
+                <div class="row gx-0 gy-4 align-items-center">
+                    <div class="col-lg-6 col-xl-4 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="service-item rounded p-4 mb-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div class="service-content text-end">
+                                            <a href="#" class="h4 d-inline-block mb-3">Product Composition:</a>
+                                            <p class="mb-0">Each Artis 275 Film Coated Tablet contains:
+                                                Naproxen Sodium 275 (Naproxen 250 mg).
+                                                Each Artis 550 Film Coated Tablet contains:
+                                                Naproxen Sodium 550 (Naproxen 500 mg).</p>
+                                        </div>
+                                        <div class="ps-4">
+                                            <div class="service-btn"><i class="fas fa-vial text-white fa-2x"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-item rounded p-4 mb-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div class="service-content text-end">
+                                            <a href="#" class="h4 d-inline-block mb-3">Indications:</a>
+                                            <p class="mb-0">Artis is indicated in adults for the management of pain associated with the following conditions: Rheumatoid arthritis, juvenile arthritis, osteoarthritis, ankylosing spondylitis, dysmenorrhea, acute gout, migraine.
+                                                It is also indicated in children in case of juvenile rheumatoid arthritis.</p>
+                                        </div>
+                                        <div class="ps-4">
+                                            <div class="service-btn"><i class="fas fa-thermometer-half text-white fa-2x"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+
+                        <div class="service-item rounded p-4 mb-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div class="service-content text-end">
+                                            <a href="#" class="h4 d-inline-block mb-3">Pregnancy and Lactation:</a>
+                                            <p class="mb-0">Pregnancy: Studies regarding the potential fetal risk of NSAID use in women in the first or second trimester of pregnancy are inconclusive.</p>
+                                            <p class="mb-0">Lactation: Naproxen is found in the milk of breastfeeding mothers.</p>
+                                        </div>
+                                        <div class="ps-4">
+                                            <div class="service-btn d-flex align-items-center justify-content-center">
+                                                <img src="{% static 'icon/Pregnancy and Lactation.svg' %}" alt="Pregnancy and Lactation Icon" style="width: 46px; height: 46px; object-fit: contain;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="bg-transparent">
+                            <img src="{% static 'img/aspirin_reva_81.png' %}" class="img-fluid w-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="service-item rounded p-4 mb-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div class="pe-4">
+                                            <div class="service-btn d-flex align-items-center justify-content-center">
+                                                <img src="{% static 'icon/Contraindications.svg' %}" alt="Contraindications Icon" style="width: 64px; height: 64px; object-fit: contain;">
+                                            </div>
+                                        </div>
+                                        <div class="service-content">
+                                            <a href="#" class="h4 d-inline-block mb-3">Contraindications:</a>
+                                            <p class="mb-0">Artis should not be used if:
+                                                - Known hypersensitivity to NSAIDs, aspirin, naproxen or any of the excipients.
+                                                - Patients with a history of asthma, urticaria, or other allergic reactions after taking aspirin or other NSAIDs.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-item rounded p-4 mb-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div class="pe-4">
+                                            <div class="service-btn d-flex align-items-center justify-content-center">
+                                                <img src="{% static 'icon/Drug Interactions.svg' %}" alt="Drug Interactions Icon" style="width: 64px; height: 64px; object-fit: contain;">
+                                            </div>
+                                        </div>
+                                        <div class="service-content">
+                                            <a href="#" class="h4 d-inline-block mb-3">Drug Interactions:</a>
+                                            <p class="mb-0">Apixaban: Both naproxen and apixaban reduce blood clotting, which increases the risk of bleeding.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-item rounded p-4 mb-0">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex">
+                                        <div class="pe-4">
+                                            <div class="service-btn d-flex align-items-center justify-content-center">
+                                                <img src="{% static 'icon/Dosage and Administration.svg' %}" alt="Dosage and Administration Icon" style="width: 64px; height: 64px; object-fit: contain;">
+                                            </div>
+                                        </div>
+                                        <div class="service-content">
+                                            <a href="#" class="h4 d-inline-block mb-3">Dosage and Administration:</a>
+                                            <p class="mb-0">Adults:
+                                                ♦ Pain management: 500 mg orally initially, then 250 mg orally every 6-8 hours or 500 mg orally every 12 hours, not to exceed 1250 mg/day of naproxen on day one. Subsequent daily doses should not exceed 1000 mg of naproxen.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Address</h5>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Syria,Aleppo</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+90 537 868 0830</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>e-marketing@e-revapharma.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://x.com/revapharma__"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.facebook.com/revapharma/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.instagram.com/revapharma_/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.linkedin.com/company/e-reva-pharma/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Services</h5>
+                    <a class="btn btn-link" href="{% url 'job' %}">Job Vacancies</a>
+                    <a class="btn btn-link" href="">Report an Issue</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Quick Links</h5>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Reva pharma website</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Library Scripts -->
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/new_main.js' %}"></script>
+
+    <script>
+        // Initialize WOW.js
+        new WOW().init();
+        
+        // Initialize Bootstrap components
+        $(document).ready(function() {
+            // Enable tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+            
+            // Enable popovers
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl)
+            });
+
+            // Counter animation with Intersection Observer
+            const animateCounter = (element) => {
+                var $this = $(element);
+                var countTo = parseInt($this.text());
+                
+                $({ countNum: 0 }).animate({
+                    countNum: countTo
+                }, {
+                    duration: 2000,
+                    easing: 'linear',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $this.text(this.countNum);
+                    }
+                });
+            };
+
+            // Create Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.hasAttribute('data-counted')) {
+                        animateCounter(entry.target);
+                        entry.target.setAttribute('data-counted', 'true');
+                    }
+                });
+            }, {
+                threshold: 0.5 // Trigger when 50% of the element is visible
+            });
+
+            // Observe all counter elements
+            $('[data-toggle="counter-up"]').each(function() {
+                observer.observe(this);
+            });
+        });
+    </script>
+
+    <style>
+    .read-more-link {
+        color: #0d6efd;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .read-more-link:hover {
+        text-decoration: underline;
+    }
+    </style>
+</body>
+
+</html>
