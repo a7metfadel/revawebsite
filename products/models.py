@@ -31,6 +31,13 @@ class Products(models.Model):
         ('Anti_diabetic', 'Anti-diabetic drugs'),
     ]
 
+    PRODUCT_LINES = [
+        ('General', 'General'),
+        ('Penicillins', 'Penicillin\'s'),
+        ('Cephalosporins', 'Cephalosporins'),
+        ('Other', 'Other'),
+    ]
+
     pro_name = models.CharField(max_length=100, verbose_name="Product Name")
     pro_type = models.CharField(max_length=50, choices=PRODUCT_TYPES, verbose_name="Product Type")
     pro_Therapeutic_Category = models.CharField(
@@ -39,6 +46,12 @@ class Products(models.Model):
         verbose_name="Therapeutic Category",
         null=True,
         blank=True
+    )
+    pro_line = models.CharField(
+        max_length=20,
+        choices=PRODUCT_LINES,
+        verbose_name="Product Line",
+        default='Other'
     )
     pro_photo = models.ImageField(upload_to='products/', verbose_name="Product Photo", null=True, blank=True)
     pro_composition = models.TextField(verbose_name="Product Composition", null=True, blank=True)

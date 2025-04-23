@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Products
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
@@ -97,3 +97,36 @@ def cephalosporins(request):
         'products': products,
     }
     return render(request, 'cephalosporins.html', context)
+
+def product_info(request):
+    try:
+        # Get the product ID from query parameters and convert to integer
+        product_id = int(request.GET.get('id'))
+        # Get the specific product by ID using get_object_or_404
+        product = get_object_or_404(Products, id=product_id)
+        
+        # Get the referring page URL
+        referer = request.META.get('HTTP_REFERER', '')
+        
+        # Determine which page to redirect to in case of error
+        if 'benicillins' in referer:
+            redirect_url = 'benicillins'
+        else:
+            redirect_url = 'product_catalog'
+            
+        context = {
+            'product': product,
+        }
+        return render(request, 'product_info.html', context)
+    except (ValueError, TypeError):
+        # Handle invalid product ID by redirecting to the appropriate page
+        if 'benicillins' in request.META.get('HTTP_REFERER', ''):
+            return redirect('benicillins')
+        return redirect('product_catalog')
+
+def pro_info(request):
+    product_id = request.GET.get('id_pro')
+    if product_id:
+        product = get_object_or_404(Products, id_pro=product_id)
+        return render(request, 'pro_info.html', {'product': product})
+    return redirect('product_catalog')

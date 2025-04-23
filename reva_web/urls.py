@@ -23,8 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('pages/', include('pages.urls')),
     path('job/', include('job_vacancies.urls')),
-    path('products/', include('products.urls')),
+    path('', include('products.urls')),  
     path('report/', include('report.urls')),
+    path('media/', include('django.contrib.staticfiles.urls')),
 ] 
 
 if settings.DEBUG:

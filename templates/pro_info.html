@@ -1,0 +1,673 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preload" href="{% static 'fonts/SomarSans-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'fonts/SomarSans-Bold.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'fonts/SomarSans-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <title>RevaPharma-Product</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/icon.svg' %}" rel="icon" type="image/svg+xml">
+    <link href="{% static 'img/icon.svg' %}" rel="apple-touch-icon">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    <style>
+        @media (min-width: 992px) {
+            .offcanvas-lg {
+                position: static;
+                z-index: auto;
+                flex-grow: 1;
+                width: auto !important;
+                height: auto !important;
+                visibility: visible !important;
+                background-color: transparent !important;
+                border: 0 !important;
+                transform: none !important;
+                transition: none;
+            }
+            .offcanvas-lg.offcanvas-start {
+                top: 0;
+                left: 0;
+                border-right: none;
+                transform: none;
+            }
+        }
+        @media (min-width: 992px) {
+            #offcanvasFilters {
+                position: static !important;
+                visibility: visible !important;
+                transform: none !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+        /* Product image standardization */
+        .product-image {
+            width: 300px !important;
+            height: 300px !important;
+            object-fit: contain !important;
+            display: block !important;
+            margin: 0 auto !important;
+        }
+    </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+    .service-content p {
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .read-more-link {
+        color: #0d6efd;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 5px;
+    }
+
+    .read-more-link:hover {
+        text-decoration: underline;
+    }
+
+    .service-item {
+        min-height: 200px;
+        height: auto;
+        overflow: hidden;
+    }
+    </style>
+
+    <style>
+        /* Base styles */
+        .service-btn {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        .service-btn i {
+            color: white !important;
+        }
+
+        .service-item {
+            background: #FFFFFF;
+            transition: .5s;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .service-item:hover {
+            margin-top: -10px;
+            background: var(--primary);
+        }
+
+        .service-item:hover * {
+            color: #FFFFFF !important;
+        }
+
+        .service-item:hover .service-btn {
+            background: #FFFFFF;
+        }
+
+        .service-item:hover .service-btn i {
+            color: var(--primary) !important;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container-fluid.service {
+                padding: 15px !important;
+            }
+
+            .row.gx-0.gy-4 {
+                margin: 0 !important;
+            }
+
+            .service-item {
+                margin-bottom: 15px;
+                padding: 15px;
+            }
+
+            .service-content {
+                flex: 1;
+            }
+
+            .service-content h4 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .service-content p {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+
+            .service-btn {
+                width: 40px;
+                height: 40px;
+                margin-left: 10px;
+            }
+
+            .service-btn i {
+                font-size: 1.2em !important;
+            }
+
+            /* Keep the three-column layout structure */
+            .col-lg-6.col-xl-4 {
+                width: 100%;
+                padding: 0 10px;
+            }
+
+            /* Center the product image */
+            .col-lg-6.col-xl-4.wow.fadeInUp {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .col-lg-6.col-xl-4.wow.fadeInUp img {
+                max-width: 80%;
+                margin: 0 auto;
+            }
+
+            /* Fix spacing between sections */
+            .text-center.mx-auto.pb-5 {
+                padding-bottom: 20px !important;
+            }
+
+            .text-center.mx-auto.pb-5 h4 {
+                font-size: 20px;
+            }
+        }
+
+        /* Additional adjustments for very small screens */
+        @media (max-width: 480px) {
+            .service-item {
+                padding: 12px;
+            }
+
+            .service-content h4 {
+                font-size: 16px;
+            }
+
+            .service-content p {
+                font-size: 13px;
+            }
+
+            .service-btn {
+                width: 35px;
+                height: 35px;
+            }
+
+            .col-lg-6.col-xl-4.wow.fadeInUp img {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+  <!-- Body-->
+<body class="fixed-bottom-btn">
+    <main class="page-wrapper">
+      <!-- Brand Start -->
+    <div class="container-fluid bg-primary text-white pt-4 pb-5">
+      <div class="container pb-2">
+          <div class="d-flex align-items-center justify-content-between flex-wrap">
+              <div class="d-flex mb-3 mb-lg-0">
+                  <i class="bi bi-telephone-inbound fs-2"></i>
+                  <div class="ms-3">
+                      <h5 class="text-white mb-0">Call Now</h5>
+                      <span>+90 537 868 0830</span>
+                  </div>
+              </div>
+              <div class="d-flex">
+                  <i class="bi bi-envelope fs-2"></i>
+                  <div class="ms-3">
+                      <h5 class="text-white mb-0">Mail Now</h5>
+                      <span>e-marketing@e-revapharma.com</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Brand End -->
+
+
+  <!-- Navbar Start -->
+  <div class="container-fluid sticky-top">
+      <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3">
+              <div class="d-lg-none">
+                  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                      <h1 class="m-0 text-primary d-flex align-items-center">
+                          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
+                          REVA <span class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</span>
+                      </h1>
+                  </a>
+              </div>
+              <div class="ms-auto d-none d-lg-flex">
+                  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                      <h1 class="m-0 text-primary d-flex align-items-center">
+                          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
+                          REVA <h1 class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</h1>
+                      </h1>
+                  </a>
+              </div>
+              <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <div class="navbar-nav ms-auto p-4 p-lg-0">
+                      <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                      <div class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                          <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                              <a href="{% url 'report' %}" class="dropdown-item">Report</a>
+                          </div>
+                      </div>
+                      <a href="#" class="nav-item nav-link active">Products</a>
+                      <a href="{% url 'about' %}" class="nav-item nav-link ">About</a>
+                      <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                  </div>
+              </div>
+          </nav>
+      </div>
+  </div>
+  <!-- Navbar End -->
+   
+
+    <!-- Feature Start -->
+    <div class="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
+        <div class="container feature px-lg-0">
+            <div class="row g-0 mx-lg-0">
+                <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="p-lg-5 ps-lg-0">
+                        <p class="d-inline-block border rounded-pill text-light py-1 px-4">Features</p>
+                        <h1 class="text-white mb-4">Why Choose Us</h1>
+                        <p class="text-white mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-user-md text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">Experience</p>
+                                        <h5 class="text-white mb-0">Doctors</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">Quality</p>
+                                        <h5 class="text-white mb-0">Services</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-comment-medical text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">Positive</p>
+                                        <h5 class="text-white mb-0">Consultation</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-headphones text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">24 Hours</p>
+                                        <h5 class="text-white mb-0">Support</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                            <div class="bg-transparent">
+                                {% if product.pro_photo %}
+                                    <img src="{{ product.pro_photo.url }}" class="product-image" alt="{{ product.pro_name }}">
+                                {% else %}
+                                    <img src="{% static 'img/default-product.png' %}" class="product-image" alt="Default Product Image">
+                                {% endif %}
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+     <!-- Service Start -->
+     <div class="container-fluid service bg-light overflow-hidden py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-uppercase text-primary">{{ product.pro_name }}</h4>
+                <h1 class="display-3 text-capitalize mb-3"></h1>
+            </div>
+            <div class="row gx-0 gy-4 align-items-center">
+                <div class="col-lg-6 col-xl-4 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="service-content text-end">
+                                        <a href="#" class="h4 d-inline-block mb-3">Product Composition:</a>
+                                        <p class="mb-0">{{ product.pro_composition }}</p>
+                                    </div>
+                                    <div class="ps-4">
+                                        <div class="service-btn">
+                                            <i class="fas fa-vial fa-2x text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="service-content text-end">
+                                        <a href="#" class="h4 d-inline-block mb-3">Indications:</a>
+                                        <p class="mb-0">{{ product.pro_Indications }}</p>
+                                    </div>
+                                    <div class="ps-4">
+                                        <div class="service-btn">
+                                            <i class="fas fa-notes-medical fa-2x text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="service-content text-end">
+                                        <a href="#" class="h4 d-inline-block mb-3">Pregnancy and Lactation:</a>
+                                        <p class="mb-0">{{ product.pro_pregnancy_lactation }}</p>
+                                    </div>
+                                    <div class="ps-4">
+                                        <div class="service-btn">
+                                            <i class="fas fa-baby fa-2x text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="bg-transparent">
+                        {% if product.pro_photo %}
+                            <img src="{{ product.pro_photo.url }}" class="product-image" alt="{{ product.pro_name }}">
+                        {% else %}
+                            <img src="{% static 'img/default-product.png' %}" class="product-image" alt="Default Product Image">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="pe-4">
+                                        <div class="service-btn">
+                                            <i class="fas fa-ban fa-2x text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="service-content">
+                                        <a href="#" class="h4 d-inline-block mb-3">Contraindications:</a>
+                                        <p class="mb-0">{{ product.pro_Contraindications }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="pe-4">
+                                        <div class="service-btn">
+                                            <i class="fas fa-pills fa-2x text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="service-content">
+                                        <a href="#" class="h4 d-inline-block mb-3">Drug Interactions:</a>
+                                        <p class="mb-0">{{ product.pro_Drug_Interactions }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-item rounded p-4 mb-0">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="pe-4">
+                                        <div class="service-btn">
+                                            <i class="fas fa-prescription fa-2x text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="service-content">
+                                        <a href="#" class="h4 d-inline-block mb-3">Dosage and Administration:</a>
+                                        <p class="mb-0">{{ product.pro_dosage_administration }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+    
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Address</h5>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Syria,Aleppo</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+90 537 868 0830</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>e-marketing@e-revapharma.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://x.com/revapharma__"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.facebook.com/revapharma/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.instagram.com/revapharma_/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.linkedin.com/company/e-reva-pharma/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Services</h5>
+                    <a class="btn btn-link" href="{% url 'job' %}">Job Vacancies</a>
+                    <a class="btn btn-link" href="">Report an Issue</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Quick Links</h5>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Reva pharma website</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Library Scripts -->
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/new_main.js' %}"></script>
+
+    <script>
+        // Initialize WOW.js
+        new WOW().init();
+        
+        // Initialize Bootstrap components
+        $(document).ready(function() {
+            // Enable tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+            
+            // Enable popovers
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl)
+            });
+
+            // Counter animation with Intersection Observer
+            const animateCounter = (element) => {
+                var $this = $(element);
+                var countTo = parseInt($this.text());
+                
+                $({ countNum: 0 }).animate({
+                    countNum: countTo
+                }, {
+                    duration: 2000,
+                    easing: 'linear',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $this.text(this.countNum);
+                    }
+                });
+            };
+
+            // Create Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.hasAttribute('data-counted')) {
+                        animateCounter(entry.target);
+                        entry.target.setAttribute('data-counted', 'true');
+                    }
+                });
+            }, {
+                threshold: 0.5 // Trigger when 50% of the element is visible
+            });
+
+            // Observe all counter elements
+            $('[data-toggle="counter-up"]').each(function() {
+                observer.observe(this);
+            });
+        });
+    </script>
+
+    <script>
+        function truncateText(element, maxLength) {
+            const text = element.textContent;
+            if (text.length > maxLength) {
+                const truncated = text.substring(0, maxLength);
+                const full = text;
+                element.innerHTML = `
+                    <span class="truncated-text">${truncated}...</span>
+                    <span class="full-text" style="display: none;">${full}</span>
+                    <a class="read-more-link" onclick="toggleText(this)">Read More</a>
+                `;
+            }
+        }
+
+        function toggleText(link) {
+            const container = link.parentElement;
+            const truncatedText = container.querySelector('.truncated-text');
+            const fullText = container.querySelector('.full-text');
+            
+            if (truncatedText.style.display !== 'none') {
+                truncatedText.style.display = 'none';
+                fullText.style.display = 'inline';
+                link.textContent = 'Read Less';
+            } else {
+                truncatedText.style.display = 'inline';
+                fullText.style.display = 'none';
+                link.textContent = 'Read More';
+            }
+        }
+
+        // Apply to all content sections when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentElements = document.querySelectorAll('.service-content p');
+            contentElements.forEach(element => {
+                truncateText(element, 150); // Show first 150 characters
+            });
+        });
+    </script>
+
+</body>
