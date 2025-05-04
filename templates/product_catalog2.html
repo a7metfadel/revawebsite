@@ -30,6 +30,7 @@
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     
+    
     <style>
         @media (min-width: 992px) {
             .offcanvas-lg {
@@ -120,8 +121,8 @@
                       <div class="nav-item dropdown">
                           <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                           <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                              <a href="{% url 'report' %}" class="dropdown-item">Report</a>
-                          </div>
+                            <a href="{% url 'job' %}" class="dropdown-item">Job Vacancies</a>
+                            <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>                          </div>
                       </div>
                       <a href="#" class="nav-item nav-link active">Products</a>
                       <a href="{% url 'about' %}" class="nav-item nav-link ">About</a>
@@ -439,15 +440,17 @@
  <script src="{% static 'js/main.js' %}"></script>
     
     <script>
-        // تهيئة القائمة الجانبية
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.innerWidth >= 992) {
-                var sidebar = document.getElementById('offcanvasFilters');
-                if (sidebar) {
-                    sidebar.classList.add('show');
-                }
-            }
-        });
+       document.addEventListener('DOMContentLoaded', function () {
+    const sidebar = document.getElementById('offcanvasFilters');
+    if (sidebar && window.innerWidth >= 992) {
+        // بدل ما نستخدم offcanvas Bootstrap، نخليه ظاهر بشكل static
+        sidebar.classList.remove('offcanvas');
+        sidebar.style.visibility = 'visible';
+        sidebar.style.transform = 'none';
+        sidebar.style.position = 'static';
+        sidebar.style.zIndex = 'auto';
+    }
+});
     </script>
 
     <script>
@@ -489,6 +492,14 @@
             });
         });
     </script>
+    
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        document.body.style.opacity = "1";
+        document.body.style.visibility = "visible";
+      });
+    </script>
+    
 
   </body>
 </html>

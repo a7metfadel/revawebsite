@@ -68,9 +68,10 @@
                     <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="{% url 'job' %}" class="dropdown-item active">Job Vacancies</a>
-                        <a href="{% url 'report' %}" class="dropdown-item">Report</a>
+                        <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>
                     </div>
                 </div>
+                <a href="{% url 'product_catalog' %}" class="nav-item nav-link">Products</a>
                 <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
                 <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
             </div>
@@ -86,24 +87,7 @@
                 <p>Explore career opportunities at RevaPharma</p>
                 
                 <!-- Search and Filter Section -->
-                <div class="search-box mt-4">
-                    <form method="GET" class="d-flex justify-content-center gap-2">
-                        <div class="input-group" style="max-width: 300px;">
-                            <input type="text" name="search" class="form-control" placeholder="Search jobs..." 
-                                   value="{{ search_query }}" style="border-radius: 30px;">
-                            <span class="input-group-text bg-transparent border-0" style="margin-left: -40px;">
-                                <i class="fas fa-search text-primary"></i>
-                            </span>
-                        </div>
-                        <select name="department" class="form-select" style="max-width: 200px; border-radius: 30px;">
-                            <option value="">All Departments</option>
-                            <option value="IT" {% if department == 'IT' %}selected{% endif %}>IT</option>
-                            <option value="HR" {% if department == 'HR' %}selected{% endif %}>HR</option>
-                            <option value="Finance" {% if department == 'Finance' %}selected{% endif %}>Finance</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary px-4" style="border-radius: 30px;">Search</button>
-                    </form>
-                </div>
+                
             </div>
             
             <!-- Jobs Grid -->

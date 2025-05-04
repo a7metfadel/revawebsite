@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from job_vacancies.models import JobApplication
 # Create your views here.
 def home(request):
     return render(request, 'index.html')
@@ -11,8 +12,8 @@ def contact(request):
     return render(request, 'contact.html')
 
 def job(request):
-    return render(request, 'catalog.html')
-
+    jobs = JobApplication.objects.all()
+    return render(request, "job_catalog.html", {"jobs": jobs})
 
 def report(request):
     return render(request, 'report.html')

@@ -96,7 +96,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                             <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                                 <a href="{% url 'job_catalog' %}" class="dropdown-item">Job Vacancies</a>
-                                <a href="{% url 'report' %}" class="dropdown-item">Report</a>
+                                <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>
                             </div>
                         </div>
                         <a href="{% url 'product_catalog' %}" class="nav-item nav-link">Products</a>
@@ -443,6 +443,20 @@
             });
         });
     </script>
+
+<script>
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', function () {
+        const dropdownToggle = document.querySelector('[data-bs-toggle="dropdown"]');
+        if (dropdownToggle) {
+          const dropdownInstance = bootstrap.Dropdown.getInstance(dropdownToggle);
+          if (dropdownInstance) {
+            dropdownInstance.hide();
+          }
+        }
+      });
+    });
+  </script>
 
     <style>
     .read-more-link {
