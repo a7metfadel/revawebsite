@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import JsonResponse
 from .models import Products
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
@@ -130,3 +131,18 @@ def pro_info(request):
         product = get_object_or_404(Products, id_pro=product_id)
         return render(request, 'pro_info.html', {'product': product})
     return redirect('product_catalog')
+
+def search_products(request):
+    term = request.GET.get('term', '')
+    products = Products.objects.filter(pro_name__icontains=term)[:10]
+    suggestions = list(products.values_list('pro_name', flat=True))
+    return JsonResponse(suggestions, safe=False)
+
+def product_suggestions(request):
+    query = request.GET.get('q', '')
+    if query:
+        matching_products = Products.objects.filter(pro_name__icontains=query).values_list('pro_name', flat=True)[:10]
+        suggestions = list(matching_products)
+    else:
+        suggestions = []
+    return JsonResponse({'suggestions': suggestions})
