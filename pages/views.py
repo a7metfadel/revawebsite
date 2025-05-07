@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from job_vacancies.models import JobApplication
 # Create your views here.
@@ -32,4 +32,21 @@ def cephalosporins(request):
 
 def benicillins(request):
     return render(request, 'benicillins.html')
+
+def job_detail(request, id):
+    job = get_object_or_404(JobApplication, id=id)
+    return render(request, 'job_detail.html', {'job': job})
+
+def job_detail(request, id):
+    job = get_object_or_404(JobApplication, id=id)
+
+    # جلب وظائف مشابهة
+    similar_jobs = JobApplication.objects.filter(
+        job_department=job.job_department
+    ).exclude(id=job.id)[:5]
+
+    return render(request, 'job_detail.html', {
+        'job': job,
+        'similar_jobs': similar_jobs
+    })
  
