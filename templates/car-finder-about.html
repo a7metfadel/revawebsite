@@ -4,248 +4,232 @@
   <head>
     <meta charset="utf-8">
     <title>REVA PHARMA - About</title>
-    <!-- SEO Meta Tags-->
-    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
-    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
-    <meta name="author" content="Createx Studio">
-    <!-- Viewport-->
+  
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="REVA PHARMA - About Page">
+    <meta name="keywords" content="pharmaceutical, health, products, medical, company">
+    <meta name="author" content="REVA PHARMA">
+  
+    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon and Touch Icons-->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'site.webmanifest' %}">
-    <link rel="mask-icon" color="#5bbad5" href="{% static 'safari-pinned-tab.svg' %}">
-    <meta name="msapplication-TileColor" content="#766df4">
-    <meta name="theme-color" content="#ffffff">
-
-    
-     <!-- Favicon -->
-     <link href="{% static 'img/favicon.ico' %}" rel="icon">
-
-     <!-- Font Awesome -->
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
- 
- 
-     <!-- Google Web Fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
- 
-     <!-- Libraries Stylesheet -->
-     <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
-     <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-     <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
- 
-     <!-- Customized Bootstrap Stylesheet -->
-      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
- 
-     <!-- Template Stylesheet -->
-     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-    <!-- Page loading styles-->
+  
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+  
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
+  
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" href="{% static 'vendor2/simplebar/dist/simplebar.min.css' %}" media="screen"/>
+    <link rel="stylesheet" href="{% static 'vendor2/tiny-slider/dist/tiny-slider.css' %}" media="screen"/>
+  
+    <!-- Bootstrap + Theme -->
+    <link rel="stylesheet" href="{% static 'css2/theme.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css2/custom.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+    <!-- Navbar Custom Style -->
     <style>
-         .pagination .page-item.active .page-link {
-            background-color: #0463FA;
-            border-color: #0463FA;
-        }
-        .pagination .page-link {
-            color: #0463FA;
-        }
-        .pagination .page-link:hover {
-            color: #fff;
-            background-color: #0463FA;
-            border-color: #0463FA;
-        }
+      .top-bar {
+        background-color: #0d6efd;
+        color: white;
+        font-size: 0.85rem;
+        padding: 5px 0;
+      }
+  
+      .top-bar .contact-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+      .top-bar i {
+        margin-right: 5px;
+      }
+  
+      .navbar {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+        min-height: 55px;
+      }
+  
+      .navbar-brand img {
+        height: 45px;
+        margin-right: 10px;
+      }
+  
+      .navbar-brand h1 {
+        font-size: 24px;
+      }
+  
+      .navbar-nav .nav-link {
+        font-size: 0.9rem;
+        padding-top: 0.4rem !important;
+        padding-bottom: 0.4rem !important;
+        margin: 0 10px !important;
+      }
+
+      .navbar-nav .nav-link.text-dark {
+        color: #000 !important;
+      }
+
+      .navbar-nav .nav-link.text-primary {
+        color: #0d6efd !important;
+      }
+  
+      .navbar .container {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
     </style>
-    <!-- Page loading scripts-->
+
+    <!-- Page loading script -->
     <script>
       (function () {
         window.onload = function () {
           var preloader = document.querySelector('.page-loading');
-          preloader.classList.remove('active');
-          setTimeout(function () {
-            preloader.remove();
-          }, 2000);
+          if (preloader) {
+            preloader.classList.remove('active');
+            setTimeout(function () {
+              preloader.remove();
+            }, 2000);
+          }
         };
       })();
-      
     </script>
-    <!-- Vendor Styles-->
-    <link rel="stylesheet" media="screen" href="{% static 'vendor2/simplebar/dist/simplebar.min.css' %}"/>
-    <link rel="stylesheet" media="screen" href="{% static 'vendor2/tiny-slider/dist/tiny-slider.css' %}"/>
-    <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="{% static 'css2/theme.min.css' %}">
-    <!-- Custom styles -->
-    <link rel="stylesheet" media="screen" href="{% static 'css2/custom.css' %}">
-    <style>
-      .navbar-nav .nav-link {
-        margin-left: 12px;
-        margin-right: 12px;
-      }
-    
-      .navbar {
-        padding-left: 40px;
-        padding-right: 40px;
-      }
-    </style>
-<style>
-  @media (min-width: 992px) {
-    .navbar-nav .nav-link {
-      margin-left: 15px !important;
-      margin-right: 0px !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-      font-size: 16px !important;
-      font-weight: 600;
-    }
-
-    .navbar-brand img {
-      height: 65px !important;
-      margin:3px !important;
-      margin-right: 0px;
-    }
-
-    .navbar-brand h1 {
-      font-size: 40px !important;
-      line-height: 70px !important;
-      margin: 0px !important;
-      margin-left: 0.1px;
-    }
-  }
-</style>
   </head>
 
   <body>
-  <!-- Navbar Start -->
-  <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container px-4 px-lg-5">
-        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
-            <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 50px; margin-right: 10px;">
-            <h1 class="m-0 text-primary d-flex align-items-center" style="font-size: 34px;">
-              REVA <span style="color: #000 !important; margin-left: 5px;">PHARMA</span>
-            </h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-            <div class="navbar-nav p-2 gap-1" style="font-size: 17px;">
-                <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="{% url 'job_catalog' %}" class="dropdown-item">Job Vacancies</a>
-                        <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>
-                    </div>
-                </div>
-                <a href="{% url 'product_catalog' %}" class="nav-item nav-link">Products</a>
-                <a href="{% url 'about' %}" class="nav-item nav-link active">About</a>
-                <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
-            </div>
-        </div>
-    </div>
-</nav>
-  <!-- Navbar End -->
 
-      <!-- Page header-->
-      <section class="container mb-5 pb-lg-5">
-        <div class="row align-items-center justify-content-lg-start justify-content-center flex-lg-nowrap gy-4">
-          <div class="col-lg-9"><img class="rounded-3" src="{% static 'img/0003.jpg' %}" alt="Hero image"></div>
-          <div class="col-lg-4 ms-lg-n5 col-sm-9 text-lg-start text-center">
-            <div class="ms-lg-n5 pe-xl-5">
-              <h1 class="mb-lg-4 text-light">About us</h1>
-              <div class="about-text">
-                <p class="mb-4 pb-lg-3 fs-lg text-light opacity-70">
-                  <span class="short-text">
-                    At <span style="color: #4c6bb2 !important;">Reva Pharma</span> , we especially value the diversity and collaborative spirit of our management and our staff. We seek to work with those who are committed to the highest standards, whether in quality and compliance, or business and ethics...
-                  <span class="full-text" style="display: none;">
-                    At <span style="color: #4c6bb2 !important;">Reva Pharma</span> , we especially value the diversity and collaborative spirit of our management and our staff, and we seek to work with those who are committed to the highest standards, whether in quality and compliance, or business and ethics. And those in whom we place our trust can also expect that we will continuously verify their behaviors, so that our regulators and customers will never doubt <span style="color: #4c6bb2 !important;">Reva</span> <span style="color: #3d3e40 !important;">Pharma's</span> integrity and commitment to its values.
-                  </span>
-                </p>
+<!-- Main Navbar -->
+<div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light px-2">
+      <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+        <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo">
+        <h1 class="m-0 text-primary">REVA <span style="color: #3d3e40;">PHARMA</span></h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+          <div class="navbar-nav text-uppercase fw-semibold">
+            <a href="{% url 'home' %}" class="nav-item nav-link {% if request.path == '/' %}text-primary active{% else %}text-dark{% endif %}">Home</a>
+            <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle {% if 'job_catalog' in request.path or 'report' in request.path %}text-primary{% else %}text-dark{% endif %}" data-bs-toggle="dropdown">Services</a>
+              <div class="dropdown-menu rounded-0 m-0">
+                <a href="{% url 'job_catalog' %}" class="dropdown-item">Job Vacancies</a>
+                <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>
               </div>
+            </div>
+            <a href="{% url 'product_catalog' %}" class="nav-item nav-link {% if 'product_catalog' in request.path %}text-primary active{% else %}text-dark{% endif %}">Products</a>
+            <a href="{% url 'about' %}" class="nav-item nav-link {% if 'about' in request.path %}text-primary active{% else %}text-dark{% endif %}">About</a>
+            <a href="{% url 'contact' %}" class="nav-item nav-link {% if 'contact' in request.path %}text-primary active{% else %}text-dark{% endif %}">Contact</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+     <!-- Page header-->
+     <section class="container mb-5 pb-lg-5">
+      <div class="row align-items-center justify-content-lg-start justify-content-center flex-lg-nowrap gy-4">
+        <div class="col-lg-9"><img class="rounded-3" src="{% static 'img/0003.jpg' %}" alt="Hero image"></div>
+        <div class="col-lg-4 ms-lg-n5 col-sm-9 text-lg-start text-center">
+          <div class="ms-lg-n5 pe-xl-5">
+            <h1 class="mb-lg-4 text-light">About us</h1>
+            <div class="about-text">
+              <p class="mb-4 pb-lg-3 fs-lg text-light opacity-70">
+                <span class="short-text">
+                  At <span style="color: #4c6bb2 !important;">Reva Pharma</span> , we especially value the diversity and collaborative spirit of our management and our staff. We seek to work with those who are committed to the highest standards, whether in quality and compliance, or business and ethics...
+                <span class="full-text" style="display: none;">
+                  At <span style="color: #4c6bb2 !important;">Reva Pharma</span> , we especially value the diversity and collaborative spirit of our management and our staff, and we seek to work with those who are committed to the highest standards, whether in quality and compliance, or business and ethics. And those in whom we place our trust can also expect that we will continuously verify their behaviors, so that our regulators and customers will never doubt <span style="color: #4c6bb2 !important;">Reva</span> <span style="color: #3d3e40 !important;">Pharma's</span> integrity and commitment to its values.
+                </span>
+              </p>
             </div>
           </div>
         </div>
-      </section>
-      
-   <!-- Our Story -->
+      </div>
+    </section>
+    
+ <!-- Our Story -->
 <section class="container mb-5 pb-lg-5 pb-3 pb-sm-4">
-  <h2 class="mb-4 pb-2 text-light text-center">Our story</h2>
-  <div class="mx-auto" style="max-width: 864px;">
-    <div class="steps steps-vertical">
-      <div class="step">
-        <span class="step-number bg-primary">1</span>
-        <div class="step-label">
-          <h3 class="h5 mb-2 pb-1">2014</h3>
-          <p class="mb-0">Odio velit, massa augue etiam in parturient volutpat orci. Pulvinar amet, at est ac curabitur mauris, semper cursus metus. Imperdiet sed massa amet at turpis.</p>
-        </div>
+<h2 class="mb-4 pb-2 text-light text-center">Our story</h2>
+<div class="mx-auto" style="max-width: 864px;">
+  <div class="steps steps-vertical">
+    <div class="step">
+      <span class="step-number bg-primary">1</span>
+      <div class="step-label">
+        <h3 class="h5 mb-2 pb-1">2014</h3>
+        <p class="mb-0">Odio velit, massa augue etiam in parturient volutpat orci. Pulvinar amet, at est ac curabitur mauris, semper cursus metus. Imperdiet sed massa amet at turpis.</p>
       </div>
-      <div class="step">
-        <span class="step-number bg-primary">2</span>
-        <div class="step-label">
-          <h3 class="h5 mb-2 pb-1">2018</h3>
-          <p class="mb-0">Vitae erat ornare facilisi id sollicitudin turpis tempus, semper. Velit integer et volutpat, a. Massa ut amet amet, vitae nunc nulla sed.</p>
-        </div>
+    </div>
+    <div class="step">
+      <span class="step-number bg-primary">2</span>
+      <div class="step-label">
+        <h3 class="h5 mb-2 pb-1">2018</h3><p class="mb-0">Vitae erat ornare facilisi id sollicitudin turpis tempus, semper. Velit integer et volutpat, a. Massa ut amet amet, vitae nunc nulla sed.</p>
       </div>
-      <div class="step">
-        <span class="step-number bg-primary">3</span>
-        <div class="step-label">
-          <h3 class="h5 mb-2 pb-1">2022</h3>
-          <p class="mb-0">Ut mattis nascetur aliquam neque velit nunc sed. Morbi congue mauris amet ultrices molestie tellus proin odio diam.</p>
-        </div>
+    </div>
+    <div class="step">
+      <span class="step-number bg-primary">3</span>
+      <div class="step-label">
+        <h3 class="h5 mb-2 pb-1">2022</h3>
+        <p class="mb-0">Ut mattis nascetur aliquam neque velit nunc sed. Morbi congue mauris amet ultrices molestie tellus proin odio diam.</p>
       </div>
-      <div class="step">
-        <span class="step-number bg-primary">4</span>
-        <div class="step-label">
-          <h3 class="h5 mb-2 pb-1">2025</h3>
-          <p class="mb-0">Tempor nullam pellentesque suspendisse nec. Arcu sagittis sed ut diam in ultrices. Leo lacinia feugiat interdum.</p>
-        </div>
+    </div>
+    <div class="step">
+      <span class="step-number bg-primary">4</span>
+      <div class="step-label">
+        <h3 class="h5 mb-2 pb-1">2025</h3>
+        <p class="mb-0">Tempor nullam pellentesque suspendisse nec. Arcu sagittis sed ut diam in ultrices. Leo lacinia feugiat interdum.</p>
       </div>
     </div>
   </div>
+</div>
 </section>
-      <!-- Personalized search-->
-      <section class="container mb-5 pb-lg-5 pb-2 pb-sm-3">
-        <div class="row gy-4 align-items-lg-center">
-          <div class="col-md-6"><img class="rounded-3" src="{% static 'img/uni_photo.png' %}" alt="Personalized search"></div>
-          <div class="col-lg-5 offset-lg-1 col-md-6 text-md-start text-center">
-            <h2 class="mb-md-4 text-light">MAAREF UNIVERSITY</h2>
-            <p class="mb-4 pb-md-3 text-light opacity-70">
-              <span class="short-text">A private applied university established in northwestern Syria in the academic year 2023-2024, and includes a number of applied and theoretical colleges, and will adopt the English language in teaching.</span>
-              <span class="full-text" style="display: none;">
-                A private applied university established in northwestern Syria in the academic year 2023-2024, and includes a number of applied and theoretical colleges, and will adopt the English language in teaching.
+    <!-- Personalized search-->
+    <section class="container mb-5 pb-lg-5 pb-2 pb-sm-3">
+      <div class="row gy-4 align-items-lg-center">
+        <div class="col-md-6"><img class="rounded-3" src="{% static 'img/uni_photo.png' %}" alt="Personalized search"></div>
+        <div class="col-lg-5 offset-lg-1 col-md-6 text-md-start text-center">
+          <h2 class="mb-md-4 text-light">MAAREF UNIVERSITY</h2>
+          <p class="mb-4 pb-md-3 text-light opacity-70">
+            <span class="short-text">A private applied university established in northwestern Syria in the academic year 2023-2024, and includes a number of applied and theoretical colleges, and will adopt the English language in teaching.</span>
+            <span class="full-text" style="display: none;">
+              A private applied university established in northwestern Syria in the academic year 2023-2024, and includes a number of applied and theoretical colleges, and will adopt the English language in teaching.
 
-                The university grants a bachelor's degree according to the specialization, and the academic degrees it grants are equivalent to the academic degrees granted by public and private universities.
-              
-                The idea of ​​establishing the university came from the need of society, and the belief of the university's founders that this project will have a direct beneficial developmental impact on the region's residents.
-              </span>
-            </p>
-          </div>
+              The university grants a bachelor's degree according to the specialization, and the academic degrees it grants are equivalent to the academic degrees granted by public and private universities.
+            
+              The idea of ​​establishing the university came from the need of society, and the belief of the university's founders that this project will have a direct beneficial developmental impact on the region's residents.
+            </span>
+          </p>
         </div>
-      </section>
-      <!-- Attractive selling conditions-->
-      <section class="container mb-5 pb-lg-5 pb-2 pb-sm-3">
-        <div class="row gy-4 align-items-lg-center">
-          <div class="col-lg-5 col-md-6 order-md-1 order-2 text-md-start text-center">
-            <h2 class="mb-md-4 text-light">Retal Kindergarten</h2>
-            <p class="mb-4 pb-md-3 text-light opacity-70">In risus quam diam urna, pretium at. Platea nulla malesuada elit, enim lacus quam. Rhoncus, tincidunt mauris quis fames in. A egestas sem quisque urna et imperdiet. Blandit dolor diam urna amet semper elementum ipsum et. Nulla mi ipsum quis et id tempor amet.</p>
-          </div>
-          <div class="col-md-6 offset-lg-1 order-md-2 order-1"><img class="rounded-3" src="{% static 'img/kinder_photo.png' %}" alt="Attractive selling conditions"></div>
+      </div>
+    </section>
+    <!-- Attractive selling conditions-->
+    <section class="container mb-5 pb-lg-5 pb-2 pb-sm-3">
+      <div class="row gy-4 align-items-lg-center">
+        <div class="col-lg-5 col-md-6 order-md-1 order-2 text-md-start text-center">
+          <h2 class="mb-md-4 text-light">Retal Kindergarten</h2>
+          <p class="mb-4 pb-md-3 text-light opacity-70">In risus quam diam urna, pretium at. Platea nulla malesuada elit, enim lacus quam. Rhoncus, tincidunt mauris quis fames in. A egestas sem quisque urna et imperdiet. Blandit dolor diam urna amet semper elementum ipsum et. Nulla mi ipsum quis et id tempor amet.</p>
         </div>
-      </section>
-    </main>
-    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
-    <!-- Vendor scrits: js libraries and plugins-->
-    <script src="{% static 'vendor2/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'vendor2/simplebar/dist/simplebar.min.js' %}"></script>
-    <script src="{% static 'vendor2/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
-    <script src="{% static 'vendor2/tiny-slider/dist/min/tiny-slider.js' %}"></script>
-    <!-- Main theme script-->
-    <script src="{% static 'js2/theme.min.js' %}"></script>
-    <script>
-      function toggleReadMore(button) {
-        const aboutText = button.parentElement;
+        <div class="col-md-6 offset-lg-1 order-md-2 order-1"><img class="rounded-3" src="{% static 'img/kinder_photo.png' %}" alt="Attractive selling conditions"></div>
+      </div>
+    </section>
+  </main>
+  <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+  <!-- Vendor scrits: js libraries and plugins-->
+  <script src="{% static 'vendor2/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor2/simplebar/dist/simplebar.min.js' %}"></script>
+  <script src="{% static 'vendor2/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+  <script src="{% static 'vendor2/tiny-slider/dist/min/tiny-slider.js' %}"></script>
+  <!-- Main theme script-->
+  <script src="{% static 'js2/theme.min.js' %}"></script>
+  <script>
+    function toggleReadMore(button) {const aboutText = button.parentElement;
         const shortText = aboutText.querySelector('.short-text');
         const fullText = aboutText.querySelector('.full-text');
         
@@ -281,3 +265,6 @@
        <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>
+  <!-- Remaining content omitted for brevity -->
+  </body>
+  </html>

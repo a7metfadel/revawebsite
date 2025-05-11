@@ -32,40 +32,38 @@
     
     
     <style>
-      @media (min-width: 992px) {
-        .offcanvas-lg {
-          position: static;
-          z-index: auto;
-          flex-grow: 1;
-          width: auto !important;
-          height: auto !important;
-          visibility: visible !important;
-          background-color: transparent !important;
-          border: 0 !important;
-          transform: none !important;
-          transition: none;
-        }
+      .navbar {
+        padding-top: 0rem;
+        padding-bottom: 0.1rem;
+        min-height: 64px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
     
-        .offcanvas-lg.offcanvas-start {
-          top: 0;
-          left: 0;
-          border-right: none;
-          transform: none;
-        }
+      .navbar .container {
+        max-width: 1320px; /* يزيد من العرض بدون أن يلتصق بالحواف */
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
     
-        #offcanvasFilters {
-          position: static !important;
-          visibility: visible !important;
-          transform: none !important;
-          width: 100% !important;
-          height: auto !important;
-        }
+      .navbar-brand img {
+        height: 42px;
+        margin-right: 8px;
+      }
     
+      .navbar-brand h1 {
+        font-size: 22px;
+        margin-bottom: 0;
+      }
+    
+      .navbar-nav .nav-link {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.8rem;
+      }
+    
+      @media (max-width: 991.98px) {
         .navbar-nav .nav-link {
-          margin-left: 10px !important;
-          margin-right: 10px !important;
-          padding-left: 0 !important;
-          padding-right: 0 !important;
+          padding: 0.5rem 1rem;
         }
       }
     </style>
@@ -74,51 +72,35 @@
 
 </head>
   <!-- Body-->
-
-  <!-- Brand End -->
-
-
-  <!-- Navbar Start -->
-  <div class="container-fluid sticky-top">
-      <div class="container">
-          <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3">
-              <div class="d-lg-none">
-                  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-                      <h1 class="m-0 text-primary d-flex align-items-center">
-                          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
-                          REVA <span class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</span>
-                      </h1>
-                  </a>
-              </div>
-              <div class="ms-auto d-none d-lg-flex">
-                  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-                      <h1 class="m-0 text-primary d-flex align-items-center">
-                          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
-                          REVA <h1 class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</h1>
-                      </h1>
-                  </a>
-              </div>
-              <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarCollapse">
-                  <div class="navbar-nav ms-auto p-4 p-lg-0">
-                      <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-                      <div class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
-                          <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                            <a href="{% url 'job' %}" class="dropdown-item">Job Vacancies</a>
-                            <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>                          </div>
-                      </div>
-                      <a href="#" class="nav-item nav-link active">Products</a>
-                      <a href="{% url 'about' %}" class="nav-item nav-link ">About</a>
-                      <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
-                  </div>
-              </div>
-          </nav>
+<!-- Main Navbar -->
+<div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+        <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 55px; margin-right: 10px;">
+        <h1 class="m-0 text-primary" style="font-size: 26px;">REVA <span style="color: #3d3e40;">PHARMA</span></h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="navbar-nav gap-2 text-uppercase fw-semibold">
+          <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="{% url 'job_catalog' %}" class="dropdown-item">Job Vacancies</a>
+              <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>
+            </div>
+          </div>
+          <a href="{% url 'product_catalog' %}" class="nav-item nav-link active">Products</a>
+          <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+          <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+        </div>
       </div>
+    </nav>
   </div>
-  <!-- Navbar End -->
+</div>
 
       <!-- Page content-->
       <!-- Page container-->

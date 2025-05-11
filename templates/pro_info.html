@@ -226,150 +226,46 @@
                 max-width: 90%;
             }
         }
+        
     </style>
 </head>
   <!-- Body-->
 <body class="fixed-bottom-btn">
     <main class="page-wrapper">
-      <!-- Brand Start -->
-    <div class="container-fluid bg-primary text-white pt-4 pb-5">
-      <div class="container pb-2">
-          <div class="d-flex align-items-center justify-content-between flex-wrap">
-              <div class="d-flex mb-3 mb-lg-0">
-                  <i class="bi bi-telephone-inbound fs-2"></i>
-                  <div class="ms-3">
-                      <h5 class="text-white mb-0">Call Now</h5>
-                      <span>+90 537 868 0830</span>
-                  </div>
+ <!-- Top Brand Bar -->
+  
+  <!-- Main Navbar -->
+  <div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light py-3 px-2">
+        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 55px; margin-right: 10px;">
+          <h1 class="m-0 text-primary" style="font-size: 26px;">REVA <span style="color: #3d3e40;">PHARMA</span></h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+          <div class="navbar-nav gap-2 text-uppercase fw-semibold">
+            <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+            <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+              <div class="dropdown-menu rounded-0 m-0">
+                <a href="{% url 'job_catalog' %}" class="dropdown-item">Job Vacancies</a>
+                <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>
               </div>
-              <div class="d-flex">
-                  <i class="bi bi-envelope fs-2"></i>
-                  <div class="ms-3">
-                      <h5 class="text-white mb-0">Mail Now</h5>
-                      <span>e-marketing@e-revapharma.com</span>
-                  </div>
-              </div>
+            </div>
+            <a href="{% url 'product_catalog' %}" class="nav-item nav-link active">Products</a>
+            <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+            <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
           </div>
-      </div>
+        </div>
+      </nav>
+    </div>
   </div>
-  <!-- Brand End -->
-
-
-  <!-- Navbar Start -->
-  <div class="container-fluid sticky-top">
-      <div class="container">
-          <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3">
-              <div class="d-lg-none">
-                  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-                      <h1 class="m-0 text-primary d-flex align-items-center">
-                          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
-                          REVA <span class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</span>
-                      </h1>
-                  </a>
-              </div>
-              <div class="ms-auto d-none d-lg-flex">
-                  <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-                      <h1 class="m-0 text-primary d-flex align-items-center">
-                          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 65px; margin-right: 0px;">
-                          REVA <h1 class="m-0 d-flex align-items-center" style="color: #3d3e40;">PHARMA</h1>
-                      </h1>
-                  </a>
-              </div>
-              <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarCollapse">
-                  <div class="navbar-nav ms-auto p-4 p-lg-0">
-                      <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-                      <div class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
-                          <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                            <a href="{% url 'job' %}" class="dropdown-item">Job Vacancies</a>
-                            <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>                          </div>
-                      </div>
-                      <a href="#" class="nav-item nav-link active">Products</a>
-                      <a href="{% url 'about' %}" class="nav-item nav-link ">About</a>
-                      <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
-                  </div>
-              </div>
-          </nav>
-      </div>
-  </div>
-  <!-- Navbar End -->
    
 
-    <!-- Feature Start -->
-    <div class="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
-        <div class="container feature px-lg-0">
-            <div class="row g-0 mx-lg-0">
-                <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="p-lg-5 ps-lg-0">
-                        <p class="d-inline-block border rounded-pill text-light py-1 px-4">Features</p>
-                        <h1 class="text-white mb-4">Why Choose Us</h1>
-                        <p class="text-white mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
-                        <div class="row g-4">
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-                                        <i class="fa fa-user-md text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">Experience</p>
-                                        <h5 class="text-white mb-0">Doctors</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-                                        <i class="fa fa-check text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">Quality</p>
-                                        <h5 class="text-white mb-0">Services</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-                                        <i class="fa fa-comment-medical text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">Positive</p>
-                                        <h5 class="text-white mb-0">Consultation</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
-                                        <i class="fa fa-headphones text-primary"></i>
-                                    </div>
-                                    <div class="ms-4">
-                                        <p class="text-white mb-2">24 Hours</p>
-                                        <h5 class="text-white mb-0">Support</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                            <div class="bg-transparent">
-                                {% if product.pro_photo %}
-                                    <img src="{{ product.pro_photo.url }}" class="product-image" alt="{{ product.pro_name }}">
-                                {% else %}
-                                    <img src="{% static 'img/default-product.png' %}" class="product-image" alt="Default Product Image">
-                                {% endif %}
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Feature End -->
+
      <!-- Service Start -->
      <div class="container-fluid service bg-light overflow-hidden py-5">
         <div class="container py-5">
