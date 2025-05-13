@@ -1,6 +1,5 @@
-from django.db import models
 
-# Create your models here.
+from django.db import models
 
 class JobApplication(models.Model):
     DEPARTMENT_CHOICES = [
@@ -14,7 +13,7 @@ class JobApplication(models.Model):
     ]
 
     LOCATION_CHOICES = [
-        ('adlib', 'Adlib'),
+        ('edlib', 'Edlib'),
         ('hama', 'Hama'),
         ('aleppo', 'Aleppo'),
         ('homs', 'Homs'),
@@ -37,59 +36,33 @@ class JobApplication(models.Model):
         ordering = ['-created_at']
 
 
-class PersonalInfo(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    father_name = models.CharField(max_length=100)
-    mother_name = models.CharField(max_length=100)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length=20)
+class JobApplicant(models.Model):
+    job = models.ForeignKey(JobApplication, on_delete=models.CASCADE, related_name='applicants', null=True, blank=True)
+    full_name = models.CharField(max_length=255)
+    birth_place = models.CharField(max_length=100, blank=True, null=True)
+    current_residence = models.CharField(max_length=100, blank=True, null=True)
+    phone_backup = models.CharField(max_length=20, blank=True, null=True)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField(blank=True, null=True)
     birth_date = models.DateField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
-
-
-class AdditionalInfo(models.Model):
-    GENDER_CHOICES = [
-        ('M', 'Male'),
-        ('F', 'Female'),
-    ]
-    personal_info = models.OneToOneField(PersonalInfo, on_delete=models.CASCADE)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    id_number = models.CharField(max_length=50)
-    address = models.TextField()
+    gender = models.CharField(max_length=10)
     marital_status = models.CharField(max_length=10)
-    number_of_children = models.IntegerField(null=True, blank=True)
+    scientific_certificate = models.CharField(max_length=255)
+    specialization = models.CharField(max_length=255)
+    is_graduate = models.CharField(max_length=10)
+    graduation_institution = models.CharField(max_length=255, blank=True, null=True)
+    experiences = models.TextField(blank=True, null=True)
+    has_health_issues = models.CharField(max_length=10)
+    health_issue_description = models.TextField(blank=True, null=True)
+    previous_application = models.CharField(max_length=10)
+    previous_application_date = models.DateField(blank=True, null=True)
+    has_relatives = models.CharField(max_length=10)
+    relative_name = models.CharField(max_length=255, blank=True, null=True)
+    relative_phone = models.CharField(max_length=20, blank=True, null=True)
+    additional_information = models.TextField(blank=True, null=True)
+    cv_file = models.FileField(upload_to='cvs/')
+    id_file = models.FileField(upload_to='ids/')
+    submitted_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Additional Info for {self.personal_info}"
-
-
-class AcademicQualification(models.Model):
-    personal_info = models.ForeignKey(PersonalInfo, on_delete=models.CASCADE)
-    qualification_name = models.CharField(max_length=200)
-    specialization = models.CharField(max_length=200)
-    institution = models.CharField(max_length=200)
-    average = models.DecimalField(max_digits=5, decimal_places=2)
-    graduation_date = models.DateField()
-
-    def __str__(self):
-        return f"{self.qualification_name} - {self.personal_info}"
-
-
-class GeneralInfo(models.Model):
-    personal_info = models.OneToOneField(PersonalInfo, on_delete=models.CASCADE)
-    previous_application = models.BooleanField(default=False)
-    previous_application_date = models.DateField(null=True, blank=True)
-    health_problems = models.BooleanField(default=False)
-    health_problems_details = models.TextField(blank=True)
-    is_smoker = models.BooleanField(default=False)
-    has_relatives = models.BooleanField(default=False)
-    relative_name = models.CharField(max_length=100, blank=True)
-    relative_phone = models.CharField(max_length=20, blank=True)
-    additional_information = models.TextField(blank=True)
-
-    def __str__(self):
-        return f"General Info for {self.personal_info}"
+        return self.full_name

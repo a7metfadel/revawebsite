@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,74 +50,82 @@
   </style>
 </head>
 <body>
-    
-  <div class="container py-5">
-    <div class="form-section">
-      <h2 class="form-title">Job Application</h2>
-      <form id="applicationForm">
-        <div class="section-header">Personal Information</div>
-        <div class="mb-3">
-          <label class="form-label required-star">Full Name</label>
-          <input type="text" class="form-control" name="full_name" required>
-        </div>
-       
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label required-star">Place of Birth</label>
-            <input type="text" class="form-control" name="birth_place" required>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label required-star">Date of Birth</label>
-            <input type="date" class="form-control" name="birth_date" required>
-          </div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label required-star">Current Residence</label>
-          <input type="text" class="form-control" name="current_residence" required>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label required-star">Phone Number (WhatsApp)</label>
-            <input type="tel" pattern="^(\+|00)[0-9]{7,15}$" class="form-control" name="phone" required>
-            <div class="form-text">+90XXXX or 0090XXXX</div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label">Phone Number (Backup)</label>
-            <input type="tel" pattern="^(\+|00)[0-9]{7,15}$" class="form-control" name="phone_backup">
-            <div class="form-text">+90XXXX or 0090XXXX</div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label class="form-label">Email (optional)</label>
-              <input type="email" class="form-control" name="email">
-            </div>
-          
-          <!-- ... (كل ما سبق يبقى كما هو) -->
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label class="form-label required-star">Gender</label>
-        <select class="form-select" name="gender" required>
-          <option value="">Select</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
+<div class="container py-5">
+  <div class="form-section">
+    <h2 class="form-title">Job Application</h2>
+
+    <form method="POST" enctype="multipart/form-data" action="{% url 'job_apply' %}">
+      {% csrf_token %}
+
+      {% if job %}
+        <input type="hidden" name="job_id" value="{{ job.id }}">
+      {% endif %}
+
+      <div class="section-header">Personal Information</div>
+
+      <div class="mb-3">
+        <label class="form-label required-star">Full Name</label>
+        <input type="text" class="form-control" name="full_name" required>
       </div>
-      <div class="col-md-6 mb-3">
-        <label class="form-label required-star">Marital Status</label>
-        <select class="form-select" name="marital_status" required>
-          <option value="">Select</option>
-          <option value="single">Single</option>
-          <option value="married">Married</option>
-        </select>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label required-star">Place of Birth</label>
+          <input type="text" class="form-control" name="birth_place" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label required-star">Date of Birth</label>
+          <input type="date" class="form-control" name="birth_date" required>
+        </div>
       </div>
-    </div>
 
-<!-- ... (الباقي يبقى كما هو) -->
-        </div><div class="section-divider"></div>
-    <div class="section-header">Academic Information</div>
+      <div class="mb-3">
+        <label class="form-label required-star">Current Residence</label>
+        <input type="text" class="form-control" name="current_residence" required>
+      </div>
 
-    <div class="mb-3">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label required-star">Phone Number (WhatsApp)</label>
+          <input type="tel" pattern="^(\+|00)[0-9]{7,15}$" class="form-control" name="phone" required>
+          <div class="form-text">+90XXXX or 0090XXXX</div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Phone Number (Backup)</label>
+          <input type="tel" pattern="^(\+|00)[0-9]{7,15}$" class="form-control" name="phone_backup">
+          <div class="form-text">+90XXXX or 0090XXXX</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Email (optional)</label>
+          <input type="email" class="form-control" name="email">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label required-star">Gender</label>
+          <select class="form-select" name="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label required-star">Marital Status</label>
+          <select class="form-select" name="marital_status" required>
+            <option value="">Select</option>
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+          </select>
+        </div>
+      </div><div class="section-divider"></div>
+      <div class="section-header">Academic Information</div>
+
+      <div class="mb-3">
         <label class="form-label required-star">Scientific Certificate</label>
         <input type="text" class="form-control" name="scientific_certificate" required>
       </div>
@@ -125,128 +134,145 @@
         <label class="form-label required-star">Specialization</label>
         <input type="text" class="form-control" name="Specialization" required>
       </div>
-    <div class="mb-3">
-      <label class="form-label required-star">Are you a graduate?</label>
-      <select class="form-select" name="is_graduate" id="isGraduate" required>
-        <option value="">Select</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
-    </div>
-    <div class="mb-3">
+
+      <div class="mb-3">
+        <label class="form-label required-star">Are you a graduate?</label>
+        <select class="form-select" name="is_graduate" id="isGraduate" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
         <label class="form-label">Experiences</label>
         <textarea class="form-control" name="experiences"></textarea>
-    </div>
-    <div class="mb-3 d-none" id="grantInstitution">
-      <label class="form-label required-star">Graduation Institution</label>
-      <input type="text" class="form-control" name="graduation_institution">
-    </div><div class="section-divider"></div>
-    <div class="section-header">Other Questions</div>
-    <div class="mb-3">
-      <label class="form-label required-star">Do you have health issues?</label>
-      <select class="form-select" name="has_health_issues" id="hasHealthIssues" required>
-        <option value="">Select</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
-    </div>
-    <div class="mb-3 d-none" id="healthDescription">
-      <label class="form-label required-star">Please describe your health issue</label>
-      <textarea class="form-control" name="health_issue_description"></textarea>
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label required-star">Have you ever applied for a job at RevaPharma before?</label>
-      <select class="form-select" name="previous_application" id="hasApplied" required>
-        <option value="">Select</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
-    </div>
-    <div class="mb-3 d-none" id="applicationDate">
-      <label class="form-label">Date of Previous Application</label>
-      <input type="date" class="form-control" name="previous_application_date">
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label required-star">Do you have relatives in the company?</label>
-      <select class="form-select" name="has_relatives" id="hasRelatives" required>
-        <option value="">Select</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
-    </div>
-    <div class="row d-none" id="relativesInfo">
-      <div class="col-md-6 mb-3">
-        <label class="form-label required-star">Relative's Name</label>
-        <input type="text" class="form-control" name="relative_name">
       </div>
-      <div class="col-md-6 mb-3">
-        <label class="form-label required-star">Relative's Phone</label>
-        <input type="tel" class="form-control" name="relative_phone" pattern="^(\+|00)[0-9]{7,15}$">
+
+      <div class="mb-3 d-none" id="grantInstitution">
+        <label class="form-label required-star">Graduation Institution</label>
+        <input type="text" class="form-control" name="graduation_institution">
       </div>
-    </div>
 
-    <div class="mb-3">
-      <label class="form-label">Additional Notes</label>
-      <textarea class="form-control" name="additional_information"></textarea>
-    </div>
+      <div class="section-divider"></div>
+      <div class="section-header">Other Questions</div>
 
-    <div class="section-divider"></div>
-    <div class="section-header">Upload Documents</div>
-    <div class="mb-3">
-      <label class="form-label required-star">Upload CV (PDF only, max 5MB)</label>
-      <input type="file" class="form-control" name="cv_file" accept="application/pdf" required onchange="validateFileSize(this)">
-    </div>
-    <div class="mb-3">
-      <label class="form-label required-star">Upload ID (PDF only, max 5MB)</label>
-      <input type="file" class="form-control" name="id_file" accept="application/pdf" required onchange="validateFileSize(this)">
-    </div>
+      <div class="mb-3">
+        <label class="form-label required-star">Do you have health issues?</label>
+        <select class="form-select" name="has_health_issues" id="hasHealthIssues" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
 
-    <div class="text-end mt-4">
-      <button type="submit" class="btn btn-primary btn-lg px-5">Submit Application</button>
-    </div>
-    <div class="alert alert-success mt-4 d-none" id="successMessage" role="alert">
-      Thank you! Your application has been submitted successfully.
-    </div>
-  </form>
+      <div class="mb-3 d-none" id="healthDescription">
+        <label class="form-label required-star">Please describe your health issue</label>
+        <textarea class="form-control" name="health_issue_description"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label required-star">Have you ever applied for a job at RevaPharma before?</label>
+        <select class="form-select" name="previous_application" id="hasApplied" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="mb-3 d-none" id="applicationDate">
+        <label class="form-label">Date of Previous Application</label>
+        <input type="date" class="form-control" name="previous_application_date">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label required-star">Do you have relatives in the company?</label>
+        <select class="form-select" name="has_relatives" id="hasRelatives" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="row d-none" id="relativesInfo">
+        <div class="col-md-6 mb-3">
+          <label class="form-label required-star">Relative's Name</label>
+          <input type="text" class="form-control" name="relative_name">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label required-star">Relative's Phone</label>
+          <input type="tel" class="form-control" name="relative_phone" pattern="^(\+|00)[0-9]{7,15}$">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Additional Notes</label>
+        <textarea class="form-control" name="additional_information"></textarea>
+      </div>
+
+      <div class="section-divider"></div>
+      <div class="section-header">Upload Documents</div>
+
+      <div class="mb-3">
+        <label class="form-label required-star">Upload CV (PDF only, max 5MB)</label>
+        <input type="file" class="form-control" name="cv_file" accept="application/pdf" required onchange="validateFileSize(this)">
+      </div><div class="mb-3">
+        <label class="form-label required-star">Upload ID (PDF only, max 5MB)</label>
+        <input type="file" class="form-control" name="id_file" accept="application/pdf" required onchange="validateFileSize(this)">
+      </div>
+
+      <div class="text-end mt-4">
+        <button type="submit" class="btn btn-primary btn-lg px-5">Submit Application</button>
+      </div>
+
+      {% if success %}
+        <div class="alert alert-success mt-4" role="alert">
+          Your application has been submitted successfully! We will review it and contact you soon.
+        </div>
+      {% endif %}
+
+      {% if error %}
+        <div class="alert alert-danger mt-4" role="alert">
+          An error occurred while submitting your application: {{ error }}
+        </div>
+      {% endif %}
+    </form>
+  </div>
 </div>
 
-  </div>  <script>
-    function validateFileSize(input) {
-      const file = input.files[0];
-      if (file && file.size > 5 * 1024 * 1024) {
-        alert('File size must not exceed 5MB.');
-        input.value = '';
-      }
+<script>
+  function validateFileSize(input) {
+    const file = input.files[0];
+    if (file && file.size > 5 * 1024 * 1024) {
+      alert('File size must not exceed 5MB.');
+      input.value = '';
     }
+  }
 
-    document.getElementById('applicationForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      document.getElementById('successMessage').classList.remove('d-none');
-      this.reset();
-    });
+  document.getElementById('isGraduate').addEventListener('change', function () {
+    const inst = document.getElementById('grantInstitution');
+    inst.classList.toggle('d-none', this.value !== 'yes');
+    inst.querySelector('input').required = this.value === 'yes';
+  });
 
-    document.getElementById('isGraduate').addEventListener('change', function () {
-      const inst = document.getElementById('grantInstitution');
-      inst.classList.toggle('d-none', this.value !== 'yes');
-      inst.querySelector('input').required = this.value === 'yes';
-    });document.getElementById('hasHealthIssues').addEventListener('change', function () {
-      const health = document.getElementById('healthDescription');
-      health.classList.toggle('d-none', this.value !== 'yes');
-      health.querySelector('textarea').required = this.value === 'yes';
-    });
+  document.getElementById('hasHealthIssues').addEventListener('change', function () {
+    const health = document.getElementById('healthDescription');
+    health.classList.toggle('d-none', this.value !== 'yes');
+    health.querySelector('textarea').required = this.value === 'yes';
+  });
 
-    document.getElementById('hasApplied').addEventListener('change', function () {
-      const date = document.getElementById('applicationDate');
-      date.classList.toggle('d-none', this.value !== 'yes');
-    });
+  document.getElementById('hasApplied').addEventListener('change', function () {
+    const date = document.getElementById('applicationDate');
+    date.classList.toggle('d-none', this.value !== 'yes');
+  });
 
-    document.getElementById('hasRelatives').addEventListener('change', function () {
-      const rel = document.getElementById('relativesInfo');
-      rel.classList.toggle('d-none', this.value !== 'yes');
-      const inputs = rel.querySelectorAll('input');
-      inputs.forEach(input => input.required = this.value === 'yes');
-    });
-  </script></body>
+  document.getElementById('hasRelatives').addEventListener('change', function () {
+    const rel = document.getElementById('relativesInfo');
+    rel.classList.toggle('d-none', this.value !== 'yes');
+    const inputs = rel.querySelectorAll('input');
+    inputs.forEach(input => input.required = this.value === 'yes');
+  });
+</script>
+
+</body>
 </html>
