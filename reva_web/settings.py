@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8mpmx9+)j6gb3h82k3j#yfh1)=y87+ny(7#999zyw-*+*jabc(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['revawebsite.onrender.com']
 
 
 # Application definition
@@ -126,6 +126,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'reva_web/static'),
 ]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
