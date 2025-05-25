@@ -1,464 +1,637 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
+    <title>{{ product.pro_name }} | RevaPharma</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="{{ product.pro_composition }} - {{ product.pro_Indications|truncatechars:140 }}">
+    <link href="{% static 'img/icon.svg' %}" rel="icon" type="image/svg+xml">
+    <link href="{% static 'img/icon.svg' %}" rel="apple-touch-icon">
+    <!-- Fonts & Styles -->
     <link rel="preload" href="{% static 'fonts/SomarSans-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{% static 'fonts/SomarSans-Bold.woff2' %}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{% static 'fonts/SomarSans-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
-    <title>RevaPharma-Product</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="{% static 'img/icon.svg' %}" rel="icon" type="image/svg+xml">
-    <link href="{% static 'img/icon.svg' %}" rel="apple-touch-icon">
-
-    <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
     <!-- Libraries Stylesheet -->
     <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
     <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
+    <!-- Main Style -->
+    <link href="{% static 'css/new_bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
+    <link href="{% static 'css/new_style.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    
-    <style>
-        @media (min-width: 992px) {
-            .offcanvas-lg {
-                position: static;
-                z-index: auto;
-                flex-grow: 1;
-                width: auto !important;
-                height: auto !important;
-                visibility: visible !important;
-                background-color: transparent !important;
-                border: 0 !important;
-                transform: none !important;
-                transition: none;
-            }
-            .offcanvas-lg.offcanvas-start {
-                top: 0;
-                left: 0;
-                border-right: none;
-                transform: none;
-            }
-        }
-        @media (min-width: 992px) {
-            #offcanvasFilters {
-                position: static !important;
-                visibility: visible !important;
-                transform: none !important;
-                width: 100% !important;
-                height: auto !important;
-            }
-        }
-        /* Product image standardization */
-        .product-image {
-            width: 300px !important;
-            height: 300px !important;
-            object-fit: contain !important;
-            display: block !important;
-            margin: 0 auto !important;
-        }
-    </style>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-    .service-content p {
-        margin: 0;
-        line-height: 1.5;
-    }
-
-    .read-more-link {
-        color: #0d6efd;
-        text-decoration: none;
-        cursor: pointer;
-        display: inline-block;
-        margin-top: 5px;
-    }
-
-    .read-more-link:hover {
-        text-decoration: underline;
-    }
-
-    .service-item {
-        min-height: 200px;
-        height: auto;
-        overflow: hidden;
-    }
-    </style>
-
-    <style>
-        /* Base styles */
-        .service-btn {
-            width: 50px;
-            height: 50px;
+        body { background: #f3f7fd; }
+        .product-section {
+            margin: 45px auto 0 auto;
+            max-width: 1050px;
+            background: #fff;
+            border-radius: 2.3rem;
+            box-shadow: 0 8px 36px rgba(40,60,120,0.10);
+            padding: 0;
+            overflow: hidden;
+        }
+        .product-hero {
+            background: linear-gradient(120deg,#eaf1fc 60%,#f8fafb 100%);
+            padding: 38px 38px 22px 38px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 48px;
+            border-bottom: 1.5px solid #e8eaf2;
+        }
+        .product-img-card {
+            flex: 1 1 330px;
+            text-align: center;
+            position: relative;
+            background: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .product-img-card img {
+            width: 310px;
+            height: 230px;
+            object-fit: contain;
+            background: none;
+            border-radius: 1.1rem;
+            box-shadow: 0 6px 18px rgba(40,70,140,0.06);
+            transition: 0.22s cubic-bezier(.28,.78,.68,1.06);
+            cursor: pointer;
+            max-width: 100%;
+        }
+        .product-img-card img:hover {
+            transform: scale(1.065);
+            box-shadow: 0 12px 32px rgba(30,48,100,.14);
+        }
+        .not-available-badge {
+            margin-top: 1.1rem;
+            padding: 1.2rem 2.3rem;
+            background: rgba(240,244,249,0.95);
+            border-radius: 1rem;
+            font-size: 1.4rem;
+            color: #98a6b8;
+            box-shadow: 0 3px 16px #e5eefe;
+            font-weight: 500;
+            text-align: center;
+        }
+        @media (max-width: 991px) {
+            .product-hero {
+                flex-direction: column;
+                gap: 10px;
+                padding: 12px 2px 3px 2px;
+            }
+            .product-img-card img {
+                width: 200px;
+                height: 200px;
+                max-width: 97vw;
+                max-height: 97vw;
+            }
+        }
+        @media (max-width: 576px) {
+            .product-img-card img {
+                width: 83vw;
+                height: 83vw;
+                min-width: 170px;
+                min-height: 170px;
+            }
+            .product-title {
+                font-size: 1.23rem !important;
+            }
+        }
+        .product-header {
+            flex: 2 1 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            margin-top: 0;
+        }
+        @media (max-width: 991px) {
+            .product-header {
+                align-items: center !important;
+                text-align: center;
+            }
+            .product-title {
+                font-size: 1.45rem;
+                justify-content: center;
+                margin-top: 12px;
+                margin-bottom: 7px;
+                line-height: 1.25;
+            }
+        }
+        .product-title {
+            font-size: 2.15rem;
+            font-weight: 700;
+            color: #19447b;
+            margin-bottom: 9px;
+            letter-spacing: .01em;
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: var(--primary);
-            border-radius: 50%;
-            margin-left: 15px;
+            gap: 10px;
+            line-height: 1.12;
         }
-
-        .service-btn i {
-            color: white !important;
+        .product-meta {
+            font-size: 1.09rem;
+            color: #607097;
+            margin-bottom: 10px;
+            font-weight: 500;
         }
-
-        .service-item {
-            background: #FFFFFF;
-            transition: .5s;
-            margin-bottom: 20px;
-            padding: 20px;
+        .btn-brochure {
+            display: block;
+            margin: 18px auto 0 auto;
+            font-size: 1.03rem;
+            font-weight: 600;
+            border-radius: 1.5rem;
+            padding: 0.54rem 1.25rem;
+            width: auto;
+            min-width: 120px;
+            max-width: 210px;
+            background: #c82333;
+            color: #fff;
+            border: none;
+            transition: background 0.18s, color 0.18s, transform 0.17s;
+            text-align: center;
+            letter-spacing: .01em;
+            box-shadow: 0 2px 8px rgba(15,30,90,0.09);
         }
-
-        .service-item:hover {
-            margin-top: -10px;
-            background: var(--primary);
+        .btn-brochure i { margin-right: 7px; font-size: 1.05em; }
+        .btn-brochure:hover, .btn-brochure:focus { background: #b21f2b; color: #fff; }
+        .btn-brochure.disabled, .btn-brochure[aria-disabled="true"] {
+            background: #e3e7ed !important; color: #8792a7 !important; cursor: not-allowed;
+            box-shadow: none;
         }
-
-        .service-item:hover * {
-            color: #FFFFFF !important;
+        .nav-tabs { border-bottom: 1.5px solid #e4e8f0; overflow-x:auto; }
+        .nav-tabs .nav-link {
+            color: #294d89;
+            font-weight: 500;
+            font-size: 1.02rem;
+            border: none;
+            border-bottom: 2.5px solid transparent;
+            background: none;
+            margin-right: 0px;
+            border-radius: .8rem .8rem 0 0;
+            transition: all 0.22s;
+            padding: .65rem .95rem .65rem .95rem;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            opacity: 0.93;
         }
-
-        .service-item:hover .service-btn {
-            background: #FFFFFF;
+        .nav-tabs .nav-link.active {
+            background: #e3eaf7;
+            color: #1976d2;
+            border-bottom: 2.5px solid #1976d2;
+            font-weight: 700;
+            opacity: 1;
+            box-shadow: 0 2px 6px #e3eaf7;
         }
-
-        .service-item:hover .service-btn i {
-            color: var(--primary) !important;
+        .nav-tabs .nav-link i {
+            font-size: 1.07em;
+            opacity: .85;
+            transition: color .14s, transform .12s;
         }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .container-fluid.service {
-                padding: 15px !important;
-            }
-
-            .row.gx-0.gy-4 {
-                margin: 0 !important;
-            }
-
-            .service-item {
-                margin-bottom: 15px;
-                padding: 15px;
-            }
-
-            .service-content {
-                flex: 1;
-            }
-
-            .service-content h4 {
-                font-size: 18px;
-                margin-bottom: 10px;
-            }
-
-            .service-content p {
-                font-size: 14px;
-                line-height: 1.4;
-            }
-
-            .service-btn {
-                width: 40px;
-                height: 40px;
-                margin-left: 10px;
-            }
-
-            .service-btn i {
-                font-size: 1.2em !important;
-            }
-
-            /* Keep the three-column layout structure */
-            .col-lg-6.col-xl-4 {
-                width: 100%;
-                padding: 0 10px;
-            }
-
-            /* Center the product image */
-            .col-lg-6.col-xl-4.wow.fadeInUp {
-                text-align: center;
-                margin: 20px 0;
-            }
-
-            .col-lg-6.col-xl-4.wow.fadeInUp img {
-                max-width: 80%;
-                margin: 0 auto;
-            }
-
-            /* Fix spacing between sections */
-            .text-center.mx-auto.pb-5 {
-                padding-bottom: 20px !important;
-            }
-
-            .text-center.mx-auto.pb-5 h4 {
-                font-size: 20px;
-            }
+        .nav-tabs .nav-link:hover i, .nav-tabs .nav-link.active i {
+            color: #1976d2;
+            opacity: 1;
+            transform: scale(1.13);
         }
-
-        /* Additional adjustments for very small screens */
-        @media (max-width: 480px) {
-            .service-item {
-                padding: 12px;
-            }
-
-            .service-content h4 {
-                font-size: 16px;
-            }
-
-            .service-content p {
-                font-size: 13px;
-            }
-
-            .service-btn {
-                width: 35px;
-                height: 35px;
-            }
-
-            .col-lg-6.col-xl-4.wow.fadeInUp img {
-                max-width: 90%;
-            }
+        .tab-content {
+            padding: 1.0rem 1.0rem 0.6rem 1.0rem;
+            background: #f8fafd;
+            border-radius: 0 0 2.3rem 2.3rem;
+            position: relative;
+            margin-top: -8px;
         }
-        
+        .tab-pane {
+            display: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .28s cubic-bezier(.4,0,.2,1);
+            padding: 0;
+            margin: 0;
+        }
+        .tab-pane.active, .tab-pane.show.active {
+            display: block !important;
+            opacity: 1;
+            pointer-events: auto;
+            animation: fadeInTab .22s cubic-bezier(.5,0,.22,1) both;
+        }
+        @keyframes fadeInTab {
+            0% {opacity:0;}
+            100% {opacity:1;}
+        }
+        .tab-section {
+            background: #fdfdfe;
+            border-radius: 1.1rem;
+            margin: 1.2rem 0 0 0;
+            padding: 1.0rem .7rem;
+            box-shadow: 0 6px 38px #dde6fa, 0 1px 0 #c8e2ff;
+            position: relative;
+            z-index: 5;
+            opacity: 1;
+            transform: none;
+        }
+        section.tab-section h2 {
+            color: #1d3662;
+            font-size: 1.09rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.02em;
+        }
     </style>
+    <style>
+        .navbar {
+        position: relative !important;
+        z-index: 1050 !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        margin-bottom: 30px !important;
+      }
+        .footer-minicard {
+          background: none;
+          border-radius: 0;
+          box-shadow: none;
+          padding: 0 0 0.5rem 0;
+          height: 100%;
+        }
+        .footer-logo {
+          font-size: 1.19rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+        .footer-title-alt {
+          color: #42a5ff;
+          font-weight: 600;
+          font-size: 1.1rem;
+          margin-bottom: 1.15rem;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+        .footer-link-min {
+          color: #d1d8e6;
+          display: block;
+          padding: 3px 0;
+          text-decoration: none;
+          font-size: 1.04rem;
+          font-weight: 500;
+          border-radius: 5px;
+          transition: color 0.17s, padding-left 0.19s, background 0.17s;
+        }
+        .footer-link-min:hover {
+          color: #fff;
+          background: rgba(66,165,255,0.12);
+          padding-left: 13px;
+          text-decoration: none;
+        }
+        .footer-contact {
+          color: #b6bdd0;
+          font-size: 1.04rem;
+          margin-bottom: 0.5rem;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+        }
+        .footer-contact i {
+          font-size: 1.06rem;
+        }
+        .footer-social-min {
+          border: 1.8px solid #42a5ff;
+          color: #42a5ff;
+          border-radius: 50%;
+          width: 34px; height: 34px;
+          display: inline-flex; align-items: center; justify-content: center;
+          font-size: 1.15rem;
+          margin-right: 8px;
+          background: transparent;
+          transition: background 0.19s, color 0.19s, border-color 0.19s;
+        }
+        .footer-social-min:hover, .footer-social-min:focus {
+          background: linear-gradient(90deg,#42a5ff 60%,#2977c9 100%);
+          color: #fff;
+          border-color: #2977c9;
+        }
+        .footer-mission-alt {
+          border-left: 4px solid #42a5ff;
+          color: #e9eef6;
+          padding-left: 1rem;
+          font-size: 1.03rem;
+          background: rgba(66,165,255,0.07);
+          font-style: italic;
+          border-radius: 8px;
+          margin: 0 0 .2rem 0;
+        }
+        .footer-divider {
+          border-color: rgba(255,255,255,0.11);
+        }
+        @media (max-width: 991px) {
+          .footer-minicard { margin-bottom: 1.5rem; }
+        }
+        .footer-logo-text {
+          color: #fff;
+          font-size: 1.19rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+        .footer-logo-img {
+          height: 35px;
+          width: auto;
+          filter: brightness(0) invert(1); /* This will turn a dark logo white. Remove if you use an actual white logo. */
+        }
+        .footer-contact-icon {
+          color: #fff !important;
+          font-size: 1.07rem;
+        }
+        .footer-copyright {
+        text-align: center;
+        color: #fff;
+        font-size: 1.05rem;
+        letter-spacing: 0.5px;
+        margin: 0 auto 16px auto;
+        padding-top: 12px;
+        padding-bottom: 8px;
+        width: 100%;
+      }
+      
+      .footer-copyright .footer-brand {
+        color: #fff;  /* Make this #0d6efd if you want it blue */
+        font-weight: 600;
+        letter-spacing: 0.7px;
+        text-decoration: none;
+      }
+      .footer-copyright .footer-brand {
+        color: #4c6bb2;
+      }
+      </style>
 </head>
-  <!-- Body-->
-<body class="fixed-bottom-btn">
-    <main class="page-wrapper">
- <!-- Top Brand Bar -->
-  
-  <!-- Main Navbar -->
-  <div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light py-3 px-2">
-        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
-          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 55px; margin-right: 10px;">
-          <h1 class="m-0 text-primary" style="font-size: 26px;">REVA <span style="color: #3d3e40;">PHARMA</span></h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-          <div class="navbar-nav gap-2 text-uppercase fw-semibold">
-            <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-            <div class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
-              <div class="dropdown-menu rounded-0 m-0">
-                <a href="{% url 'job_catalog' %}" class="dropdown-item">Job Vacancies</a>
-                <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>
+<body>
+    <!-- Top Brand Bar -->
+    <div class="container-fluid bg-primary text-white py-2">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap small">
+            <div class="d-flex align-items-center mb-2 mb-md-0">
+                <a href="tel:+905378680830" class="text-white text-decoration-none d-flex align-items-center">
+                    <i class="bi bi-telephone-inbound me-2 fs-5"></i>
+                    <span class="d-none d-md-inline">+90 537 868 0830</span>
+                </a>
+            </div>
+            <div class="d-flex align-items-center">
+                <a href="mailto:info@e-revapharma.com" class="text-white text-decoration-none d-flex align-items-center">
+                    <i class="bi bi-envelope me-2 fs-5"></i>
+                    <span class="d-none d-md-inline">info@e-revapharma.com</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Main Navbar -->
+    <div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light py-3 px-2">
+                <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+                    <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 55px; margin-right: 10px;">
+                    <h1 class="m-0 text-primary" style="font-size: 26px;">REVA <span style="color: #3d3e40;">PHARMA</span></h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                    <div class="navbar-nav gap-2 text-uppercase fw-semibold">
+                        <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="{% url 'job_catalog' %}" class="dropdown-item">Job Vacancies</a>
+                                <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>
+                            </div>
+                        </div>
+                        <a href="{% url 'product_catalog' %}" class="nav-item nav-link active">Products</a>
+                        <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Product Section -->
+    <div class="product-section shadow">
+        <div class="product-hero">
+            <!-- Product Image, NO white card -->
+            <div class="product-img-card">
+                {% if product.license %}
+                    <div class="badge-license">MOH License: {{ product.license }}</div>
+                {% endif %}
+                {% if product.pro_photo %}
+                    <img src="{{ product.pro_photo.url }}" alt="{{ product.pro_name }} - product image">
+                {% else %}
+                    <img src="{% static 'img/default-product.png' %}" alt="Default Product Image">
+                {% endif %}
+                {% if not product.brochure %}
+                    <div class="not-available-badge">
+                        Not Available
+                    </div>
+                {% endif %}
+            </div>
+            <!-- Product Info -->
+            <div class="product-header">
+                <div class="product-title">
+                    {% if product.logo %}
+                        <img src="{{ product.logo.url }}" class="product-logo" alt="Product Logo">
+                    {% endif %}
+                    {{ product.pro_name }}
+                </div>
+                <div class="product-meta mb-2">
+                    <i class="fa-solid fa-capsules me-2"></i>{{ product.pro_composition }}
+                </div>
+                {% if product.pro_warning %}
+                    <div class="alert alert-danger mb-2">
+                        <i class="fa-solid fa-triangle-exclamation me-2"></i> {{ product.pro_warning }}
+                    </div>
+                {% endif %}
+                {% if product.pro_attention %}
+                    <div class="alert alert-warning mb-2">
+                        <i class="fa-solid fa-circle-info me-2"></i> {{ product.pro_attention }}
+                    </div>
+                {% endif %}
+                <div class="product-actions d-flex align-items-center gap-3 mt-3">
+                    <!-- Print Button REMOVED -->
+                    <div class="share-icons d-flex align-items-center" style="gap:8px;">
+                        <span style="font-size:.98em;color:#7688ab;">Share:</span>
+                        <a href="https://wa.me/?text={{ request.build_absolute_uri }}" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://t.me/share/url?url={{ request.build_absolute_uri }}" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <a href="mailto:info@e-revapharma.com?subject=Inquiry about {{ product.pro_name }}" class="btn btn-primary" style="font-size:1.12rem; padding:.55rem 1.3rem;">
+                        <i class="fa-regular fa-message me-1"></i> Ask about product
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr class="divider">
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs mb-0" id="productTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="indications-tab" data-bs-toggle="tab" data-bs-target="#indications" type="button" role="tab" aria-controls="indications" aria-selected="true">
+                    <i class="fa fa-clipboard-list"></i> Indications
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="dosage-tab" data-bs-toggle="tab" data-bs-target="#dosage" type="button" role="tab" aria-controls="dosage" aria-selected="false">
+                    <i class="fa fa-syringe"></i> Dosage & Administration
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contraindications-tab" data-bs-toggle="tab" data-bs-target="#contraindications" type="button" role="tab" aria-controls="contraindications" aria-selected="false">
+                    <i class="fa fa-triangle-exclamation"></i> Contraindications
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="interactions-tab" data-bs-toggle="tab" data-bs-target="#interactions" type="button" role="tab" aria-controls="interactions" aria-selected="false">
+                    <i class="fa fa-capsules"></i> Drug Interactions
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pregnancy-tab" data-bs-toggle="tab" data-bs-target="#pregnancy" type="button" role="tab" aria-controls="pregnancy" aria-selected="false">
+                    <i class="fa fa-baby"></i> Pregnancy & Lactation
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="productTabContent">
+            <section class="tab-section tab-pane fade show active" id="indications" role="tabpanel" aria-labelledby="indications-tab">
+                <h2>Indications</h2>
+                {% if product.pro_Indications %}
+                <ul>
+                    {% for line in product.pro_Indications.splitlines %}
+                        <li>{{ line }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>N/A</p>
+                {% endif %}
+            </section>
+            <section class="tab-section tab-pane fade" id="dosage" role="tabpanel" aria-labelledby="dosage-tab">
+                <h2>Dosage and Administration</h2>
+                {% if product.pro_dosage_administration %}
+                <ul>
+                    {% for line in product.pro_dosage_administration.splitlines %}
+                        <li>{{ line }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>N/A</p>
+                {% endif %}
+            </section>
+            <section class="tab-section tab-pane fade" id="contraindications" role="tabpanel" aria-labelledby="contraindications-tab">
+                <h2>Contraindications</h2>
+                {% if product.pro_Contraindications %}
+                <ul>
+                    {% for line in product.pro_Contraindications.splitlines %}
+                        <li>{{ line }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>N/A</p>
+                {% endif %}
+            </section>
+            <section class="tab-section tab-pane fade" id="interactions" role="tabpanel" aria-labelledby="interactions-tab">
+                <h2>Drug Interactions</h2>
+                {% if product.pro_Drug_Interactions %}
+                <ul>
+                    {% for line in product.pro_Drug_Interactions.splitlines %}
+                        <li>{{ line }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>N/A</p>
+                {% endif %}
+            </section>
+            <section class="tab-section tab-pane fade" id="pregnancy" role="tabpanel" aria-labelledby="pregnancy-tab">
+                <h2>Pregnancy and Lactation</h2>
+                {% if product.pro_pregnancy_lactation %}
+                <ul>
+                    {% for line in product.pro_pregnancy_lactation.splitlines %}
+                        <li>{{ line }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>N/A</p>
+                {% endif %}
+            </section>
+        </div>
+    </div>
+
+    <footer class="container-fluid pt-5 pb-0 mt-5" style="font-family:'Open Sans','Roboto',sans-serif; background: linear-gradient(120deg, #1e2a3a 70%, #143161 100%);">
+        <div class="container pb-3">
+          <div class="row g-4">
+            <!-- Brand and Contact Info -->
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+              <div class="footer-minicard">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" class="footer-logo-img me-2">
+                  <span class="footer-logo-text">REVA PHARMA</span>
+                </div>
+                <div class="footer-contact"><i class="fas fa-map-marker-alt footer-contact-icon me-2"></i>Syria, Aleppo</div>
+                <div class="footer-contact"><i class="fas fa-phone-alt footer-contact-icon me-2"></i>+90 537 868 0830</div>
+                <div class="footer-contact"><i class="fas fa-envelope footer-contact-icon me-2"></i>info@e-revapharma.com</div>
+                <div class="d-flex mt-3">
+                  <a href="https://x.com/revapharma__" class="footer-social-min" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/revapharma/" class="footer-social-min" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/revapharma_/" class="footer-social-min" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com/company/e-reva-pharma/" class="footer-social-min" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
               </div>
             </div>
-            <a href="{% url 'product_catalog' %}" class="nav-item nav-link active">Products</a>
-            <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
-            <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+            <!-- Services -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+              <div class="footer-minicard">
+                <div class="footer-title-alt">Services</div>
+                <a class="footer-link-min" href="{% url 'job_catalog' %}">Job Vacancies</a>
+                <a class="footer-link-min" href="{% url 'report' %}">Submit a Complaint</a>
+              </div>
+            </div>
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+              <div class="footer-minicard">
+                <div class="footer-title-alt">Quick Links</div>
+                <a class="footer-link-min" href="{% url 'about' %}">About Us</a>
+                <a class="footer-link-min" href="{% url 'contact' %}">Contact Us</a>
+                <a class="footer-link-min" href="#">Support</a>
+              </div>
+            </div>
+            <!-- Mission -->
+            <div class="col-lg-4 col-md-6">
+              <div class="footer-minicard">
+                <div class="footer-title-alt">Our Mission</div>
+                <blockquote class="footer-mission-alt">
+                  Manufacturing high-quality medicines to ensure better health for all.</blockquote>
+              </div>
+            </div>
+          </div>
+          <hr class="footer-divider my-4">
+          <div class="row align-items-center text-center text-md-start pb-2">
+            <div class="footer-copyright">
+              &copy; <span class="footer-brand">REVA PHARMA</span> . All Rights Reserved.
+            </div>          
           </div>
         </div>
-      </nav>
-    </div>
-  </div>
-   
+      </footer>
 
-
-     <!-- Service Start -->
-     <div class="container-fluid service bg-light overflow-hidden py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-uppercase text-primary">{{ product.pro_name }}</h4>
-                <h1 class="display-3 text-capitalize mb-3"></h1>
-            </div>
-            <div class="row gx-0 gy-4 align-items-center">
-                <div class="col-lg-6 col-xl-4 wow fadeInLeft" data-wow-delay="0.2s">
-                    <div class="service-item rounded p-4 mb-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="d-flex">
-                                    <div class="service-content text-end">
-                                        <a href="#" class="h4 d-inline-block mb-3">Product Composition:</a>
-                                        <p class="mb-0">{{ product.pro_composition }}</p>
-                                    </div>
-                                    <div class="ps-4">
-                                        <div class="service-btn">
-                                            <i class="fas fa-vial fa-2x text-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-item rounded p-4 mb-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="d-flex">
-                                    <div class="service-content text-end">
-                                        <a href="#" class="h4 d-inline-block mb-3">Indications:</a>
-                                        <p class="mb-0">{{ product.pro_Indications }}</p>
-                                    </div>
-                                    <div class="ps-4">
-                                        <div class="service-btn">
-                                            <i class="fas fa-notes-medical fa-2x text-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  
-
-                    <div class="service-item rounded p-4 mb-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="d-flex">
-                                    <div class="service-content text-end">
-                                        <a href="#" class="h4 d-inline-block mb-3">Pregnancy and Lactation:</a>
-                                        <p class="mb-0">{{ product.pro_pregnancy_lactation }}</p>
-                                    </div>
-                                    <div class="ps-4">
-                                        <div class="service-btn">
-                                            <i class="fas fa-baby fa-2x text-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  
-                </div>
-                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="bg-transparent">
-                        {% if product.pro_photo %}
-                            <img src="{{ product.pro_photo.url }}" class="product-image" alt="{{ product.pro_name }}">
-                        {% else %}
-                            <img src="{% static 'img/default-product.png' %}" class="product-image" alt="Default Product Image">
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4 wow fadeInRight" data-wow-delay="0.2s">
-                    <div class="service-item rounded p-4 mb-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="d-flex">
-                                    <div class="pe-4">
-                                        <div class="service-btn">
-                                            <i class="fas fa-ban fa-2x text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-content">
-                                        <a href="#" class="h4 d-inline-block mb-3">Contraindications:</a>
-                                        <p class="mb-0">{{ product.pro_Contraindications }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-item rounded p-4 mb-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="d-flex">
-                                    <div class="pe-4">
-                                        <div class="service-btn">
-                                            <i class="fas fa-pills fa-2x text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-content">
-                                        <a href="#" class="h4 d-inline-block mb-3">Drug Interactions:</a>
-                                        <p class="mb-0">{{ product.pro_Drug_Interactions }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-item rounded p-4 mb-0">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="d-flex">
-                                    <div class="pe-4">
-                                        <div class="service-btn">
-                                            <i class="fas fa-prescription fa-2x text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div class="service-content">
-                                        <a href="#" class="h4 d-inline-block mb-3">Dosage and Administration:</a>
-                                        <p class="mb-0">{{ product.pro_dosage_administration }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-    
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Address</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Syria,Aleppo</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+90 537 868 0830</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>e-marketing@e-revapharma.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://x.com/revapharma__"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.facebook.com/revapharma/"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.instagram.com/revapharma_/"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.linkedin.com/company/e-reva-pharma/"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Services</h5>
-                    <a class="btn btn-link" href="{% url 'job' %}">Job Vacancies</a>
-                    <a class="btn btn-link" href="">Report an Issue</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Reva pharma website</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Library Scripts -->
     <script src="{% static 'lib/wow/wow.min.js' %}"></script>
     <script src="{% static 'lib/easing/easing.min.js' %}"></script>
     <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
@@ -466,104 +639,16 @@
     <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
     <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
     <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
-    
-    <!-- Custom Scripts -->
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/new_main.js' %}"></script>
-
     <script>
-        // Initialize WOW.js
         new WOW().init();
-        
-        // Initialize Bootstrap components
-        $(document).ready(function() {
-            // Enable tooltips
+        $(document).ready(function () {
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
             var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl)
             });
-            
-            // Enable popovers
-            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-                return new bootstrap.Popover(popoverTriggerEl)
-            });
-
-            // Counter animation with Intersection Observer
-            const animateCounter = (element) => {
-                var $this = $(element);
-                var countTo = parseInt($this.text());
-                
-                $({ countNum: 0 }).animate({
-                    countNum: countTo
-                }, {
-                    duration: 2000,
-                    easing: 'linear',
-                    step: function() {
-                        $this.text(Math.floor(this.countNum));
-                    },
-                    complete: function() {
-                        $this.text(this.countNum);
-                    }
-                });
-            };
-
-            // Create Intersection Observer
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !entry.target.hasAttribute('data-counted')) {
-                        animateCounter(entry.target);
-                        entry.target.setAttribute('data-counted', 'true');
-                    }
-                });
-            }, {
-                threshold: 0.5 // Trigger when 50% of the element is visible
-            });
-
-            // Observe all counter elements
-            $('[data-toggle="counter-up"]').each(function() {
-                observer.observe(this);
-            });
         });
     </script>
-
-    <script>
-        function truncateText(element, maxLength) {
-            const text = element.textContent;
-            if (text.length > maxLength) {
-                const truncated = text.substring(0, maxLength);
-                const full = text;
-                element.innerHTML = `
-                    <span class="truncated-text">${truncated}...</span>
-                    <span class="full-text" style="display: none;">${full}</span>
-                    <a class="read-more-link" onclick="toggleText(this)">Read More</a>
-                `;
-            }
-        }
-
-        function toggleText(link) {
-            const container = link.parentElement;
-            const truncatedText = container.querySelector('.truncated-text');
-            const fullText = container.querySelector('.full-text');
-            
-            if (truncatedText.style.display !== 'none') {
-                truncatedText.style.display = 'none';
-                fullText.style.display = 'inline';
-                link.textContent = 'Read Less';
-            } else {
-                truncatedText.style.display = 'inline';
-                fullText.style.display = 'none';
-                link.textContent = 'Read More';
-            }
-        }
-
-        // Apply to all content sections when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            const contentElements = document.querySelectorAll('.service-content p');
-            contentElements.forEach(element => {
-                truncateText(element, 150); // Show first 150 characters
-            });
-        });
-    </script>
-
 </body>
+</html>

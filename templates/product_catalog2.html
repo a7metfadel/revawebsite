@@ -24,6 +24,9 @@
     <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
 
+   
+   
+   
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -67,15 +70,162 @@
         }
       }
     </style>
+    <style>
+      .navbar {
+      position: relative !important;
+      z-index: 1050 !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      margin-bottom: 30px !important;
+    }
+      .footer-minicard {
+        background: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0 0 0.5rem 0;
+        height: 100%;
+      }
+      .footer-logo {
+        font-size: 1.19rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .footer-title-alt {
+        color: #42a5ff;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 1.15rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .footer-link-min {
+        color: #d1d8e6;
+        display: block;
+        padding: 3px 0;
+        text-decoration: none;
+        font-size: 1.04rem;
+        font-weight: 500;
+        border-radius: 5px;
+        transition: color 0.17s, padding-left 0.19s, background 0.17s;
+      }
+      .footer-link-min:hover {
+        color: #fff;
+        background: rgba(66,165,255,0.12);
+        padding-left: 13px;
+        text-decoration: none;
+      }
+      .footer-contact {
+        color: #b6bdd0;
+        font-size: 1.04rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+      }
+      .footer-contact i {
+        font-size: 1.06rem;
+      }
+      .footer-social-min {
+        border: 1.8px solid #42a5ff;
+        color: #42a5ff;
+        border-radius: 50%;
+        width: 34px; height: 34px;
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 1.15rem;
+        margin-right: 8px;
+        background: transparent;
+        transition: background 0.19s, color 0.19s, border-color 0.19s;
+      }
+      .footer-social-min:hover, .footer-social-min:focus {
+        background: linear-gradient(90deg,#42a5ff 60%,#2977c9 100%);
+        color: #fff;
+        border-color: #2977c9;
+      }
+      .footer-mission-alt {
+        border-left: 4px solid #42a5ff;
+        color: #e9eef6;
+        padding-left: 1rem;
+        font-size: 1.03rem;
+        background: rgba(66,165,255,0.07);
+        font-style: italic;
+        border-radius: 8px;
+        margin: 0 0 .2rem 0;
+      }
+      .footer-divider {
+        border-color: rgba(255,255,255,0.11);
+      }
+      @media (max-width: 991px) {
+        .footer-minicard { margin-bottom: 1.5rem; }
+      }
+      .footer-logo-text {
+        color: #fff;
+        font-size: 1.19rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .footer-logo-img {
+        height: 35px;
+        width: auto;
+        filter: brightness(0) invert(1); /* This will turn a dark logo white. Remove if you use an actual white logo. */
+      }
+      .footer-contact-icon {
+        color: #fff !important;
+        font-size: 1.07rem;
+      }
+      .footer-copyright {
+      text-align: center;
+      color: #fff;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      margin: 0 auto 16px auto;
+      padding-top: 12px;
+      padding-bottom: 8px;
+      width: 100%;
+    }
+    
+    .footer-copyright .footer-brand {
+      color: #fff;  /* Make this #0d6efd if you want it blue */
+      font-weight: 600;
+      letter-spacing: 0.7px;
+      text-decoration: none;
+    }
+    .footer-copyright .footer-brand {
+      color: #4c6bb2;
+    }
+    </style>
     
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
   <!-- Body-->
+<!-- Top Brand Bar -->
+<div class="container-fluid bg-primary text-white py-2">
+  <div class="container d-flex justify-content-between align-items-center flex-wrap small">
+
+    <!-- Phone Section -->
+    <div class="d-flex align-items-center mb-2 mb-md-0">
+      <a href="tel:+905378680830" class="text-white text-decoration-none d-flex align-items-center">
+        <i class="bi bi-telephone-inbound me-2 fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Call Us"></i>
+        <span class="d-none d-md-inline">+90 537 868 0830</span>
+      </a>
+    </div>
+
+    <!-- Email Section -->
+    <div class="d-flex align-items-center">
+      <a href="mailto:info@e-revapharma.com" class="text-white text-decoration-none d-flex align-items-center">
+        <i class="bi bi-envelope me-2 fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Email Us"></i>
+        <span class="d-none d-md-inline">info@e-revapharma.com</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
 <!-- Main Navbar -->
 <div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light py-3 px-2">
       <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
         <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 55px; margin-right: 10px;">
         <h1 class="m-0 text-primary" style="font-size: 26px;">REVA <span style="color: #3d3e40;">PHARMA</span></h1>
@@ -94,6 +244,7 @@
             </div>
           </div>
           <a href="{% url 'product_catalog' %}" class="nav-item nav-link active">Products</a>
+          <a href="https://www.stotpharma.com.tr/en/index.html" class="nav-item nav-link">STOT PHARMA</a>
           <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
           <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
         </div>
@@ -383,6 +534,61 @@
         </div>
       </div>
     </main>
+    <footer class="container-fluid pt-5 pb-0 mt-5" style="font-family:'Open Sans','Roboto',sans-serif; background: linear-gradient(120deg, #1e2a3a 70%, #143161 100%);">
+      <div class="container pb-3">
+        <div class="row g-4">
+          <!-- Brand and Contact Info -->
+          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-minicard">
+              <div class="d-flex align-items-center mb-3">
+                <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" class="footer-logo-img me-2">
+                <span class="footer-logo-text">REVA PHARMA</span>
+              </div>
+              <div class="footer-contact"><i class="fas fa-map-marker-alt footer-contact-icon me-2"></i>Syria, Aleppo</div>
+              <div class="footer-contact"><i class="fas fa-phone-alt footer-contact-icon me-2"></i>+90 537 868 0830</div>
+              <div class="footer-contact"><i class="fas fa-envelope footer-contact-icon me-2"></i>info@e-revapharma.com</div>
+              <div class="d-flex mt-3">
+                <a href="https://x.com/revapharma__" class="footer-social-min" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/revapharma/" class="footer-social-min" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/revapharma_/" class="footer-social-min" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/e-reva-pharma/" class="footer-social-min" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Services -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-minicard">
+              <div class="footer-title-alt">Services</div>
+              <a class="footer-link-min" href="{% url 'job_catalog' %}">Job Vacancies</a>
+              <a class="footer-link-min" href="{% url 'report' %}">Submit a Complaint</a>
+            </div>
+          </div>
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <div class="footer-minicard">
+              <div class="footer-title-alt">Quick Links</div>
+              <a class="footer-link-min" href="{% url 'about' %}">About Us</a>
+              <a class="footer-link-min" href="{% url 'contact' %}">Contact Us</a>
+              <a class="footer-link-min" href="#">Support</a>
+            </div>
+          </div>
+          <!-- Mission -->
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-minicard">
+              <div class="footer-title-alt">Our Mission</div>
+              <blockquote class="footer-mission-alt">
+                Manufacturing high-quality medicines to ensure better health for all.</blockquote>
+            </div>
+          </div>
+        </div>
+        <hr class="footer-divider my-4">
+        <div class="row align-items-center text-center text-md-start pb-2">
+          <div class="footer-copyright">
+            &copy; <span class="footer-brand">REVA PHARMA</span> . All Rights Reserved.
+          </div>          
+        </div>
+      </div>
+    </footer>
   
     <!-- Filters sidebar toggle button (mobile)-->
  <!-- Back to Top -->

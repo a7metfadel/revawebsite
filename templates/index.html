@@ -73,7 +73,125 @@
   }
   </style>
 
-    
+<style>
+  .footer-minicard {
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 0 0.5rem 0;
+    height: 100%;
+  }
+  .footer-logo {
+    font-size: 1.19rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .footer-title-alt {
+    color: #42a5ff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1.15rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .footer-link-min {
+    color: #d1d8e6;
+    display: block;
+    padding: 3px 0;
+    text-decoration: none;
+    font-size: 1.04rem;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: color 0.17s, padding-left 0.19s, background 0.17s;
+  }
+  .footer-link-min:hover {
+    color: #fff;
+    background: rgba(66,165,255,0.12);
+    padding-left: 13px;
+    text-decoration: none;
+  }
+  .footer-contact {
+    color: #b6bdd0;
+    font-size: 1.04rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+  .footer-contact i {
+    font-size: 1.06rem;
+  }
+  .footer-social-min {
+    border: 1.8px solid #42a5ff;
+    color: #42a5ff;
+    border-radius: 50%;
+    width: 34px; height: 34px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 1.15rem;
+    margin-right: 8px;
+    background: transparent;
+    transition: background 0.19s, color 0.19s, border-color 0.19s;
+  }
+  .footer-social-min:hover, .footer-social-min:focus {
+    background: linear-gradient(90deg,#42a5ff 60%,#2977c9 100%);
+    color: #fff;
+    border-color: #2977c9;
+  }
+  .footer-mission-alt {
+    border-left: 4px solid #42a5ff;
+    color: #e9eef6;
+    padding-left: 1rem;
+    font-size: 1.03rem;
+    background: rgba(66,165,255,0.07);
+    font-style: italic;
+    border-radius: 8px;
+    margin: 0 0 .2rem 0;
+  }
+  .footer-divider {
+    border-color: rgba(255,255,255,0.11);
+  }
+  @media (max-width: 991px) {
+    .footer-minicard { margin-bottom: 1.5rem; }
+  }
+  .footer-logo-text {
+    color: #fff;
+    font-size: 1.19rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .footer-logo-img {
+    height: 35px;
+    width: auto;
+    filter: brightness(0) invert(1); /* This will turn a dark logo white. Remove if you use an actual white logo. */
+  }
+  .footer-contact-icon {
+    color: #fff !important;
+    font-size: 1.07rem;
+  }
+  .footer-copyright {
+  text-align: center;
+  color: #fff;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  margin: 0 auto 16px auto;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  width: 100%;
+}
+
+.footer-copyright .footer-brand {
+  color: #fff;  /* Make this #0d6efd if you want it blue */
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-decoration: none;
+}
+.footer-copyright .footer-brand {
+  color: #4c6bb2;
+}
+</style>
+
 </head>
 
 <body>
@@ -130,6 +248,7 @@
               </div>
             </div>
             <a href="{% url 'product_catalog' %}" class="nav-item nav-link">Products</a>
+            <a href="https://www.stotpharma.com.tr/en/index.html" class="nav-item nav-link">STOT PHARMA</a>
             <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
             <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
           </div>
@@ -350,53 +469,62 @@
         </div>
     </div>
     <!-- About End -->
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Address</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Syria,Aleppo</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+90 537 868 0830</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@e-revapharma.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://x.com/revapharma__"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.facebook.com/revapharma/"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.instagram.com/revapharma_/"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.linkedin.com/company/e-reva-pharma/"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Services</h5>
-                    <a class="btn btn-link" href="{% url 'job_catalog' %}">Job Vacancies</a>
-                    <a class="btn btn-link" href="{% url 'report' %}">Submit a complaint</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="{% url 'about' %}">About Us</a>
-                    <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                
-                </div>
+    <footer class="container-fluid pt-5 pb-0 mt-5" style="font-family:'Open Sans','Roboto',sans-serif; background: linear-gradient(120deg, #1e2a3a 70%, #143161 100%);">
+      <div class="container pb-3">
+        <div class="row g-4">
+          <!-- Brand and Contact Info -->
+          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-minicard">
+              <div class="d-flex align-items-center mb-3">
+                <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" class="footer-logo-img me-2">
+                <span class="footer-logo-text">REVA PHARMA</span>
+              </div>
+              <div class="footer-contact"><i class="fas fa-map-marker-alt footer-contact-icon me-2"></i>Syria, Aleppo</div>
+              <div class="footer-contact"><i class="fas fa-phone-alt footer-contact-icon me-2"></i>+90 537 868 0830</div>
+              <div class="footer-contact"><i class="fas fa-envelope footer-contact-icon me-2"></i>info@e-revapharma.com</div>
+              <div class="d-flex mt-3">
+                <a href="https://x.com/revapharma__" class="footer-social-min" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/revapharma/" class="footer-social-min" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/revapharma_/" class="footer-social-min" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/e-reva-pharma/" class="footer-social-min" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Reva pharma website</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                    </div>
-                </div>
+          </div>
+          <!-- Services -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-minicard">
+              <div class="footer-title-alt">Services</div>
+              <a class="footer-link-min" href="{% url 'job_catalog' %}">Job Vacancies</a>
+              <a class="footer-link-min" href="{% url 'report' %}">Submit a Complaint</a>
             </div>
+          </div>
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <div class="footer-minicard">
+              <div class="footer-title-alt">Quick Links</div>
+              <a class="footer-link-min" href="{% url 'about' %}">About Us</a>
+              <a class="footer-link-min" href="{% url 'contact' %}">Contact Us</a>
+              <a class="footer-link-min" href="#">Terms & Conditions</a>
+              <a class="footer-link-min" href="#">Support</a>
+            </div>
+          </div>
+          <!-- Mission -->
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-minicard">
+              <div class="footer-title-alt">Our Mission</div>
+              <blockquote class="footer-mission-alt">
+                Manufacturing high-quality medicines to ensure better health for all.</blockquote>
+            </div>
+          </div>
         </div>
-    </div>
-    <!-- Footer End -->
+        <hr class="footer-divider my-4">
+        <div class="row align-items-center text-center text-md-start pb-2">
+          <div class="footer-copyright">
+            &copy; <span class="footer-brand">REVA PHARMA</span> . All Rights Reserved.
+          </div>          
+        </div>
+      </div>
+    </footer>
 
 
 
