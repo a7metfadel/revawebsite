@@ -374,6 +374,7 @@
       .footer-copyright .footer-brand {
         color: #4c6bb2;
       }
+      
       </style>
 </head>
 <body>
@@ -416,6 +417,7 @@
                             </div>
                         </div>
                         <a href="{% url 'product_catalog' %}" class="nav-item nav-link active">Products</a>
+                        <a href="https://www.stotpharma.com.tr/en/index.html" class="nav-item nav-link">STOT PHARMA</a>
                         <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
                         <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
                     </div>
@@ -437,11 +439,19 @@
                 {% else %}
                     <img src="{% static 'img/default-product.png' %}" alt="Default Product Image">
                 {% endif %}
-                {% if not product.brochure %}
-                    <div class="not-available-badge">
-                        Not Available
-                    </div>
-                {% endif %}
+                {% if product.pdf %}
+                <a class="btn btn-success" href="{{ product.pdf.url }}" download target="_blank">
+                    <i class="fas fa-file-pdf" style="margin-left:6px; color:#fff; font-size:20px;"></i>
+                    Download Product Leaflet
+                </a>
+            {% else %}
+                <div class="not-available-badge">
+                    Not Available
+                </div>
+            {% endif %}
+            
+            
+            
             </div>
             <!-- Product Info -->
             <div class="product-header">
@@ -452,7 +462,7 @@
                     {{ product.pro_name }}
                 </div>
                 <div class="product-meta mb-2">
-                    <i class="fa-solid fa-capsules me-2"></i>{{ product.pro_composition }}
+                    <i class="fas fa-flask" ></i>  {{ product.pro_composition }}
                 </div>
                 {% if product.pro_warning %}
                     <div class="alert alert-danger mb-2">
@@ -474,7 +484,7 @@
                         <a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <a href="mailto:info@e-revapharma.com?subject=Inquiry about {{ product.pro_name }}" class="btn btn-primary" style="font-size:1.12rem; padding:.55rem 1.3rem;">
-                        <i class="fa-regular fa-message me-1"></i> Ask about product
+                        <i class="fas fa-question-circle" style="margin-right:7px;"></i> Ask about product
                     </a>
                 </div>
             </div>
@@ -489,13 +499,8 @@
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="dosage-tab" data-bs-toggle="tab" data-bs-target="#dosage" type="button" role="tab" aria-controls="dosage" aria-selected="false">
-                    <i class="fa fa-syringe"></i> Dosage & Administration
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="contraindications-tab" data-bs-toggle="tab" data-bs-target="#contraindications" type="button" role="tab" aria-controls="contraindications" aria-selected="false">
-                    <i class="fa fa-triangle-exclamation"></i> Contraindications
+                    <i class="fas fa-exclamation-triangle"></i> Contraindications
                 </button>
             </li>
             <li class="nav-item" role="presentation">

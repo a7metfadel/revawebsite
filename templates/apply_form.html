@@ -1,9 +1,22 @@
+{% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Application</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% trans "Job Application" %}</title>
+{% if job %}
+  <div class="alert alert-info text-center">
+    {% blocktrans %}You are applying for:{% endblocktrans %} <b>{{ job.job_title }}</b>
+  </div>
+  <input type="hidden" name="job_id" value="{{ job.id }}">
+{% else %}
+  <div class="alert alert-secondary text-center">
+    {% trans "General application (no specific vacancy selected)." %}
+  </div>
+{% endif %}
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
@@ -176,194 +189,206 @@
 </head>
 <body>
 
-<div class="container py-5">
-  <div class="form-section">
-    <h2 class="form-title">Job Application</h2>
+  <form action="{% url 'set_language' %}" method="post" class="ms-3 d-flex align-items-center" style="min-width: 120px;">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ request.get_full_path }}">
+    <select name="language" onchange="this.form.submit()" class="form-select border-0 py-1 px-2" style="background: #f8f9fa; width: 110px; font-size: 1rem;">
+        <option value="en" {% if LANGUAGE_CODE == "en" %}selected{% endif %}>🌐 English</option>
+        <option value="ar" {% if LANGUAGE_CODE == "ar" %}selected{% endif %}>🌐 العربية</option>
+    </select>
+</form>
 
-    <form method="POST" enctype="multipart/form-data" action="{% url 'job_apply' %}">
-      {% csrf_token %}
-
-      {% if job %}
-        <input type="hidden" name="job_id" value="{{ job.id }}">
-      {% endif %}
-
-      <div class="section-header">Personal Information</div>
-
-      <div class="mb-3">
-        <label class="form-label required-star">Full Name</label>
-        <input type="text" class="form-control" name="full_name" required>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label class="form-label required-star">Place of Birth</label>
-          <input type="text" class="form-control" name="birth_place" required>
+  <div class="container py-5">
+    <div class="form-section">
+      <h2 class="form-title">{% trans "Job Application" %}</h2>
+  
+      <form method="POST" enctype="multipart/form-data" action="{% url 'job_apply' %}">
+        {% csrf_token %}
+  
+        {% if job %}
+          <input type="hidden" name="job_id" value="{{ job.id }}">
+        {% endif %}
+  
+        <div class="section-header">{% trans "Personal Information" %}</div>
+  
+        <div class="mb-3">
+          <label class="form-label required-star">{% trans "Full Name" %}</label>
+          <input type="text" class="form-control" name="full_name" required>
         </div>
-        <div class="col-md-6 mb-3">
-          <label class="form-label required-star">Date of Birth</label>
-          <input type="date" class="form-control" name="birth_date" required>
+  
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label required-star">{% trans "Place of Birth" %}</label>
+            <input type="text" class="form-control" name="birth_place" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label required-star">{% trans "Date of Birth" %}</label>
+            <input type="date" class="form-control" name="birth_date" required>
+          </div>
         </div>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label required-star">Current Residence</label>
-        <input type="text" class="form-control" name="current_residence" required>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label class="form-label required-star">Phone Number (WhatsApp)</label>
-          <input type="tel" pattern="^(\+|00)[0-9]{7,15}$" class="form-control" name="phone" required>
-          <div class="form-text">+90XXXX or 0090XXXX</div>
+  
+        <div class="mb-3">
+          <label class="form-label required-star">{% trans "Current Residence" %}</label>
+          <input type="text" class="form-control" name="current_residence" required>
         </div>
-        <div class="col-md-6 mb-3">
-          <label class="form-label">Phone Number (Backup)</label>
-          <input type="tel" pattern="^(\+|00)[0-9]{7,15}$" class="form-control" name="phone_backup">
-          <div class="form-text">+90XXXX or 0090XXXX</div>
+  
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label required-star">{% trans "Phone Number (WhatsApp)" %}</label>
+            <input type="tel" pattern="^(\+|00)[0-9]{7,15}$" class="form-control" name="phone" required>
+            <div class="form-text">{% trans "+90XXXX or 0090XXXX" %}</div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">{% trans "Phone Number (Backup)" %}</label>
+            <input type="tel" pattern="^(\+|00)[0-9]{7,15}$" class="form-control" name="phone_backup">
+            <div class="form-text">{% trans "+90XXXX or 0090XXXX" %}</div>
+          </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label class="form-label">Email (optional)</label>
-          <input type="email" class="form-control" name="email">
+  
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">{% trans "Email (optional)" %}</label>
+            <input type="email" class="form-control" name="email">
+          </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label class="form-label required-star">Gender</label>
-          <select class="form-select" name="gender" required>
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+  
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label required-star">{% trans "Gender" %}</label>
+            <select class="form-select" name="gender" required>
+              <option value="">{% trans "Select" %}</option>
+              <option value="male">{% trans "Male" %}</option>
+              <option value="female">{% trans "Female" %}</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label required-star">{% trans "Marital Status" %}</label>
+            <select class="form-select" name="marital_status" required>
+              <option value="">{% trans "Select" %}</option>
+              <option value="single">{% trans "Single" %}</option>
+              <option value="married">{% trans "Married" %}</option>
+            </select>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+        <div class="section-header">{% trans "Academic Information" %}</div>
+  
+        <div class="mb-3">
+          <label class="form-label required-star">{% trans "Scientific Certificate" %}</label>
+          <input type="text" class="form-control" name="scientific_certificate" required>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label required-star">{% trans "Specialization" %}</label>
+          <input type="text" class="form-control" name="Specialization" required>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label required-star">{% trans "Are you a graduate?" %}</label>
+          <select class="form-select" name="is_graduate" id="isGraduate" required>
+            <option value="">{% trans "Select" %}</option>
+            <option value="yes">{% trans "Yes" %}</option>
+            <option value="no">{% trans "No" %}</option>
           </select>
         </div>
-        <div class="col-md-6 mb-3">
-          <label class="form-label required-star">Marital Status</label>
-          <select class="form-select" name="marital_status" required>
-            <option value="">Select</option>
-            <option value="single">Single</option>
-            <option value="married">Married</option>
+  
+        <div class="mb-3">
+          <label class="form-label">{% trans "Experiences" %}</label>
+          <textarea class="form-control" name="experiences"></textarea>
+        </div>
+  
+        <div class="mb-3 d-none" id="grantInstitution">
+          <label class="form-label required-star">{% trans "Graduation Institution" %}</label>
+          <input type="text" class="form-control" name="graduation_institution">
+        </div>
+  
+        <div class="section-divider"></div>
+        <div class="section-header">{% trans "Other Questions" %}</div>
+  
+        <div class="mb-3">
+          <label class="form-label required-star">{% trans "Do you have health issues?" %}</label>
+          <select class="form-select" name="has_health_issues" id="hasHealthIssues" required>
+            <option value="">{% trans "Select" %}</option>
+            <option value="yes">{% trans "Yes" %}</option>
+            <option value="no">{% trans "No" %}</option>
           </select>
         </div>
-      </div><div class="section-divider"></div>
-      <div class="section-header">Academic Information</div>
-
-      <div class="mb-3">
-        <label class="form-label required-star">Scientific Certificate</label>
-        <input type="text" class="form-control" name="scientific_certificate" required>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label required-star">Specialization</label>
-        <input type="text" class="form-control" name="Specialization" required>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label required-star">Are you a graduate?</label>
-        <select class="form-select" name="is_graduate" id="isGraduate" required>
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Experiences</label>
-        <textarea class="form-control" name="experiences"></textarea>
-      </div>
-
-      <div class="mb-3 d-none" id="grantInstitution">
-        <label class="form-label required-star">Graduation Institution</label>
-        <input type="text" class="form-control" name="graduation_institution">
-      </div>
-
-      <div class="section-divider"></div>
-      <div class="section-header">Other Questions</div>
-
-      <div class="mb-3">
-        <label class="form-label required-star">Do you have health issues?</label>
-        <select class="form-select" name="has_health_issues" id="hasHealthIssues" required>
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </div>
-
-      <div class="mb-3 d-none" id="healthDescription">
-        <label class="form-label required-star">Please describe your health issue</label>
-        <textarea class="form-control" name="health_issue_description"></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label required-star">Have you ever applied for a job at RevaPharma before?</label>
-        <select class="form-select" name="previous_application" id="hasApplied" required>
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </div>
-
-      <div class="mb-3 d-none" id="applicationDate">
-        <label class="form-label">Date of Previous Application</label>
-        <input type="date" class="form-control" name="previous_application_date">
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label required-star">Do you have relatives in the company?</label>
-        <select class="form-select" name="has_relatives" id="hasRelatives" required>
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </div>
-
-      <div class="row d-none" id="relativesInfo">
-        <div class="col-md-6 mb-3">
-          <label class="form-label required-star">Relative's Name</label>
-          <input type="text" class="form-control" name="relative_name">
+  
+        <div class="mb-3 d-none" id="healthDescription">
+          <label class="form-label required-star">{% trans "Please describe your health issue" %}</label>
+          <textarea class="form-control" name="health_issue_description"></textarea>
         </div>
-        <div class="col-md-6 mb-3">
-          <label class="form-label required-star">Relative's Phone</label>
-          <input type="tel" class="form-control" name="relative_phone" pattern="^(\+|00)[0-9]{7,15}$">
+  
+        <div class="mb-3">
+          <label class="form-label required-star">{% trans "Have you ever applied for a job at RevaPharma before?" %}</label>
+          <select class="form-select" name="previous_application" id="hasApplied" required>
+            <option value="">{% trans "Select" %}</option>
+            <option value="yes">{% trans "Yes" %}</option>
+            <option value="no">{% trans "No" %}</option>
+          </select>
         </div>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Additional Notes</label>
-        <textarea class="form-control" name="additional_information"></textarea>
-      </div>
-
-      <div class="section-divider"></div>
-      <div class="section-header">Upload Documents</div>
-
-      <div class="mb-3">
-        <label class="form-label required-star">Upload CV (PDF only, max 5MB)</label>
-        <input type="file" class="form-control" name="cv_file" accept="application/pdf" required onchange="validateFileSize(this)">
-      </div><div class="mb-3">
-        <label class="form-label required-star">Upload ID (PDF only, max 5MB)</label>
-        <input type="file" class="form-control" name="id_file" accept="application/pdf" required onchange="validateFileSize(this)">
-      </div>
-
-      <div class="text-end mt-4">
-        <button type="submit" class="btn btn-primary btn-lg px-5">Submit Application</button>
-      </div>
-
-      {% if success %}
-        <div class="alert alert-success mt-4" role="alert">
-          Your application has been submitted successfully! We will review it and contact you soon.
+  
+        <div class="mb-3 d-none" id="applicationDate">
+          <label class="form-label">{% trans "Date of Previous Application" %}</label>
+          <input type="date" class="form-control" name="previous_application_date">
         </div>
-      {% endif %}
-
-      {% if error %}
-        <div class="alert alert-danger mt-4" role="alert">
-          An error occurred while submitting your application: {{ error }}
+  
+        <div class="mb-3">
+          <label class="form-label required-star">{% trans "Do you have relatives in the company?" %}</label>
+          <select class="form-select" name="has_relatives" id="hasRelatives" required>
+            <option value="">{% trans "Select" %}</option>
+            <option value="yes">{% trans "Yes" %}</option>
+            <option value="no">{% trans "No" %}</option>
+          </select>
         </div>
-      {% endif %}
-    </form>
+  
+        <div class="row d-none" id="relativesInfo">
+          <div class="col-md-6 mb-3">
+            <label class="form-label required-star">{% trans "Relative's Name" %}</label>
+            <input type="text" class="form-control" name="relative_name">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label required-star">{% trans "Relative's Phone" %}</label>
+            <input type="tel" class="form-control" name="relative_phone" pattern="^(\+|00)[0-9]{7,15}$">
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">{% trans "Additional Notes" %}</label>
+          <textarea class="form-control" name="additional_information"></textarea>
+        </div>
+  
+        <div class="section-divider"></div>
+        <div class="section-header">{% trans "Upload Documents" %}</div>
+  
+        <div class="mb-3">
+          <label class="form-label required-star">{% trans "Upload CV (PDF only, max 5MB)" %}</label>
+          <input type="file" class="form-control" name="cv_file" accept="application/pdf" required onchange="validateFileSize(this)">
+        </div>
+        <div class="mb-3">
+          <label class="form-label required-star">{% trans "Upload ID (PDF only, max 5MB)" %}</label>
+          <input type="file" class="form-control" name="id_file" accept="application/pdf" required onchange="validateFileSize(this)">
+        </div>
+  
+        <div class="text-end mt-4">
+          <button type="submit" class="btn btn-primary btn-lg px-5">{% trans "Submit application" %}</button>
+        </div>
+  
+        {% if success %}
+          <div class="alert alert-success mt-4" role="alert">
+            {% trans "Your application has been submitted successfully! We will review it and contact you soon." %}
+          </div>
+        {% endif %}
+  
+        {% if error %}
+          <div class="alert alert-danger mt-4" role="alert">
+            {% blocktrans %}An error occurred while submitting your application: {{ error }}{% endblocktrans %}
+          </div>
+        {% endif %}
+      </form>
+    </div>
   </div>
-</div>
+  
 
 
 

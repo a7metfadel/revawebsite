@@ -56,7 +56,18 @@ def open_job(request):
 def job_application_view(request):
     success = False
     error_message = None
+    job = None  # <<<<<< الحل هنا، نهيئ job بقيمة None
 
+    # الحالة 1: طلب GET (الدخول لأول مرة للفورم)
+    if request.method == 'GET':
+        job_id = request.GET.get('job_id')
+        if job_id:
+            try:
+                job = JobApplication.objects.get(id=job_id)
+            except JobApplication.DoesNotExist:
+                job = None
+
+    # الحالة 2: طلب POST (إرسال البيانات)
     if request.method == 'POST':
         try:
             data = request.POST
@@ -99,8 +110,10 @@ def job_application_view(request):
 
     return render(request, 'apply_form.html', {
         'success': success,
-        'error': error_message
+        'error': error_message,
+        'job': job,  # <<< مهم جداً يبقى موجود
     })
+
 
 # صفحة نجاح بعد التقديم
 def success_view(request):

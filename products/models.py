@@ -60,6 +60,8 @@ class Products(models.Model):
     pro_Drug_Interactions = models.TextField(verbose_name="Drug Interactions", null=True, blank=True)
     pro_pregnancy_lactation = models.TextField(verbose_name="Pregnancy and Lactation", null=True, blank=True)
     pro_dosage_administration = models.TextField(verbose_name="Dosage and Administration", null=True, blank=True)
+    pdf = models.FileField(upload_to='product_pdfs/', blank=True, null=True)
+
 
     def __str__(self):
         return self.pro_name

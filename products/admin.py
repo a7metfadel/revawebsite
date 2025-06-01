@@ -40,7 +40,8 @@ class ProductsAdmin(admin.ModelAdmin):
                 'pro_type',
                 'pro_Therapeutic_Category',
                 'pro_line',
-                'pro_photo'
+                'pro_photo',
+                'pdf'
             ),
             'description': 'المعلومات الأساسية للمنتج والتصنيف العلاجي'
         }),

@@ -18,17 +18,23 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+
+
 
 urlpatterns = [
+    path('i18n/', include('django.conf.urls.i18n')),  # ضروري لتبديل اللغة
+    # هنا بتحط أي مسارات بدك تضلها بدون لغة (عادة static/media)
+]
+
+urlpatterns += i18n_patterns(
     path('products/', include('products.urls')),
     path('', include('pages.urls')),
-    path('admin/', admin.site.urls),
     path('pages/', include('pages.urls')),
     path('job/', include('job_vacancies.urls')),
-    path('', include('products.urls')),  
     path('report/', include('report.urls')),
-    path('media/', include('django.contrib.staticfiles.urls')),
-] 
+    path('admin/', admin.site.urls),
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

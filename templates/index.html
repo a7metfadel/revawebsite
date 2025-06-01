@@ -1,38 +1,40 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
 <head>
-    <meta charset="utf-8">
-    <link rel="preload" href="{% static 'fonts/SomarSans-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="{% static 'fonts/SomarSans-Bold.woff2' %}" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="{% static 'fonts/SomarSans-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
-    <title>RevaPharma-Home</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="{% static 'img/icon.svg' %}" rel="icon" type="image/svg+xml">
-    <link href="{% static 'img/icon.svg' %}" rel="apple-touch-icon">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{% static 'css/new_bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="{% static 'css/new_style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
+  <meta charset="utf-8">
+  <link rel="preload" href="{% static 'fonts/SomarSans-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{% static 'fonts/SomarSans-Bold.woff2' %}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{% static 'fonts/SomarSans-Medium.woff2' %}" as="font" type="font/woff2" crossorigin>
+  
+  <title>{% trans "RevaPharma" %}</title>
+  
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="keywords" content="{% trans 'pharmaceuticals, medicines, healthcare, Syria, Reva Pharma, ريفا فارما, أدوية, صحة, دواء, صناعة الأدوية, سوريا' %}">
+  <meta name="description" content="{% trans 'Reva Pharma is a specialized company in the pharmaceutical industry, providing high-quality medicines according to international standards throughout Syria.' %}">
+  
+  <!-- Favicon -->
+  <link href="{% static 'img/icon.svg' %}" rel="icon" type="image/svg+xml">
+  <link href="{% static 'img/icon.svg' %}" rel="apple-touch-icon">
+  
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Libraries Stylesheet -->
+  <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+  
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="{% static 'css/new_bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  
+  <!-- Template Stylesheet -->
+  <link href="{% static 'css/new_style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  
     <!-- Carousel Styling -->
 <style>
     
@@ -194,110 +196,118 @@
 
 </head>
 
+
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+  <!-- Spinner Start -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+          <span class="sr-only">{% trans "Loading..." %}</span>
+      </div>
+  </div>
+  <!-- Spinner End -->
+ 
+ <!-- Top Brand Bar -->
+ <div class="container-fluid bg-primary text-white py-2">
+  <div class="container d-flex justify-content-between align-items-center flex-wrap small">
+    <!-- Phone Section -->
+    <div class="d-flex align-items-center mb-2 mb-md-0">
+      <a href="tel:+905378680830" class="text-white text-decoration-none d-flex align-items-center">
+        <i class="bi bi-telephone-inbound me-2 fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% trans 'Call Us' %}"></i>
+        <span class="d-none d-md-inline">+90 537 868 0830</span>
+      </a>
     </div>
-    <!-- Spinner End -->
-   
-   <!-- Top Brand Bar -->
-   <div class="container-fluid bg-primary text-white py-2">
-    <div class="container d-flex justify-content-between align-items-center flex-wrap small">
-  
-      <!-- Phone Section -->
-      <div class="d-flex align-items-center mb-2 mb-md-0">
-        <a href="tel:+905378680830" class="text-white text-decoration-none d-flex align-items-center">
-          <i class="bi bi-telephone-inbound me-2 fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Call Us"></i>
-          <span class="d-none d-md-inline">+90 537 868 0830</span>
-        </a>
-      </div>
-  
-      <!-- Email Section -->
-      <div class="d-flex align-items-center">
-        <a href="mailto:info@e-revapharma.com" class="text-white text-decoration-none d-flex align-items-center">
-          <i class="bi bi-envelope me-2 fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Email Us"></i>
-          <span class="d-none d-md-inline">info@e-revapharma.com</span>
-        </a>
-      </div>
-  
+    <!-- Email Section -->
+    <div class="d-flex align-items-center">
+      <a href="mailto:info@e-revapharma.com" class="text-white text-decoration-none d-flex align-items-center">
+        <i class="bi bi-envelope me-2 fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% trans 'Email Us' %}"></i>
+        <span class="d-none d-md-inline">info@e-revapharma.com</span>
+      </a>
     </div>
   </div>
-  
-  <!-- Main Navbar -->
-  <div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light py-3 px-2">
-        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
-          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 55px; margin-right: 10px;">
-          <h1 class="m-0 text-primary" style="font-size: 26px;">REVA <span style="color: #3d3e40;">PHARMA</span></h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-          <div class="navbar-nav gap-2 text-uppercase fw-semibold">
-            <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
-            <div class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
-              <div class="dropdown-menu rounded-0 m-0">
-                <a href="{% url 'job_catalog' %}" class="dropdown-item">Job Vacancies</a>
-                <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>
-              </div>
+</div>
+
+<!-- Main Navbar -->
+<div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light py-3 px-2">
+      <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+        <img src="{% static 'img/icon.svg' %}" alt="{% trans 'REVA PHARMA Logo' %}" style="height: 55px; margin-right: 10px;">
+        <h1 class="m-0 text-primary" style="font-size: 26px;"> {% trans "REVA" %} <span style="color: #3d3e40;">{% trans "PHARMA" %}</span></h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="navbar-nav gap-2 text-uppercase fw-semibold align-items-center">
+          <a href="{% url 'home' %}" class="nav-item nav-link active">{% trans "Home" %}</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{% trans "Services" %}</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="{% url 'job_catalog' %}" class="dropdown-item">{% trans "Job Vacancies" %}</a>
+              <a href="{% url 'report' %}" class="dropdown-item">{% trans "Submit a complaint" %}</a>
             </div>
-            <a href="{% url 'product_catalog' %}" class="nav-item nav-link">Products</a>
-            <a href="https://www.stotpharma.com.tr/en/index.html" class="nav-item nav-link">STOT PHARMA</a>
-            <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
-            <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
           </div>
+          <a href="{% url 'product_catalog' %}" class="nav-item nav-link">{% trans "Products" %}</a>
+          <a href="https://www.stotpharma.com.tr/en/index.html" class="nav-item nav-link">STOT PHARMA</a>
+          <a href="{% url 'about' %}" class="nav-item nav-link">{% trans "About" %}</a>
+          <a href="{% url 'contact' %}" class="nav-item nav-link">{% trans "Contact" %}</a>
         </div>
-      </nav>
-    </div>
+        <!-- Language Switcher: يكون خارج .navbar-nav لكن جوات collapse -->
+        <form action="{% url 'set_language' %}" method="post" class="ms-3 d-flex align-items-center" style="min-width: 120px;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+            <select name="language" onchange="this.form.submit()" class="form-select border-0 py-1 px-2" style="background: #f8f9fa; width: 110px; font-size: 1rem;">
+                <option value="en" {% if LANGUAGE_CODE == "en" %}selected{% endif %}>🌐 English</option>
+                <option value="ar" {% if LANGUAGE_CODE == "ar" %}selected{% endif %}>🌐 العربية</option>
+            </select>
+        </form>
+      </div>
+    </nav>
   </div>
-  
-  <!-- Carousel Start -->
-  <div class="container-fluid header-carousel px-0 mb-5">
-    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-      <div class="carousel-inner">
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-          <img class="w-100" src="{% static 'img/04.jpg' %}" alt="Image">
-          <div class="carousel-caption">
-            <div class="container">
-              <div class="row justify-content-start">
-                <div class="col-lg-7 text-start">
-                  <h1 class="display-1 text-white animated slideInRight mb-3">Quality Control Department</h1>
-                  <p class="mb-5 animated slideInRight">QC: The beating heart of quality in every pill.</p>
-                </div>
+</div>
+
+
+<!-- Carousel Start -->
+<div class="container-fluid header-carousel px-0 mb-5">
+  <div id="header-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <img class="w-100" src="{% static 'img/04.jpg' %}" alt="Image">
+        <div class="carousel-caption">
+          <div class="container">
+            <div class="row justify-content-start">
+              <div class="col-lg-7 text-start">
+                <h1 class="display-1 text-white animated slideInRight mb-3">{% trans "Quality Control Department" %}</h1>
+                <p class="mb-5 animated slideInRight">{% trans "QC: The beating heart of quality in every pill." %}</p>
               </div>
             </div>
           </div>
         </div>
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-          <img class="w-100" src="{% static 'img/01.jpg' %}" alt="Image">
-          <div class="carousel-caption">
-            <div class="container">
-              <div class="row justify-content-end">
-                <div class="col-lg-7 text-end">
-                  <h1 class="display-1 text-white animated slideInLeft mb-3">Production Department</h1>
-                  <p class="mb-5 animated slideInLeft">High-efficiency production ensuring excellence in every product.</p>
-                </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <img class="w-100" src="{% static 'img/01.jpg' %}" alt="Image">
+        <div class="carousel-caption">
+          <div class="container">
+            <div class="row justify-content-end">
+              <div class="col-lg-7 text-end">
+                <h1 class="display-1 text-white animated slideInLeft mb-3">{% trans "Production Department" %}</h1>
+                <p class="mb-5 animated slideInLeft">{% trans "High-efficiency production ensuring excellence in every product." %}</p>
               </div>
             </div>
           </div>
         </div>
-        <!-- Slide 3 -->
-        <div class="carousel-item">
-          <img class="w-100" src="{% static 'img/QA1_Grid.jpg' %}" alt="Image">
-          <div class="carousel-caption">
-            <div class="container">
-              <div class="row justify-content-start">
-                <div class="col-lg-7 text-start">
-                    <h1 class="display-1 text-white animated slideInRight mb-3">Quality Assurance Department</h1>
-                <p class="mb-5 animated slideInRight">QA: We plant quality into every detail... before the product sees the light.</p>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <img class="w-100" src="{% static 'img/QA1_Grid.jpg' %}" alt="Image">
+        <div class="carousel-caption">
+          <div class="container">
+            <div class="row justify-content-start">
+              <div class="col-lg-7 text-start">
+                <h1 class="display-1 text-white animated slideInRight mb-3">{% trans "Quality Assurance Department" %}</h1>
+                <p class="mb-5 animated slideInRight">{% trans "QA: We plant quality into every detail... before the product sees the light." %}</p>
               </div>
             </div>
           </div>
@@ -310,8 +320,8 @@
           <div class="container">
             <div class="row justify-content-start">
               <div class="col-lg-7 text-start">
-                <h1 class="display-1 text-white animated slideInRight mb-3">Warehouse Department</h1>
-                <p class="mb-5 animated slideInRight">The quality of pharmaceuticals begins with the quality of raw material storage.</p>
+                <h1 class="display-1 text-white animated slideInRight mb-3">{% trans "Warehouse Department" %}</h1>
+                <p class="mb-5 animated slideInRight">{% trans "The quality of pharmaceuticals begins with the quality of raw material storage." %}</p>
               </div>
             </div>
           </div>
@@ -324,8 +334,8 @@
           <div class="container">
             <div class="row justify-content-start">
               <div class="col-lg-7 text-start">
-                <h1 class="display-1 text-white animated slideInRight mb-3">Administration Department</h1>
-                <p class="mb-5 animated slideInRight">Effective management supporting institutional performance growth.</p>
+                <h1 class="display-1 text-white animated slideInRight mb-3">{% trans "Administration Department" %}</h1>
+                <p class="mb-5 animated slideInRight">{% trans "Effective management supporting institutional performance growth." %}</p>
               </div>
             </div>
           </div>
@@ -335,196 +345,191 @@
     <!-- Carousel Controls -->
     <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+      <span class="visually-hidden">{% trans "Previous" %}</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+      <span class="visually-hidden">{% trans "Next" %}</span>
     </button>
   </div>
 </div>
 <!-- Carousel End -->
 
-    <!-- Production_Line Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1>Production lines</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item bg-light rounded p-5 h-auto">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                            <img src="{% static 'icon/icon_ampoule.png' %}" alt="Tablets Production Line" style="width: 40px; height: 40px;">
-                        </div>
-                        <h4 class="mb-3">Penicillin's Production Line</h4>
-                        <a class="btn" href="{% url 'benicillins' %}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item bg-light rounded p-5 h-auto">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                            <img src="{% static 'icon/icon_antiseptic.png' %}" alt="Capsules Production Line" style="width: 40px; height: 40px;">
-                        </div>
-                        <h4 class="mb-3">General production line</h4>
-                        <a class="btn" href="{% url 'General' %}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item bg-light rounded p-5 h-auto">
-                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                            <img src="{% static 'icon/icon_capsules.png' %}" alt="Tablets Production Line" style="width: 40px; height: 40px;">
-                        </div>
-                        <h4 class="mb-3">Cephalosporins Production Line</h4>
-                        <a class="btn" href="{% url 'cephalosporins' %}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                    </div>
-                </div>
-            </div>
+<!-- Production_Line Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1>{% trans "Production lines" %}</h1>
         </div>
-    </div>
-    <!-- Production_Line End -->
-     
-
-
-    
-    <!-- counter Start -->
-    <div class="container-fluid header bg-primary p-0 mb-5">
-        <div class="row g-0 align-items-center justify-content-center text-center">
-            <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
-                <h1 class="display-4 text-white mb-5 text-center">Committed to Quality for Your Health</h1>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-sm-4">
-                        <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">36</h2>
-                            <p class="text-light mb-0">Administrators and supervisors</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">210</h2>
-                            <p class="text-light mb-0">Medical Products</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">57</h2>
-                            <p class="text-light mb-0">Pharmacist and Chemist</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">236</h2>
-                            <p class="text-light mb-0">worker and technician</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">329</h2>
-                            <p class="text-light mb-0">Total WorkForce</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- counter End -->
-
-    
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="d-flex flex-column">
-                        <img class="img-fluid rounded w-75 align-self-end" src="{% static 'img/ISO-522.jpg' %}" alt="" 
-                            style="border: 3px solid #000;">
-                        <img class="img-fluid rounded w-50 bg-white pt-3 pe-3" src="{% static 'img/ISO-348.jpg' %}" alt="" 
-                            style="margin-top: -25%; border: 3px solid #000;">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <p class="d-inline-block border rounded-pill py-1 px-4">About Us</p>
-                    <h1 class="mb-4">Why You Should Trust Us?</h1>
-                    <p>Quality at Reva Pharma was not just a goal, but a belief we adopted in all stages of our work.
-                        At Reva Pharma, we realize the importance of quality in the pharmaceutical industry. </p>
-                   
-                    
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="far fa-check-circle text-primary me-3"></i>
-                        <a href="https://www.iso.org/standard/63787.html" class="nav-link p-0">ISO 45001 Occupational Health and Safety Management Certification</a>
-                    </div>
-                    
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="far fa-check-circle text-primary me-3"></i>
-                        <a href="https://www.iso.org/standard/60857.html" class="nav-link p-0">ISO 14001 Environmental Management Certification</a>
-                    </div>
-                    
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="far fa-check-circle text-primary me-3"></i>
-                        <a href="https://www.iso.org/standard/62085.html" class="nav-link p-0">ISO 9001 Certification in Quality Management</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-    <footer class="container-fluid pt-5 pb-0 mt-5" style="font-family:'Open Sans','Roboto',sans-serif; background: linear-gradient(120deg, #1e2a3a 70%, #143161 100%);">
-      <div class="container pb-3">
         <div class="row g-4">
-          <!-- Brand and Contact Info -->
-          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-            <div class="footer-minicard">
-              <div class="d-flex align-items-center mb-3">
-                <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" class="footer-logo-img me-2">
-                <span class="footer-logo-text">REVA PHARMA</span>
-              </div>
-              <div class="footer-contact"><i class="fas fa-map-marker-alt footer-contact-icon me-2"></i>Syria, Aleppo</div>
-              <div class="footer-contact"><i class="fas fa-phone-alt footer-contact-icon me-2"></i>+90 537 868 0830</div>
-              <div class="footer-contact"><i class="fas fa-envelope footer-contact-icon me-2"></i>info@e-revapharma.com</div>
-              <div class="d-flex mt-3">
-                <a href="https://x.com/revapharma__" class="footer-social-min" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/revapharma/" class="footer-social-min" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/revapharma_/" class="footer-social-min" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/e-reva-pharma/" class="footer-social-min" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item bg-light rounded p-5 h-auto">
+                    <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                        <img src="{% static 'icon/icon_ampoule.png' %}" alt="{% trans 'Penicillin Production Line' %}" style="width: 40px; height: 40px;">
+                    </div>
+                    <h4 class="mb-3">{% trans "Penicillin's Production Line" %}</h4>
+                    <a class="btn" href="{% url 'benicillins' %}"><i class="fa fa-plus text-primary me-3"></i>{% trans "Read More" %}</a>
+                </div>
             </div>
-          </div>
-          <!-- Services -->
-          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-            <div class="footer-minicard">
-              <div class="footer-title-alt">Services</div>
-              <a class="footer-link-min" href="{% url 'job_catalog' %}">Job Vacancies</a>
-              <a class="footer-link-min" href="{% url 'report' %}">Submit a Complaint</a>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item bg-light rounded p-5 h-auto">
+                    <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                        <img src="{% static 'icon/icon_antiseptic.png' %}" alt="{% trans 'General production line' %}" style="width: 40px; height: 40px;">
+                    </div>
+                    <h4 class="mb-3">{% trans "General production line" %}</h4>
+                    <a class="btn" href="{% url 'General' %}"><i class="fa fa-plus text-primary me-3"></i>{% trans "Read More" %}</a>
+                </div>
             </div>
-          </div>
-          <!-- Quick Links -->
-          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-            <div class="footer-minicard">
-              <div class="footer-title-alt">Quick Links</div>
-              <a class="footer-link-min" href="{% url 'about' %}">About Us</a>
-              <a class="footer-link-min" href="{% url 'contact' %}">Contact Us</a>
-              <a class="footer-link-min" href="#">Terms & Conditions</a>
-              <a class="footer-link-min" href="#">Support</a>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item bg-light rounded p-5 h-auto">
+                    <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                        <img src="{% static 'icon/icon_capsules.png' %}" alt="{% trans 'Cephalosporins Production Line' %}" style="width: 40px; height: 40px;">
+                    </div>
+                    <h4 class="mb-3">{% trans "Cephalosporins Production Line" %}</h4>
+                    <a class="btn" href="{% url 'cephalosporins' %}"><i class="fa fa-plus text-primary me-3"></i>{% trans "Read More" %}</a>
+                </div>
             </div>
-          </div>
-          <!-- Mission -->
-          <div class="col-lg-4 col-md-6">
-            <div class="footer-minicard">
-              <div class="footer-title-alt">Our Mission</div>
-              <blockquote class="footer-mission-alt">
-                Manufacturing high-quality medicines to ensure better health for all.</blockquote>
-            </div>
-          </div>
         </div>
-        <hr class="footer-divider my-4">
-        <div class="row align-items-center text-center text-md-start pb-2">
-          <div class="footer-copyright">
-            &copy; <span class="footer-brand">REVA PHARMA</span> . All Rights Reserved.
-          </div>          
+    </div>
+</div>
+<!-- Production_Line End -->
+ 
+<!-- counter Start -->
+<div class="container-fluid header bg-primary p-0 mb-5">
+    <div class="row g-0 align-items-center justify-content-center text-center">
+        <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
+            <h1 class="display-4 text-white mb-5 text-center">{% trans "Committed to Quality for Your Health" %}</h1>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-4">
+                    <div class="border-start border-light ps-4">
+                        <h2 class="text-white mb-1" data-toggle="counter-up">36</h2>
+                        <p class="text-light mb-0">{% trans "Administrators and supervisors" %}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="border-start border-light ps-4">
+                        <h2 class="text-white mb-1" data-toggle="counter-up">210</h2>
+                        <p class="text-light mb-0">{% trans "Medical Products" %}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="border-start border-light ps-4">
+                        <h2 class="text-white mb-1" data-toggle="counter-up">57</h2>
+                        <p class="text-light mb-0">{% trans "Pharmacist and Chemist" %}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="border-start border-light ps-4">
+                        <h2 class="text-white mb-1" data-toggle="counter-up">236</h2>
+                        <p class="text-light mb-0">{% trans "worker and technician" %}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="border-start border-light ps-4">
+                        <h2 class="text-white mb-1" data-toggle="counter-up">329</h2>
+                        <p class="text-light mb-0">{% trans "Total WorkForce" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- counter End -->
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex flex-column">
+                    <img class="img-fluid rounded w-75 align-self-end" src="{% static 'img/ISO-522.jpg' %}" alt="" style="border: 3px solid #000;">
+                    <img class="img-fluid rounded w-50 bg-white pt-3 pe-3" src="{% static 'img/ISO-348.jpg' %}" alt="" style="margin-top: -25%; border: 3px solid #000;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <br>
+                <br>
+                <h1 class="mb-4">{% trans "Why You Should Trust Us?" %}</h1>
+                <p>{% trans "Quality at Reva Pharma was not just a goal, but a belief we adopted in all stages of our work. At Reva Pharma, we realize the importance of quality in the pharmaceutical industry." %}</p>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="far fa-check-circle text-primary me-3"></i>
+                    <a href="https://www.iso.org/standard/63787.html" class="nav-link p-0">{% trans "ISO 45001 Occupational Health and Safety Management Certification" %}</a>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="far fa-check-circle text-primary me-3"></i>
+                    <a href="https://www.iso.org/standard/60857.html" class="nav-link p-0">{% trans "ISO 14001 Environmental Management Certification" %}</a>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="far fa-check-circle text-primary me-3"></i>
+                    <a href="https://www.iso.org/standard/62085.html" class="nav-link p-0">{% trans "ISO 9001 Certification in Quality Management" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Footer -->
+<footer class="container-fluid pt-5 pb-0 mt-5" style="font-family:'Open Sans','Roboto',sans-serif; background: linear-gradient(120deg, #1e2a3a 70%, #143161 100%);">
+  <div class="container pb-3">
+    <div class="row g-4">
+      <!-- Brand and Contact Info -->
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div class="footer-minicard">
+          <div class="d-flex align-items-center mb-3">
+            <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" class="footer-logo-img me-2">
+            <span class="footer-logo-text">{% trans "REVA PHARMA" %}</span>
+          </div>
+          <div class="footer-contact"><i class="fas fa-map-marker-alt footer-contact-icon me-2"></i>{% trans "Syria, Aleppo" %}</div>
+          <div class="footer-contact"><i class="fas fa-phone-alt footer-contact-icon me-2"></i>+905378680830</div>
+          <div class="footer-contact"><i class="fas fa-envelope footer-contact-icon me-2"></i>info@e-revapharma.com</div>
+          <div class="d-flex mt-3">
+            <a href="https://x.com/revapharma__" class="footer-social-min" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/revapharma/" class="footer-social-min" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/revapharma_/" class="footer-social-min" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/e-reva-pharma/" class="footer-social-min" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
         </div>
       </div>
-    </footer>
+      <!-- Services -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <div class="footer-minicard">
+          <div class="footer-title-alt">{% trans "Services" %}</div>
+          <a class="footer-link-min" href="{% url 'job_catalog' %}">{% trans "Job Vacancies" %}</a>
+          <a class="footer-link-min" href="{% url 'report' %}">{% trans "Submit a Complaint" %}</a>
+        </div>
+      </div>
+      <!-- Quick Links -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+        <div class="footer-minicard">
+          <div class="footer-title-alt">{% trans "Quick Links" %}</div>
+          <a class="footer-link-min" href="{% url 'about' %}">{% trans "About Us" %}</a>
+          <a class="footer-link-min" href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
+          <a class="footer-link-min" href="#">{% trans "Terms & Conditions" %}</a>
+          <a class="footer-link-min" href="#">{% trans "Support" %}</a>
+        </div>
+      </div>
+      <!-- Mission -->
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-minicard">
+          <div class="footer-title-alt">{% trans "Our Mission" %}</div>
+          <blockquote class="footer-mission-alt">
+            {% trans "Manufacturing high-quality medicines to ensure better health for all." %}
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider my-4">
+    <div class="row align-items-center text-center text-md-start pb-2">
+      <div class="footer-copyright">
+        &copy; <span class="footer-brand">{% trans "REVA PHARMA" %}</span> . {% trans "All Rights Reserved." %}
+      </div>          
+    </div>
+  </div>
+</footer>
+</body>
+
+
 
 
 
