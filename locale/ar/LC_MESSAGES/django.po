@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 11:30+0300\n"
+"POT-Creation-Date: 2025-06-01 16:06+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,248 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n%100>=3 && "
 "n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: .\templates\apply_form.html:8 .\templates\apply_form.html:203
+#: .\templates\General.html:7
+msgid "RevaPharma-General"
+msgstr ""
+
+#: .\templates\General.html:166 .\templates\benicillins.html:166
+#: .\templates\cephalosporins.html:167 .\templates\contact.html:268
+#: .\templates\index.html:204 .\templates\job_catalog.html:192
+#: .\templates\report.html:183
+msgid "Loading..."
+msgstr "جاري التحميل..."
+
+#: .\templates\General.html:201 .\templates\benicillins.html:201
+#: .\templates\car-finder-about.html:199 .\templates\cephalosporins.html:198
+#: .\templates\contact.html:298 .\templates\index.html:235
+#: .\templates\job_catalog.html:226 .\templates\product_catalog2.html:230
+#: .\templates\report.html:214
+msgid "REVA"
+msgstr "ريفا"
+
+#: .\templates\General.html:201 .\templates\benicillins.html:201
+#: .\templates\car-finder-about.html:199 .\templates\cephalosporins.html:198
+#: .\templates\contact.html:298 .\templates\index.html:235
+#: .\templates\job_catalog.html:226 .\templates\product_catalog2.html:230
+#: .\templates\report.html:214
+msgid "PHARMA"
+msgstr "فارما"
+
+#: .\templates\General.html:208 .\templates\General.html:232
+#: .\templates\benicillins.html:208 .\templates\benicillins.html:251
+#: .\templates\car-finder-about.html:206 .\templates\cephalosporins.html:205
+#: .\templates\cephalosporins.html:237 .\templates\contact.html:305
+#: .\templates\index.html:242 .\templates\job_catalog.html:233
+#: .\templates\product_catalog2.html:237 .\templates\report.html:221
+msgid "Home"
+msgstr "الصفحة الرئيسية"
+
+#: .\templates\General.html:210 .\templates\General.html:395
+#: .\templates\benicillins.html:210 .\templates\benicillins.html:416
+#: .\templates\car-finder-about.html:208 .\templates\car-finder-about.html:322
+#: .\templates\cephalosporins.html:207 .\templates\cephalosporins.html:396
+#: .\templates\contact.html:307 .\templates\contact.html:454
+#: .\templates\index.html:244 .\templates\index.html:506
+#: .\templates\job_catalog.html:235 .\templates\job_catalog.html:397
+#: .\templates\product_catalog2.html:239 .\templates\product_catalog2.html:581
+#: .\templates\report.html:223 .\templates\report.html:361
+msgid "Services"
+msgstr "الخدمات"
+
+#: .\templates\General.html:212 .\templates\General.html:396
+#: .\templates\benicillins.html:212 .\templates\benicillins.html:417
+#: .\templates\car-finder-about.html:210 .\templates\car-finder-about.html:323
+#: .\templates\cephalosporins.html:209 .\templates\cephalosporins.html:397
+#: .\templates\contact.html:309 .\templates\contact.html:455
+#: .\templates\index.html:246 .\templates\index.html:507
+#: .\templates\job_catalog.html:237 .\templates\job_catalog.html:273
+#: .\templates\job_catalog.html:398 .\templates\product_catalog2.html:241
+#: .\templates\product_catalog2.html:582 .\templates\report.html:225
+#: .\templates\report.html:362
+msgid "Job Vacancies"
+msgstr "الوظائف الشاغرة"
+
+#: .\templates\General.html:213 .\templates\benicillins.html:213
+#: .\templates\car-finder-about.html:211 .\templates\cephalosporins.html:210
+#: .\templates\contact.html:310 .\templates\index.html:247
+#: .\templates\job_catalog.html:238 .\templates\report.html:226
+msgid "Submit a complaint"
+msgstr "تقديم شكوى"
+
+#: .\templates\General.html:216 .\templates\benicillins.html:216
+#: .\templates\car-finder-about.html:214 .\templates\cephalosporins.html:213
+#: .\templates\contact.html:313 .\templates\index.html:250
+#: .\templates\job_catalog.html:241 .\templates\product_catalog2.html:245
+#: .\templates\report.html:229
+msgid "Products"
+msgstr "المنتجات"
+
+#: .\templates\General.html:218 .\templates\benicillins.html:218
+#: .\templates\car-finder-about.html:216 .\templates\cephalosporins.html:215
+#: .\templates\contact.html:315 .\templates\index.html:252
+#: .\templates\job_catalog.html:243 .\templates\product_catalog2.html:247
+#: .\templates\report.html:231
+msgid "About"
+msgstr "من نحن ؟"
+
+#: .\templates\General.html:219 .\templates\benicillins.html:219
+#: .\templates\car-finder-about.html:217 .\templates\cephalosporins.html:216
+#: .\templates\contact.html:316 .\templates\index.html:253
+#: .\templates\job_catalog.html:244 .\templates\product_catalog2.html:248
+#: .\templates\report.html:232
+msgid "Contact"
+msgstr "اتصل بنا"
+
+#: .\templates\General.html:229 .\templates\General.html:234
+msgid "About General"
+msgstr "نبذة عن الخط العام"
+
+#: .\templates\General.html:233 .\templates\benicillins.html:252
+#: .\templates\cephalosporins.html:238
+msgid "Pages"
+msgstr "الصفحات"
+
+#: .\templates\General.html:247
+msgid "About General product line"
+msgstr "نبذة عن خط الإنتاج العام"
+
+#: .\templates\General.html:248 .\templates\benicillins.html:267
+#: .\templates\cephalosporins.html:252
+msgid "A brief history of this line"
+msgstr "نبذة تاريخية عن هذا الخط"
+
+#: .\templates\General.html:249 .\templates\benicillins.html:268
+#: .\templates\cephalosporins.html:253
+msgid "Start date 2015-01-01"
+msgstr "تاريخ البدء 2015-01-01"
+
+#: .\templates\General.html:250
+msgid ""
+"This department was designed in accordance with the rules of Good "
+"Manufacturing Practices. The pharmaceutical forms produced in this "
+"department include: Tablets Capsules Dry Syrups, oral solution and "
+"suspension, suppositories, cream and ointment."
+msgstr ""
+"تم تصميم هذا القسم وفقًا لقواعد ممارسات التصنيع الجيدة. تشمل الأشكال "
+"الصيدلانية المنتجة في هذا القسم ما يلي: أقراص أقراص كبسولات شراب جاف، ومحلول "
+"ومعلق فموي، وتحاميل وكريم ومرهم."
+
+#: .\templates\General.html:252
+msgid "Diverse products for every case"
+msgstr "منتجات متنوعة تناسب كل حالة"
+
+#: .\templates\General.html:253 .\templates\benicillins.html:271
+#: .\templates\cephalosporins.html:256
+msgid "GMP"
+msgstr "ممارسات التصنيع الجيد"
+
+#: .\templates\General.html:254
+msgid "Trusted solutions for better health"
+msgstr "حلول موثوقة لصحة أفضل"
+
+#: .\templates\General.html:267
+msgid "General Products"
+msgstr "منتجات قسم العام"
+
+#: .\templates\General.html:268
+msgid "Discover our range of high-quality General products"
+msgstr "اكتشف مجموعتنا من المنتجات العامة عالية الجودة"
+
+#: .\templates\General.html:302 .\templates\benicillins.html:323
+#: .\templates\cephalosporins.html:306 .\templates\product_catalog2.html:517
+#, fuzzy
+#| msgid "Previous"
+msgid "Prev"
+msgstr "السابق"
+
+#: .\templates\General.html:322 .\templates\benicillins.html:343
+#: .\templates\cephalosporins.html:326 .\templates\index.html:361
+#: .\templates\job_catalog.html:352 .\templates\product_catalog2.html:539
+msgid "Next"
+msgstr "التالي"
+
+#: .\templates\General.html:379 .\templates\General.html:422
+#: .\templates\benicillins.html:443 .\templates\car-finder-about.html:306
+#: .\templates\car-finder-about.html:349 .\templates\cephalosporins.html:380
+#: .\templates\cephalosporins.html:423 .\templates\contact.html:438
+#: .\templates\contact.html:481 .\templates\index.html:490
+#: .\templates\index.html:534 .\templates\job_catalog.html:381
+#: .\templates\job_catalog.html:424 .\templates\report.html:345
+#: .\templates\report.html:388
+msgid "REVA PHARMA"
+msgstr "ريفا فارما"
+
+#: .\templates\General.html:381 .\templates\car-finder-about.html:308
+#: .\templates\cephalosporins.html:382 .\templates\contact.html:440
+#: .\templates\index.html:492 .\templates\job_catalog.html:383
+#: .\templates\report.html:347
+msgid "Syria, Aleppo"
+msgstr "سوريا , حلب"
+
+#: .\templates\General.html:397 .\templates\benicillins.html:418
+#: .\templates\car-finder-about.html:324 .\templates\cephalosporins.html:398
+#: .\templates\contact.html:456 .\templates\index.html:508
+#: .\templates\job_catalog.html:399 .\templates\product_catalog2.html:242
+#: .\templates\product_catalog2.html:583 .\templates\report.html:363
+msgid "Submit a Complaint"
+msgstr "تقديم شكوى"
+
+#: .\templates\General.html:403 .\templates\benicillins.html:424
+#: .\templates\car-finder-about.html:330 .\templates\cephalosporins.html:404
+#: .\templates\contact.html:462 .\templates\index.html:514
+#: .\templates\job_catalog.html:405 .\templates\product_catalog2.html:589
+#: .\templates\report.html:369
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+#: .\templates\General.html:404 .\templates\benicillins.html:425
+#: .\templates\car-finder-about.html:331 .\templates\cephalosporins.html:405
+#: .\templates\contact.html:463 .\templates\index.html:515
+#: .\templates\job_catalog.html:406 .\templates\product_catalog2.html:590
+#: .\templates\report.html:370
+msgid "About Us"
+msgstr "نبذة عنا"
+
+#: .\templates\General.html:405 .\templates\benicillins.html:426
+#: .\templates\car-finder-about.html:332 .\templates\cephalosporins.html:406
+#: .\templates\contact.html:464 .\templates\index.html:516
+#: .\templates\job_catalog.html:407 .\templates\product_catalog2.html:591
+#: .\templates\report.html:371
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#: .\templates\General.html:406 .\templates\benicillins.html:427
+#: .\templates\car-finder-about.html:333 .\templates\cephalosporins.html:407
+#: .\templates\contact.html:465 .\templates\index.html:518
+#: .\templates\job_catalog.html:408 .\templates\product_catalog2.html:592
+#: .\templates\report.html:372
+msgid "Support"
+msgstr "الدعم"
+
+#: .\templates\General.html:412 .\templates\benicillins.html:433
+#: .\templates\car-finder-about.html:339 .\templates\cephalosporins.html:413
+#: .\templates\contact.html:471 .\templates\index.html:524
+#: .\templates\job_catalog.html:414 .\templates\product_catalog2.html:598
+#: .\templates\report.html:378
+msgid "Our Mission"
+msgstr "رسالتنا"
+
+#: .\templates\General.html:414 .\templates\benicillins.html:435
+#: .\templates\car-finder-about.html:341 .\templates\cephalosporins.html:415
+#: .\templates\contact.html:473 .\templates\index.html:526
+#: .\templates\job_catalog.html:416 .\templates\product_catalog2.html:600
+#: .\templates\report.html:380
+msgid "Manufacturing high-quality medicines to ensure better health for all."
+msgstr "صناعة أدوية عالية الجودة لضمان صحة أفضل للجميع."
+
+#: .\templates\General.html:422 .\templates\car-finder-about.html:349
+#: .\templates\cephalosporins.html:423 .\templates\contact.html:481
+#: .\templates\index.html:534 .\templates\job_catalog.html:424
+#: .\templates\report.html:388
+msgid "All Rights Reserved."
+msgstr "جميع الحقوق محفوظة."
+
+#: .\templates\apply_form.html:8 .\templates\apply_form.html:210
 msgid "Job Application"
 msgstr "طلب توظيف"
 
@@ -31,169 +272,168 @@ msgstr "أنت تتقدم بطلب للحصول على وظيفة:"
 msgid "General application (no specific vacancy selected)."
 msgstr "طلب عام (لم يتم اختيار وظيفة محددة)."
 
-#: .\templates\apply_form.html:212
+#: .\templates\apply_form.html:219
 msgid "Personal Information"
 msgstr "المعلومات الشخصية"
 
-#: .\templates\apply_form.html:215
-#, fuzzy
-#| msgid "Your Name"
+#: .\templates\apply_form.html:222 .\templates\report.html:279
+#: .\templates\report.html:280
 msgid "Full Name"
-msgstr "اسمك"
+msgstr "اسمك الكامل"
 
-#: .\templates\apply_form.html:221
+#: .\templates\apply_form.html:228
 msgid "Place of Birth"
 msgstr "مكان الميلاد"
 
-#: .\templates\apply_form.html:225
+#: .\templates\apply_form.html:232
 msgid "Date of Birth"
 msgstr "تاريخ الميلاد"
 
-#: .\templates\apply_form.html:231
+#: .\templates\apply_form.html:238
 msgid "Current Residence"
 msgstr "مكان الإقامة الحالي"
 
-#: .\templates\apply_form.html:237
+#: .\templates\apply_form.html:244
 msgid "Phone Number (WhatsApp)"
 msgstr "رقم الهاتف (واتساب)"
 
-#: .\templates\apply_form.html:239 .\templates\apply_form.html:244
+#: .\templates\apply_form.html:246 .\templates\apply_form.html:251
 msgid "+90XXXX or 0090XXXX"
 msgstr ""
 
-#: .\templates\apply_form.html:242
+#: .\templates\apply_form.html:249
 msgid "Phone Number (Backup)"
 msgstr "رقم الهاتف (احتياطي)"
 
-#: .\templates\apply_form.html:250
+#: .\templates\apply_form.html:257
 msgid "Email (optional)"
 msgstr "البريد الإلكتروني (اختياري)"
 
-#: .\templates\apply_form.html:257
+#: .\templates\apply_form.html:264
 msgid "Gender"
 msgstr "الجنس"
 
-#: .\templates\apply_form.html:259 .\templates\apply_form.html:267
-#: .\templates\apply_form.html:289 .\templates\apply_form.html:311
-#: .\templates\apply_form.html:325 .\templates\apply_form.html:339
+#: .\templates\apply_form.html:266 .\templates\apply_form.html:274
+#: .\templates\apply_form.html:296 .\templates\apply_form.html:322
+#: .\templates\apply_form.html:336 .\templates\apply_form.html:350
 msgid "Select"
 msgstr "اختر"
 
-#: .\templates\apply_form.html:260
+#: .\templates\apply_form.html:267
 msgid "Male"
 msgstr "ذكر"
 
-#: .\templates\apply_form.html:261
+#: .\templates\apply_form.html:268
 msgid "Female"
 msgstr "أنثى"
 
-#: .\templates\apply_form.html:265
+#: .\templates\apply_form.html:272
 msgid "Marital Status"
 msgstr "الحالة الاجتماعية"
 
-#: .\templates\apply_form.html:268
+#: .\templates\apply_form.html:275
 msgid "Single"
 msgstr "أعزب"
 
-#: .\templates\apply_form.html:269
+#: .\templates\apply_form.html:276
 msgid "Married"
 msgstr "متزوج"
 
-#: .\templates\apply_form.html:274
+#: .\templates\apply_form.html:281
 msgid "Academic Information"
 msgstr "المعلومات الأكاديمية"
 
-#: .\templates\apply_form.html:277
+#: .\templates\apply_form.html:284
 msgid "Scientific Certificate"
 msgstr "الشهادة العلمية"
 
-#: .\templates\apply_form.html:282
+#: .\templates\apply_form.html:289
 msgid "Specialization"
 msgstr "التخصص"
 
-#: .\templates\apply_form.html:287
+#: .\templates\apply_form.html:294
 msgid "Are you a graduate?"
 msgstr "هل أنت متخرج؟"
 
-#: .\templates\apply_form.html:290 .\templates\apply_form.html:312
-#: .\templates\apply_form.html:326 .\templates\apply_form.html:340
+#: .\templates\apply_form.html:297 .\templates\apply_form.html:323
+#: .\templates\apply_form.html:337 .\templates\apply_form.html:351
 msgid "Yes"
 msgstr "نعم"
 
-#: .\templates\apply_form.html:291 .\templates\apply_form.html:313
-#: .\templates\apply_form.html:327 .\templates\apply_form.html:341
+#: .\templates\apply_form.html:298 .\templates\apply_form.html:324
+#: .\templates\apply_form.html:338 .\templates\apply_form.html:352
 msgid "No"
 msgstr "لا"
 
-#: .\templates\apply_form.html:296
+#: .\templates\apply_form.html:304
 msgid "Experiences"
 msgstr "الخبرات"
 
-#: .\templates\apply_form.html:301
+#: .\templates\apply_form.html:312
 msgid "Graduation Institution"
 msgstr "الجامعة التي تخرجت منها"
 
-#: .\templates\apply_form.html:306
+#: .\templates\apply_form.html:317
 msgid "Other Questions"
 msgstr "أسئلة أخرى"
 
-#: .\templates\apply_form.html:309
+#: .\templates\apply_form.html:320
 msgid "Do you have health issues?"
 msgstr "هل تعاني من مشاكل صحية؟"
 
-#: .\templates\apply_form.html:318
+#: .\templates\apply_form.html:329
 msgid "Please describe your health issue"
 msgstr "يُرجى وصف مشكلتك الصحية"
 
-#: .\templates\apply_form.html:323
+#: .\templates\apply_form.html:334
 msgid "Have you ever applied for a job at RevaPharma before?"
 msgstr "هل سبق لك التقدم لوظيفة في RevaPharma من قبل؟"
 
-#: .\templates\apply_form.html:332
+#: .\templates\apply_form.html:343
 msgid "Date of Previous Application"
 msgstr "تاريخ تقديم الطلب السابق"
 
-#: .\templates\apply_form.html:337
+#: .\templates\apply_form.html:348
 msgid "Do you have relatives in the company?"
 msgstr "هل لديك أقارب في الشركة؟"
 
-#: .\templates\apply_form.html:347
+#: .\templates\apply_form.html:358
 msgid "Relative's Name"
 msgstr "اسم القريب"
 
-#: .\templates\apply_form.html:351
+#: .\templates\apply_form.html:362
 msgid "Relative's Phone"
 msgstr "هاتف القريب"
 
-#: .\templates\apply_form.html:357
+#: .\templates\apply_form.html:368
 msgid "Additional Notes"
 msgstr "ملاحظات إضافية"
 
-#: .\templates\apply_form.html:362
+#: .\templates\apply_form.html:373
 msgid "Upload Documents"
 msgstr "تحميل المستندات"
 
-#: .\templates\apply_form.html:365
+#: .\templates\apply_form.html:376
 msgid "Upload CV (PDF only, max 5MB)"
 msgstr "تحميل السيرة الذاتية (PDF فقط، بحد أقصى 5 ميغابايت)"
 
-#: .\templates\apply_form.html:369
+#: .\templates\apply_form.html:380
 msgid "Upload ID (PDF only, max 5MB)"
 msgstr "تحميل الهوية (PDF فقط، بحد أقصى 5 ميغابايت)"
 
-#: .\templates\apply_form.html:374
+#: .\templates\apply_form.html:385
 #, fuzzy
 #| msgid "Submit a complaint"
 msgid "Submit application"
 msgstr "تقديم طلب"
 
-#: .\templates\apply_form.html:379
+#: .\templates\apply_form.html:390
 msgid ""
 "Your application has been submitted successfully! We will review it and "
 "contact you soon."
 msgstr "تم تقديم طلبك بنجاح! سنقوم بمراجعته و سنتواصل معك قريباً."
 
-#: .\templates\apply_form.html:385
+#: .\templates\apply_form.html:396
 #, python-format
 msgid "An error occurred while submitting your application: %(error)s"
 msgstr ""
@@ -219,125 +459,61 @@ msgid ""
 "Reva Pharma Penicillins product line: discover our quality penicillin "
 "medicines for health and care."
 msgstr ""
+"خط إنتاج ريفا فارما فارما للبنسلين: اكتشف أدوية البنسلين عالية الجودة التي "
+"نقدمها للصحة والرعاية."
 
-#: .\templates\benicillins.html:166 .\templates\cephalosporins.html:167
-#: .\templates\contact.html:268 .\templates\index.html:204
-msgid "Loading..."
-msgstr "جاري التحميل..."
+#: .\templates\benicillins.html:200 .\templates\car-finder-about.html:198
+#: .\templates\car-finder-about.html:305 .\templates\cephalosporins.html:197
+#: .\templates\cephalosporins.html:379 .\templates\contact.html:297
+#: .\templates\contact.html:437 .\templates\index.html:234
+#: .\templates\job_catalog.html:225 .\templates\job_catalog.html:380
+#: .\templates\product_catalog2.html:229 .\templates\report.html:213
+#: .\templates\report.html:344
+msgid "REVA PHARMA Logo"
+msgstr "شعار ريفا فارما"
 
-#: .\templates\benicillins.html:201 .\templates\car-finder-about.html:200
-#: .\templates\cephalosporins.html:198 .\templates\contact.html:299
-#: .\templates\index.html:235
-msgid "REVA"
-msgstr "ريفا"
-
-#: .\templates\benicillins.html:201 .\templates\car-finder-about.html:200
-#: .\templates\cephalosporins.html:198 .\templates\contact.html:299
-#: .\templates\index.html:235
-msgid "PHARMA"
-msgstr "فارما"
-
-#: .\templates\benicillins.html:208 .\templates\benicillins.html:241
-#: .\templates\car-finder-about.html:208 .\templates\cephalosporins.html:205
-#: .\templates\cephalosporins.html:237 .\templates\contact.html:306
-#: .\templates\index.html:242
-msgid "Home"
-msgstr "الصفحة الرئيسية"
-
-#: .\templates\benicillins.html:210 .\templates\car-finder-about.html:210
-#: .\templates\car-finder-about.html:316 .\templates\cephalosporins.html:207
-#: .\templates\cephalosporins.html:396 .\templates\contact.html:308
-#: .\templates\contact.html:448 .\templates\index.html:244
-#: .\templates\index.html:497
-msgid "Services"
-msgstr "الخدمات"
-
-#: .\templates\benicillins.html:212 .\templates\car-finder-about.html:212
-#: .\templates\car-finder-about.html:317 .\templates\cephalosporins.html:209
-#: .\templates\cephalosporins.html:397 .\templates\contact.html:310
-#: .\templates\contact.html:449 .\templates\index.html:246
-#: .\templates\index.html:498
-msgid "Job Vacancies"
-msgstr "الوظائف الشاغرة"
-
-#: .\templates\benicillins.html:213 .\templates\car-finder-about.html:213
-#: .\templates\cephalosporins.html:210 .\templates\contact.html:311
-#: .\templates\index.html:247
-msgid "Submit a complaint"
-msgstr "تقديم شكوى"
-
-#: .\templates\benicillins.html:216 .\templates\car-finder-about.html:216
-#: .\templates\cephalosporins.html:213 .\templates\contact.html:314
-#: .\templates\index.html:250
-msgid "Products"
-msgstr "المنتجات"
-
-#: .\templates\benicillins.html:218 .\templates\car-finder-about.html:218
-#: .\templates\cephalosporins.html:215 .\templates\contact.html:316
-#: .\templates\index.html:252
-msgid "About"
-msgstr "من نحن ؟"
-
-#: .\templates\benicillins.html:219 .\templates\car-finder-about.html:219
-#: .\templates\cephalosporins.html:216 .\templates\contact.html:317
-#: .\templates\index.html:253
-msgid "Contact"
-msgstr "اتصل بنا"
-
-#: .\templates\benicillins.html:238 .\templates\benicillins.html:243
+#: .\templates\benicillins.html:248 .\templates\benicillins.html:253
 msgid "About Benicillins"
-msgstr ""
+msgstr "نبذة عن البنسلين"
 
-#: .\templates\benicillins.html:242 .\templates\cephalosporins.html:238
-msgid "Pages"
-msgstr ""
-
-#: .\templates\benicillins.html:256
-#, fuzzy
-#| msgid "Penicillin's Production Line"
+#: .\templates\benicillins.html:266
 msgid "About Benicillins product line"
 msgstr "خط إنتاج البنسلين"
 
-#: .\templates\benicillins.html:257 .\templates\cephalosporins.html:252
-msgid "A brief history of this line"
+#: .\templates\benicillins.html:269
+msgid ""
+"This department was designed in accordance with the rules of Good "
+"Manufacturing Practices. Only Penicillin’s are produced in this department. "
+"The pharmaceutical forms produced in this department include:  Tablets "
+"Capsules Dry Syrups."
 msgstr ""
+"تم تصميم هذا القسم وفقاً لقواعد ممارسات التصنيع الجيدة. يتم إنتاج البنسلين "
+"فقط في هذا القسم. تشمل الأشكال الصيدلانية المنتجة في هذا القسم ما يلي: أقراص "
+"أقراص كبسولات شراب جاف."
 
-#: .\templates\benicillins.html:258 .\templates\cephalosporins.html:253
-msgid "Start date 2015-01-01"
-msgstr ""
-
-#: .\templates\benicillins.html:261 .\templates\cephalosporins.html:256
-msgid "GMP"
-msgstr ""
-
-#: .\templates\benicillins.html:262
+#: .\templates\benicillins.html:272
 msgid "Commitment to GMP quality"
-msgstr ""
+msgstr "الالتزام بجودة ممارسات التصنيع الجيد"
 
-#: .\templates\benicillins.html:263
+#: .\templates\benicillins.html:273
 msgid "Experts in the Pharmaceutical Industry"
-msgstr ""
+msgstr "خبراء في مجال صناعة الأدوية"
 
-#: .\templates\benicillins.html:278
+#: .\templates\benicillins.html:286
 #, fuzzy
 #| msgid "Penicillin's Production Line"
 msgid "Penicillins Products"
 msgstr "خط إنتاج البنسلين"
 
-#: .\templates\benicillins.html:279
+#: .\templates\benicillins.html:287
 msgid "Discover our range of high-quality Penicillins products"
-msgstr ""
+msgstr "اكتشف مجموعتنا من منتجات البنسيلينات عالية الجودة"
 
-#: .\templates\benicillins.html:315 .\templates\cephalosporins.html:306
+#: .\templates\benicillins.html:443 .\templates\product_catalog2.html:608
 #, fuzzy
-#| msgid "Previous"
-msgid "Prev"
-msgstr "السابق"
-
-#: .\templates\benicillins.html:335 .\templates\cephalosporins.html:326
-#: .\templates\index.html:352
-msgid "Next"
-msgstr "التالي"
+#| msgid "All Rights Reserved."
+msgid "All Rights Reserved"
+msgstr "جميع الحقوق محفوظة."
 
 #: .\templates\car-finder-about.html:8
 #, fuzzy
@@ -369,34 +545,31 @@ msgstr "الأدوية، صحة، سوريا، ريفا فارما، أدوية�
 
 #: .\templates\car-finder-about.html:179 .\templates\cephalosporins.html:178
 #: .\templates\contact.html:279 .\templates\index.html:215
+#: .\templates\job_catalog.html:204 .\templates\product_catalog2.html:210
+#: .\templates\report.html:194
 msgid "Call Us"
 msgstr "اتصل بنا"
 
 #: .\templates\car-finder-about.html:186 .\templates\cephalosporins.html:185
 #: .\templates\contact.html:286 .\templates\index.html:222
+#: .\templates\job_catalog.html:212 .\templates\product_catalog2.html:217
+#: .\templates\report.html:201
 #, fuzzy
 #| msgid "Call Us"
 msgid "Email Us"
 msgstr "اتصل بنا"
 
-#: .\templates\car-finder-about.html:198 .\templates\car-finder-about.html:299
-#: .\templates\cephalosporins.html:197 .\templates\cephalosporins.html:379
-#: .\templates\contact.html:298 .\templates\contact.html:431
-#: .\templates\index.html:234
-msgid "REVA PHARMA Logo"
-msgstr "شعار ريفا فارما"
-
-#: .\templates\car-finder-about.html:240
+#: .\templates\car-finder-about.html:246
 #, fuzzy
 #| msgid "REVA PHARMA"
 msgid "REVA PHARMA Lab"
 msgstr "ريفا فارما"
 
-#: .\templates\car-finder-about.html:252
+#: .\templates\car-finder-about.html:258
 msgid "Our Story"
 msgstr "قصتنا :"
 
-#: .\templates\car-finder-about.html:255
+#: .\templates\car-finder-about.html:261
 msgid ""
 "Under exceptional circumstances imposed by the war, the idea of “Reva "
 "Pharma” was born in 2014, on the initiative of a group of academics and "
@@ -411,7 +584,7 @@ msgstr ""
 "الأساسية ، وخاصة أدوية الأطفال، في ظل بيئة صحية قاسية عانت من نقص حاد في "
 "الأدوية."
 
-#: .\templates\car-finder-about.html:256
+#: .\templates\car-finder-about.html:262
 msgid ""
 "The launch of Reva Pharma was not just an investment project, but an "
 "integrated health and development initiative based on the conviction that "
@@ -425,7 +598,7 @@ msgstr ""
 "وقد التزمت الشركة منذ إنشائها  بتطبيق أعلى معايير الجودة العالمية في  تصنيع "
 "الأدوية، واضعةً سلامة المرضى وفعالية  العلاج في مقدمة أولوياتها."
 
-#: .\templates\car-finder-about.html:257
+#: .\templates\car-finder-about.html:263
 msgid ""
 "The company started by producing a range of essential and vital medicines, "
 "then gradually expanded to include a wide range of pharmaceutical varieties "
@@ -444,17 +617,17 @@ msgstr ""
 "عمل متميز يضم أكثر من 300 موظف، يجمعهم التزام مشترك بتحقيق رؤية الشركة في أن "
 "تصبح رائدة في صناعة الأدوية."
 
-#: .\templates\car-finder-about.html:258
+#: .\templates\car-finder-about.html:264
 msgid ""
 "Because community development is an integral part of our responsibility, "
 "Reva Pharma has established the"
 msgstr "لأن تنمية المجتمع جزء لا يتجزأ من مسؤوليتنا، أنشأت شركة ريفا فارما"
 
-#: .\templates\car-finder-about.html:258
+#: .\templates\car-finder-about.html:264
 msgid "Maarif University of Applied Sciences"
 msgstr "جامعة المعارف للعلوم التطبيقية"
 
-#: .\templates\car-finder-about.html:258
+#: .\templates\car-finder-about.html:264
 msgid ""
 "to develop specialized scientific competencies that meet the needs of the "
 "pharmaceutical market and contribute to building the future. It also "
@@ -463,11 +636,11 @@ msgstr ""
 "لتنمية كفاءات علمية متخصصة تلبي احتياجات سوق الأدوية وتساهم في بناء "
 "المستقبل. كما أطلقت"
 
-#: .\templates\car-finder-about.html:258
+#: .\templates\car-finder-about.html:264
 msgid "Knowledge School"
 msgstr "مدرسة المعرفة"
 
-#: .\templates\car-finder-about.html:258
+#: .\templates\car-finder-about.html:264
 msgid ""
 "to provide an integrated learning environment for children, believing that "
 "investing in education and knowledge is the cornerstone of the renaissance "
@@ -476,7 +649,7 @@ msgstr ""
 "لتوفير بيئة تعليمية متكاملة للأطفال، إيمانًا منها بأن الاستثمار في التعليم "
 "والمعرفة هو حجر الأساس لنهضة المجتمعات."
 
-#: .\templates\car-finder-about.html:259
+#: .\templates\car-finder-about.html:265
 msgid ""
 "At Reva Pharma, we believe that the pharmaceutical industry goes beyond "
 "production to being a humanitarian and scientific mission. We aspire to be a "
@@ -489,11 +662,11 @@ msgstr ""
 "رائدًا محليًا وإقليميًا، مساهمين بذلك في تحسين جودة حياة الإنسان وترك بصمة "
 "حقيقية في مسيرة الرعاية الصحية."
 
-#: .\templates\car-finder-about.html:273 .\templates\car-finder-about.html:282
+#: .\templates\car-finder-about.html:279 .\templates\car-finder-about.html:288
 msgid "MAAREF UNIVERSITY"
 msgstr "جامعة المعارف"
 
-#: .\templates\car-finder-about.html:285
+#: .\templates\car-finder-about.html:291
 msgid ""
 "is a private applied university established in northwestern Syria for the "
 "academic year 2023-2024. It includes several applied and theoretical "
@@ -501,58 +674,6 @@ msgid ""
 msgstr ""
 "هي جامعة تطبيقية خاصة تأسست في شمال غرب سوريا للعام الدراسي  2023-2024. وهي "
 "تضم عدة كليات تطبيقية ونظرية  وتعتمد اللغة الإنجليزية كلغة للتدريس."
-
-#: .\templates\car-finder-about.html:300 .\templates\car-finder-about.html:343
-#: .\templates\cephalosporins.html:380 .\templates\cephalosporins.html:423
-#: .\templates\contact.html:432 .\templates\contact.html:475
-#: .\templates\index.html:481 .\templates\index.html:525
-msgid "REVA PHARMA"
-msgstr "ريفا فارما"
-
-#: .\templates\car-finder-about.html:302 .\templates\cephalosporins.html:382
-#: .\templates\contact.html:434 .\templates\index.html:483
-msgid "Syria, Aleppo"
-msgstr "سوريا , حلب"
-
-#: .\templates\car-finder-about.html:318 .\templates\cephalosporins.html:398
-#: .\templates\contact.html:450 .\templates\index.html:499
-msgid "Submit a Complaint"
-msgstr "تقديم شكوى"
-
-#: .\templates\car-finder-about.html:324 .\templates\cephalosporins.html:404
-#: .\templates\contact.html:456 .\templates\index.html:505
-msgid "Quick Links"
-msgstr "روابط سريعة"
-
-#: .\templates\car-finder-about.html:325 .\templates\cephalosporins.html:405
-#: .\templates\contact.html:457 .\templates\index.html:506
-msgid "About Us"
-msgstr "نبذة عنا"
-
-#: .\templates\car-finder-about.html:326 .\templates\cephalosporins.html:406
-#: .\templates\contact.html:458 .\templates\index.html:507
-msgid "Contact Us"
-msgstr "اتصل بنا"
-
-#: .\templates\car-finder-about.html:327 .\templates\cephalosporins.html:407
-#: .\templates\contact.html:459 .\templates\index.html:509
-msgid "Support"
-msgstr "الدعم"
-
-#: .\templates\car-finder-about.html:333 .\templates\cephalosporins.html:413
-#: .\templates\contact.html:465 .\templates\index.html:515
-msgid "Our Mission"
-msgstr "رسالتنا"
-
-#: .\templates\car-finder-about.html:335 .\templates\cephalosporins.html:415
-#: .\templates\contact.html:467 .\templates\index.html:517
-msgid "Manufacturing high-quality medicines to ensure better health for all."
-msgstr "صناعة أدوية عالية الجودة لضمان صحة أفضل للجميع."
-
-#: .\templates\car-finder-about.html:343 .\templates\cephalosporins.html:423
-#: .\templates\contact.html:475 .\templates\index.html:525
-msgid "All Rights Reserved."
-msgstr "جميع الحقوق محفوظة."
 
 #: .\templates\cephalosporins.html:7
 msgid "RevaPharma - Cephalosporins"
@@ -573,16 +694,16 @@ msgid ""
 "Explore Cephalosporins products at Reva Pharma. High-quality antibiotics "
 "manufactured according to international standards."
 msgstr ""
+"اكتشف منتجات السيفالوسبورينات في ريفا فارما. مضادات حيوية عالية الجودة مصنعة "
+"وفقاً للمعايير الدولية."
 
 #: .\templates\cephalosporins.html:234 .\templates\cephalosporins.html:239
 msgid "About Cephalosporins"
-msgstr ""
+msgstr "نبذة عن السيفالوسبورين"
 
 #: .\templates\cephalosporins.html:251
-#, fuzzy
-#| msgid "Cephalosporins Production Line"
 msgid "About Cephalosporins product line"
-msgstr "خط إنتاج السيفالوسبورين"
+msgstr "نبذة عن خط إنتاج السيفالوسبورين"
 
 #: .\templates\cephalosporins.html:254
 msgid ""
@@ -591,28 +712,29 @@ msgid ""
 "department. The pharmaceutical forms produced in this department include: "
 "Tablets Capsules Dry Syrups."
 msgstr ""
+"تم تصميم هذا القسم وفقاً لقواعد ممارسات التصنيع الجيدة. يتم إنتاج "
+"السيفالوسبورينات فقط في هذا القسم. تشمل الأشكال الصيدلانية المنتجة في هذا "
+"القسم ما يلي: أقراص أقراص كبسولات شراب جاف."
 
 #: .\templates\cephalosporins.html:257
 msgid "Full Commitment to Top Pharmaceutical Standards"
-msgstr ""
+msgstr "الالتزام الكامل بأعلى المعايير الدوائية"
 
 #: .\templates\cephalosporins.html:258
 msgid "Effective Products Elevating Healthcare"
-msgstr ""
+msgstr "منتجات فعالة ترتقي بالرعاية الصحية"
 
 #: .\templates\cephalosporins.html:271
-#, fuzzy
-#| msgid "Cephalosporins Production Line"
 msgid "Cephalosporins Products"
-msgstr "خط إنتاج السيفالوسبورين"
+msgstr "منتجات السيفالوسبورين"
 
 #: .\templates\cephalosporins.html:272
 msgid "Discover our range of high-quality Cephalosporins products"
-msgstr ""
+msgstr "اكتشف مجموعة منتجاتنا من السيفالوسبورينات عالية الجودة"
 
 #: .\templates\cephalosporins.html:314
 msgid "current"
-msgstr ""
+msgstr "الحالية"
 
 #: .\templates\contact.html:7
 #, fuzzy
@@ -630,39 +752,39 @@ msgid ""
 "for inquiries and support."
 msgstr "صفحة التواصل مع ريفا فارما. تواصل معنا لأي استفسار أو دعم."
 
-#: .\templates\contact.html:346
+#: .\templates\contact.html:352
 msgid "Address"
 msgstr "العنوان"
 
-#: .\templates\contact.html:360
+#: .\templates\contact.html:366
 msgid "Call Us Now"
 msgstr "اتصل بنا الآن"
 
-#: .\templates\contact.html:373
+#: .\templates\contact.html:379
 msgid "Mail Us Now"
 msgstr "راسلنا الآن"
 
-#: .\templates\contact.html:397
+#: .\templates\contact.html:403
 msgid "Send Us a Message"
 msgstr "ارسل لنا رسالة"
 
-#: .\templates\contact.html:400
+#: .\templates\contact.html:406
 msgid "Your Name"
 msgstr "اسمك"
 
-#: .\templates\contact.html:404
+#: .\templates\contact.html:410
 msgid "Your Email"
 msgstr "ايميلك"
 
-#: .\templates\contact.html:408
+#: .\templates\contact.html:414
 msgid "Subject"
 msgstr "الموضوع"
 
-#: .\templates\contact.html:412
+#: .\templates\contact.html:418
 msgid "Message"
 msgstr "الرسالة"
 
-#: .\templates\contact.html:415
+#: .\templates\contact.html:421
 msgid "Send Message"
 msgstr "ارسال رسالة"
 
@@ -685,107 +807,107 @@ msgstr ""
 "ريفا فارما هي شركة متخصصة في صناعة الأدوية، تقدم أدوية عالية الجودة وفق "
 "المعايير الدولية في جميع أنحاء سوريا."
 
-#: .\templates\index.html:281
+#: .\templates\index.html:290
 msgid "Quality Control Department"
 msgstr "قسم مراقبة الجودة"
 
-#: .\templates\index.html:282
+#: .\templates\index.html:291
 msgid "QC: The beating heart of quality in every pill."
 msgstr "القلب النابض للجودة في كل حبة دواء."
 
-#: .\templates\index.html:295
+#: .\templates\index.html:304
 msgid "Production Department"
 msgstr "قسم الإنتاج"
 
-#: .\templates\index.html:296
+#: .\templates\index.html:305
 msgid "High-efficiency production ensuring excellence in every product."
 msgstr "إنتاج عالي الكفاءة يضمن التميّز في كل منتج."
 
-#: .\templates\index.html:309
+#: .\templates\index.html:318
 msgid "Quality Assurance Department"
 msgstr "قسم ضبط الجودة"
 
-#: .\templates\index.html:310
+#: .\templates\index.html:319
 msgid ""
 "QA: We plant quality into every detail... before the product sees the light."
 msgstr "نزرع الجودة في كل التفاصيل... قبل أن يرى المنتج النور."
 
-#: .\templates\index.html:323
+#: .\templates\index.html:332
 msgid "Warehouse Department"
 msgstr "قسم المستودعات"
 
-#: .\templates\index.html:324
+#: .\templates\index.html:333
 msgid ""
 "The quality of pharmaceuticals begins with the quality of raw material "
 "storage."
 msgstr "جودة المنتجات الصيدلانية تبدأ بجودة المواد الخام"
 
-#: .\templates\index.html:337
+#: .\templates\index.html:346
 msgid "Administration Department"
 msgstr "قسم الإدارة"
 
-#: .\templates\index.html:338
+#: .\templates\index.html:347
 msgid "Effective management supporting institutional performance growth."
 msgstr "الإدارة الفعّالة التي تدعم نمو الأداء المؤسسي."
 
-#: .\templates\index.html:348
+#: .\templates\index.html:357 .\templates\job_catalog.html:338
 msgid "Previous"
 msgstr "السابق"
 
-#: .\templates\index.html:362
+#: .\templates\index.html:371
 msgid "Production lines"
 msgstr "خطوط الانتاج"
 
-#: .\templates\index.html:368
+#: .\templates\index.html:377
 msgid "Penicillin Production Line"
 msgstr "خط البنسلين"
 
-#: .\templates\index.html:370
+#: .\templates\index.html:379
 msgid "Penicillin's Production Line"
 msgstr "خط إنتاج البنسلين"
 
-#: .\templates\index.html:371 .\templates\index.html:380
-#: .\templates\index.html:389
+#: .\templates\index.html:380 .\templates\index.html:389
+#: .\templates\index.html:398
 msgid "Read More"
 msgstr "اقرأ المزيد"
 
-#: .\templates\index.html:377 .\templates\index.html:379
+#: .\templates\index.html:386 .\templates\index.html:388
 msgid "General production line"
 msgstr "خط الإنتاج العام"
 
-#: .\templates\index.html:386 .\templates\index.html:388
+#: .\templates\index.html:395 .\templates\index.html:397
 msgid "Cephalosporins Production Line"
 msgstr "خط إنتاج السيفالوسبورين"
 
-#: .\templates\index.html:401
+#: .\templates\index.html:410
 msgid "Committed to Quality for Your Health"
 msgstr "ملتزمون بالجودة من أجل صحتكم"
 
-#: .\templates\index.html:406
+#: .\templates\index.html:415
 msgid "Administrators and supervisors"
 msgstr "الإداريون والمشرفون"
 
-#: .\templates\index.html:412
+#: .\templates\index.html:421
 msgid "Medical Products"
 msgstr "المنتجات الطبية"
 
-#: .\templates\index.html:418
+#: .\templates\index.html:427
 msgid "Pharmacist and Chemist"
 msgstr "صيدلي وكيميائي"
 
-#: .\templates\index.html:424
+#: .\templates\index.html:433
 msgid "worker and technician"
 msgstr "عامل وفني"
 
-#: .\templates\index.html:430
+#: .\templates\index.html:439
 msgid "Total WorkForce"
 msgstr "إجمالي عدد الموظفين"
 
-#: .\templates\index.html:452
+#: .\templates\index.html:461
 msgid "Why You Should Trust Us?"
 msgstr "لماذا يجب أن تثق بنا؟"
 
-#: .\templates\index.html:453
+#: .\templates\index.html:462
 msgid ""
 "Quality at Reva Pharma was not just a goal, but a belief we adopted in all "
 "stages of our work. At Reva Pharma, we realize the importance of quality in "
@@ -794,21 +916,215 @@ msgstr ""
 "الجودة في ريفا فارما ليست مجرد هدف، بل هي عقيدة نتبناها في جميع مراحل عملنا. "
 "ندرك في ريفا فارما أهمية الجودة في صناعة الأدوية."
 
-#: .\templates\index.html:456
+#: .\templates\index.html:465
 msgid "ISO 45001 Occupational Health and Safety Management Certification"
 msgstr "شهادة ISO 45001 لإدارة الصحة والسلامة المهنية"
 
-#: .\templates\index.html:460
+#: .\templates\index.html:469
 msgid "ISO 14001 Environmental Management Certification"
 msgstr "شهادة ISO 14001 للإدارة البيئية"
 
-#: .\templates\index.html:464
+#: .\templates\index.html:473
 msgid "ISO 9001 Certification in Quality Management"
 msgstr "شهادة ISO 9001 في إدارة الجودة"
 
-#: .\templates\index.html:508
+#: .\templates\index.html:517
 msgid "Terms & Conditions"
 msgstr "الشروط & الاحكام"
+
+#: .\templates\job_catalog.html:7
+#, fuzzy
+#| msgid "Job Vacancies"
+msgid "RevaPharma - Job Vacancies"
+msgstr "الوظائف الشاغرة"
+
+#: .\templates\job_catalog.html:274
+msgid "Explore career opportunities at RevaPharma"
+msgstr "اكتشف فرص العمل في ريفا فارما"
+
+#: .\templates\job_catalog.html:308
+msgid "Department:"
+msgstr "القسم:"
+
+#: .\templates\job_catalog.html:312
+msgid "Location:"
+msgstr "الموقع:"
+
+#: .\templates\job_catalog.html:316
+msgid "Description:"
+msgstr "الوصف:"
+
+#: .\templates\job_catalog.html:324
+msgid "No job vacancies available at the moment."
+msgstr "لا توجد وظائف شاغرة في الوقت الحالي."
+
+#: .\templates\job_catalog.html:367
+msgid "Didn't find a suitable position?"
+msgstr "لم تجد وظيفة مناسبة؟"
+
+#: .\templates\job_catalog.html:369
+msgid "Submit Your CV Anyway"
+msgstr "قدم سيرتك الذاتية على أي حال"
+
+#: .\templates\product_catalog2.html:10
+msgid "RevaPharma - Products"
+msgstr "ريفا فارما - المنتجات"
+
+#: .\templates\product_catalog2.html:12
+msgid "pharma, medical, medicines, healthcare"
+msgstr "الصيدلة ,الطب ,الأدوية ,الرعاية الصحية"
+
+#: .\templates\product_catalog2.html:13
+msgid "Discover our high-quality products at RevaPharma."
+msgstr "اكتشف منتجاتنا عالية الجودة في RevaPharma."
+
+#: .\templates\product_catalog2.html:276
+msgid "filters"
+msgstr "فلترة"
+
+#: .\templates\product_catalog2.html:284
+msgid "Filters"
+msgstr "فلترة"
+
+#: .\templates\product_catalog2.html:296
+msgid "Search products..."
+msgstr "ابحث عن المنتجات..."
+
+#: .\templates\product_catalog2.html:307
+msgid "By Therapeutic Category"
+msgstr "حسب الفئة العلاجية"
+
+#: .\templates\product_catalog2.html:316
+msgid "All Categories"
+msgstr "جميع الفئات"
+
+#: .\templates\product_catalog2.html:332
+msgid "By pharmaceutical form"
+msgstr "حسب الشكل الصيدلاني"
+
+#: .\templates\product_catalog2.html:346
+msgid "All Forms"
+msgstr "جميع الأشكال"
+
+#: .\templates\product_catalog2.html:359
+msgid "Oral Suspension"
+msgstr "المعّلقات الفموي"
+
+#: .\templates\product_catalog2.html:370
+msgid "Oral Drops"
+msgstr "القطرات الفموية"
+
+#: .\templates\product_catalog2.html:381
+msgid "Suppository"
+msgstr "التحاميل"
+
+#: .\templates\product_catalog2.html:389
+msgid "Capsules"
+msgstr "الكبسولات"
+
+#: .\templates\product_catalog2.html:397
+msgid "Tablets"
+msgstr "المضغوطات"
+
+#: .\templates\product_catalog2.html:405
+msgid "Syrup"
+msgstr "الشرابات"
+
+#: .\templates\product_catalog2.html:427
+msgid "Reset filters"
+msgstr "إعادة تعيين الفلاتر"
+
+#: .\templates\product_catalog2.html:480
+msgid "Our Products"
+msgstr "منتجاتنا"
+
+#: .\templates\product_catalog2.html:481
+msgid "Discover our wide range of high-quality pharmaceutical products"
+msgstr "اكتشف مجموعتنا الواسعة من المنتجات الدوائية عالية الجودة"
+
+#: .\templates\report.html:7
+#, fuzzy
+#| msgid "RevaPharma"
+msgid "RevaPharma-Send a complaint"
+msgstr "ريفا فارما"
+
+#: .\templates\report.html:258 .\templates\report.html:325
+msgid "Submit Report"
+msgstr "تقديم شكوى"
+
+#: .\templates\report.html:259
+msgid "Do you have a complaint?"
+msgstr "هل لديك شكوى؟"
+
+#: .\templates\report.html:260
+msgid ""
+"We value your feedback and concerns. Please fill out the form below and we "
+"will review your complaint as soon as possible."
+msgstr ""
+"”نحن نقدر ملاحظاتك ومخاوفك. يرجى ملء النموذج أدناه وسنقوم بمراجعة شكواك في "
+"أقرب وقت ممكن.“"
+
+#: .\templates\report.html:266
+msgid "Close"
+msgstr "إغلاق"
+
+#: .\templates\report.html:285 .\templates\report.html:286
+msgid "Email Address"
+msgstr "البريد الالكتروني"
+
+#: .\templates\report.html:291 .\templates\report.html:292
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+#: .\templates\report.html:298
+msgid "Select Report Type"
+msgstr "حدد نوع التقرير"
+
+#: .\templates\report.html:299
+msgid "Product Complaint"
+msgstr "تقديم بشأن المنتج"
+
+#: .\templates\report.html:300
+msgid "Staff Complaint"
+msgstr "شكوى بشأن الموظفين"
+
+#: .\templates\report.html:302
+msgid "Report Type"
+msgstr "نوع التقرير"
+
+#: .\templates\report.html:308
+msgid "Select Your Role"
+msgstr "اختر دورك"
+
+#: .\templates\report.html:309
+msgid "Doctor"
+msgstr "طبيب"
+
+#: .\templates\report.html:310
+#, fuzzy
+#| msgid "Pharmacist and Chemist"
+msgid "Pharmacist"
+msgstr "صيدلي وكيميائي"
+
+#: .\templates\report.html:311
+msgid "Patient"
+msgstr "المريض"
+
+#: .\templates\report.html:312
+msgid "Other"
+msgstr "أخرى"
+
+#: .\templates\report.html:314
+msgid "Your Role"
+msgstr "دورك"
+
+#: .\templates\report.html:319
+msgid "Enter complaint details here"
+msgstr "أدخل تفاصيل الشكوى هنا"
+
+#: .\templates\report.html:320
+msgid "Complaint Details"
+msgstr "تفاصيل الشكوى"
 
 #~ msgid "راسلنا"
 #~ msgstr "راسلنا"

@@ -188,15 +188,22 @@
 </style>
 </head>
 <body>
+          <!-- Language Switcher خارج navbar-nav بمسافة كافية -->
+          <div class="d-flex align-items-center" style="margin-inline-start: 48px;">
+            <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center m-0 p-0">
+              {% csrf_token %}
+              <input name="next" type="hidden" value="{{ request.get_full_path }}">
+              <button type="submit" name="language" value="ar"
+                class="btn btn-link p-0 text-secondary {% if LANGUAGE_CODE == 'ar' %}fw-bold text-primary{% endif %}"
+                style="text-decoration: none;">العربية</button>
+              <span class="mx-2">|</span>
+              <button type="submit" name="language" value="en"
+                class="btn btn-link p-0 text-secondary {% if LANGUAGE_CODE == 'en' %}fw-bold text-primary{% endif %}"
+                style="text-decoration: none;">Eng</button>
+            </form>
+          </div>
+        </div>
 
-  <form action="{% url 'set_language' %}" method="post" class="ms-3 d-flex align-items-center" style="min-width: 120px;">
-    {% csrf_token %}
-    <input name="next" type="hidden" value="{{ request.get_full_path }}">
-    <select name="language" onchange="this.form.submit()" class="form-select border-0 py-1 px-2" style="background: #f8f9fa; width: 110px; font-size: 1rem;">
-        <option value="en" {% if LANGUAGE_CODE == "en" %}selected{% endif %}>🌐 English</option>
-        <option value="ar" {% if LANGUAGE_CODE == "ar" %}selected{% endif %}>🌐 العربية</option>
-    </select>
-</form>
 
   <div class="container py-5">
     <div class="form-section">
@@ -293,9 +300,13 @@
         </div>
   
         <div class="mb-3">
-          <label class="form-label">{% trans "Experiences" %}</label>
-          <textarea class="form-control" name="experiences"></textarea>
+          <label class="form-label">
+            {% trans "Experiences" %}
+            <span class="text-danger">*</span>
+          </label>
+          <textarea class="form-control" name="experiences" required></textarea>
         </div>
+              
   
         <div class="mb-3 d-none" id="grantInstitution">
           <label class="form-label required-star">{% trans "Graduation Institution" %}</label>

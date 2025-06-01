@@ -252,15 +252,24 @@
           <a href="{% url 'about' %}" class="nav-item nav-link">{% trans "About" %}</a>
           <a href="{% url 'contact' %}" class="nav-item nav-link">{% trans "Contact" %}</a>
         </div>
-        <!-- Language Switcher: يكون خارج .navbar-nav لكن جوات collapse -->
-        <form action="{% url 'set_language' %}" method="post" class="ms-3 d-flex align-items-center" style="min-width: 120px;">
+      
+        <!-- Language Switcher خارج navbar-nav بمسافة كافية -->
+        <div class="d-flex align-items-center" style="margin-inline-start: 48px;">
+          <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center m-0 p-0">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.get_full_path }}">
-            <select name="language" onchange="this.form.submit()" class="form-select border-0 py-1 px-2" style="background: #f8f9fa; width: 110px; font-size: 1rem;">
-                <option value="en" {% if LANGUAGE_CODE == "en" %}selected{% endif %}>🌐 English</option>
-                <option value="ar" {% if LANGUAGE_CODE == "ar" %}selected{% endif %}>🌐 العربية</option>
-            </select>
-        </form>
+            <button type="submit" name="language" value="ar"
+              class="btn btn-link p-0 text-secondary {% if LANGUAGE_CODE == 'ar' %}fw-bold text-primary{% endif %}"
+              style="text-decoration: none;">العربية</button>
+            <span class="mx-2">|</span>
+            <button type="submit" name="language" value="en"
+              class="btn btn-link p-0 text-secondary {% if LANGUAGE_CODE == 'en' %}fw-bold text-primary{% endif %}"
+              style="text-decoration: none;">Eng</button>
+          </form>
+        </div>
+      </div>
+      
+      
       </div>
     </nav>
   </div>
@@ -357,41 +366,57 @@
 
 <!-- Production_Line Start -->
 <div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1>{% trans "Production lines" %}</h1>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item bg-light rounded p-5 h-auto">
-                    <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                        <img src="{% static 'icon/icon_ampoule.png' %}" alt="{% trans 'Penicillin Production Line' %}" style="width: 40px; height: 40px;">
-                    </div>
-                    <h4 class="mb-3">{% trans "Penicillin's Production Line" %}</h4>
-                    <a class="btn" href="{% url 'benicillins' %}"><i class="fa fa-plus text-primary me-3"></i>{% trans "Read More" %}</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item bg-light rounded p-5 h-auto">
-                    <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                        <img src="{% static 'icon/icon_antiseptic.png' %}" alt="{% trans 'General production line' %}" style="width: 40px; height: 40px;">
-                    </div>
-                    <h4 class="mb-3">{% trans "General production line" %}</h4>
-                    <a class="btn" href="{% url 'General' %}"><i class="fa fa-plus text-primary me-3"></i>{% trans "Read More" %}</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item bg-light rounded p-5 h-auto">
-                    <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
-                        <img src="{% static 'icon/icon_capsules.png' %}" alt="{% trans 'Cephalosporins Production Line' %}" style="width: 40px; height: 40px;">
-                    </div>
-                    <h4 class="mb-3">{% trans "Cephalosporins Production Line" %}</h4>
-                    <a class="btn" href="{% url 'cephalosporins' %}"><i class="fa fa-plus text-primary me-3"></i>{% trans "Read More" %}</a>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="container">
+      <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+          <h1>{% trans "Production lines" %}</h1>
+      </div>
+      <div class="row g-4">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+              <div class="service-item bg-light rounded p-5 h-auto d-flex flex-column align-items-center">
+                  <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                       style="width: 65px; height: 65px;">
+                      <img src="{% static 'icon/icon_ampoule.png' %}" alt="{% trans 'Penicillin Production Line' %}" style="width: 40px; height: 40px;">
+                  </div>
+                  <h4 class="mb-3 text-center">{% trans "Penicillin's Production Line" %}</h4>
+                  <a class="d-inline-flex align-items-center justify-content-center bg-white text-primary rounded-circle mt-3 shadow"
+                     href="{% url 'benicillins' %}"
+                     style="width: 38px; height: 38px; font-size: 1.3rem;">
+                      <i class="fa fa-plus"></i>
+                  </a>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+              <div class="service-item bg-light rounded p-5 h-auto d-flex flex-column align-items-center">
+                  <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                       style="width: 65px; height: 65px;">
+                      <img src="{% static 'icon/icon_antiseptic.png' %}" alt="{% trans 'General production line' %}" style="width: 40px; height: 40px;">
+                  </div>
+                  <h4 class="mb-3 text-center">{% trans "General production line" %}</h4>
+                  <a class="d-inline-flex align-items-center justify-content-center bg-white text-primary rounded-circle mt-3 shadow"
+                     href="{% url 'General' %}"
+                     style="width: 38px; height: 38px; font-size: 1.3rem;">
+                      <i class="fa fa-plus"></i>
+                  </a>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+              <div class="service-item bg-light rounded p-5 h-auto d-flex flex-column align-items-center">
+                  <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                       style="width: 65px; height: 65px;">
+                      <img src="{% static 'icon/icon_capsules.png' %}" alt="{% trans 'Cephalosporins Production Line' %}" style="width: 40px; height: 40px;">
+                  </div>
+                  <h4 class="mb-3 text-center">{% trans "Cephalosporins Production Line" %}</h4>
+                  <a class="d-inline-flex align-items-center justify-content-center bg-white text-primary rounded-circle mt-3 shadow"
+                     href="{% url 'cephalosporins' %}"
+                     style="width: 38px; height: 38px; font-size: 1.3rem;">
+                      <i class="fa fa-plus"></i>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
+
 <!-- Production_Line End -->
  
 <!-- counter Start -->

@@ -1,10 +1,11 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
 <head>
-    <meta charset="utf-8">
-    <title>RevaPharma - Job Vacancies</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8">
+  <title>{% trans "RevaPharma - Job Vacancies" %}</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
     
     <!-- Favicon -->
     <link href="{% static 'img/icon.svg' %}" rel="icon" type="image/svg+xml">
@@ -184,229 +185,248 @@
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
+  {% load i18n %}
+  <!-- Spinner Start -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">{% trans "Loading..." %}</span>
+      </div>
+  </div>
+  <!-- Spinner End -->
+  
+  <!-- Top Brand Bar -->
+  <div class="container-fluid bg-primary text-white py-2">
+      <div class="container d-flex justify-content-between align-items-center flex-wrap small">
+  
+        <!-- Phone Section -->
+        <div class="d-flex align-items-center mb-2 mb-md-0">
+          <a href="tel:+905378680830" class="text-white text-decoration-none d-flex align-items-center">
+            <i class="bi bi-telephone-inbound me-2 fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% trans 'Call Us' %}"></i>
+            <span class="d-none d-md-inline">+90 537 868 0830</span>
+          </a>
         </div>
-    </div>
-    <!-- Spinner End -->
-
-<!-- Top Brand Bar -->
-<div class="container-fluid bg-primary text-white py-2">
-    <div class="container d-flex justify-content-between align-items-center flex-wrap small">
   
-      <!-- Phone Section -->
-      <div class="d-flex align-items-center mb-2 mb-md-0">
-        <a href="tel:+905378680830" class="text-white text-decoration-none d-flex align-items-center">
-          <i class="bi bi-telephone-inbound me-2 fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Call Us"></i>
-          <span class="d-none d-md-inline">+90 537 868 0830</span>
-        </a>
+        <!-- Email Section -->
+        <div class="d-flex align-items-center">
+          <a href="mailto:info@e-revapharma.com" class="text-white text-decoration-none d-flex align-items-center">
+            <i class="bi bi-envelope me-2 fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% trans 'Email Us' %}"></i>
+            <span class="d-none d-md-inline">info@e-revapharma.com</span>
+          </a>
+        </div>
+  
       </div>
-  
-      <!-- Email Section -->
-      <div class="d-flex align-items-center">
-        <a href="mailto:info@e-revapharma.com" class="text-white text-decoration-none d-flex align-items-center">
-          <i class="bi bi-envelope me-2 fs-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Email Us"></i>
-          <span class="d-none d-md-inline">info@e-revapharma.com</span>
-        </a>
-      </div>
-  
-    </div>
   </div>
   
-  <!-- Main Navbar -->
-  <div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
+<!-- Main Navbar -->
+<div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light py-3 px-2">
+      <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+        <img src="{% static 'img/icon.svg' %}" alt="{% trans 'REVA PHARMA Logo' %}" style="height: 55px; margin-right: 10px;">
+        <h1 class="m-0 text-primary" style="font-size: 26px;"> {% trans "REVA" %} <span style="color: #3d3e40;">{% trans "PHARMA" %}</span></h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="navbar-nav gap-2 text-uppercase fw-semibold align-items-center">
+          <a href="{% url 'home' %}" class="nav-item nav-link active">{% trans "Home" %}</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{% trans "Services" %}</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="{% url 'job_catalog' %}" class="dropdown-item">{% trans "Job Vacancies" %}</a>
+              <a href="{% url 'report' %}" class="dropdown-item">{% trans "Submit a complaint" %}</a>
+            </div>
+          </div>
+          <a href="{% url 'product_catalog' %}" class="nav-item nav-link">{% trans "Products" %}</a>
+          <a href="https://www.stotpharma.com.tr/en/index.html" class="nav-item nav-link">STOT PHARMA</a>
+          <a href="{% url 'about' %}" class="nav-item nav-link">{% trans "About" %}</a>
+          <a href="{% url 'contact' %}" class="nav-item nav-link">{% trans "Contact" %}</a>
+        </div>
+      
+        <!-- Language Switcher خارج navbar-nav بمسافة كافية -->
+        <div class="d-flex align-items-center" style="margin-inline-start: 48px;">
+          <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center m-0 p-0">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+            <button type="submit" name="language" value="ar"
+              class="btn btn-link p-0 text-secondary {% if LANGUAGE_CODE == 'ar' %}fw-bold text-primary{% endif %}"
+              style="text-decoration: none;">العربية</button>
+            <span class="mx-2">|</span>
+            <button type="submit" name="language" value="en"
+              class="btn btn-link p-0 text-secondary {% if LANGUAGE_CODE == 'en' %}fw-bold text-primary{% endif %}"
+              style="text-decoration: none;">Eng</button>
+          </form>
+        </div>
+      </div>
+      
+      
+      </div>
+    </nav>
+  </div>
+</div>
+  
+  <!-- Jobs Start -->
+  <div class="container-xxl py-5">
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light py-3 px-2">
-        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
-          <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" style="height: 55px; margin-right: 10px;">
-          <h1 class="m-0 text-primary" style="font-size: 26px;">REVA <span style="color: #3d3e40;">PHARMA</span></h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-          <div class="navbar-nav gap-2 text-uppercase fw-semibold">
-            <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-            <div class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
-              <div class="dropdown-menu rounded-0 m-0">
-                <a href="{% url 'job_catalog' %}" class="dropdown-item active">Job Vacancies</a>
-                <a href="{% url 'report' %}" class="dropdown-item">Submit a complaint</a>
+      <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+        <h1 class="mb-3">{% trans "Job Vacancies" %}</h1>
+        <p>{% trans "Explore career opportunities at RevaPharma" %}</p>
+        <!-- Search and Filter Section -->
+      </div>
+      
+      <!-- Jobs Grid -->
+      <div class="row g-4">
+        <style>
+          .job-card {
+            transition: all 0.3s ease;
+            border-left: 3px solid #0d6efd;
+          }
+          .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+            background-color: #fdfdfd;
+          }
+          .job-description {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /* عدد الأسطر */
+            -webkit-box-orient: vertical;
+          }
+        </style>
+        
+        <div class="row justify-content-center">
+          {% for job in jobs %}
+          <div class="col-md-10 col-lg-8 mb-4">
+            <a href="{% url 'job_detail' job.id %}" class="text-decoration-none text-dark">
+              <div class="bg-white rounded job-card shadow-sm p-4 d-flex flex-column gap-2 hover-shadow transition">
+                <h5 class="fw-bold text-primary mb-2">{{ job.job_title }}</h5>
+                <div class="text-muted">
+                  <p class="mb-1">
+                    <i class="fas fa-building me-2 text-secondary"></i>
+                    <strong>{% trans "Department:" %}</strong> {{ job.job_department }}
+                  </p>
+                  <p class="mb-1">
+                    <i class="fas fa-map-marker-alt me-2 text-secondary"></i>
+                    <strong>{% trans "Location:" %}</strong> {{ job.job_location }}
+                  </p>
+                  <p class="mb-0 job-description text-truncate">
+                    <i class="fas fa-align-left me-2 text-secondary"></i>
+                    <strong>{% trans "Description:" %}</strong> {{ job.job_description }}
+                  </p>
+                </div>
               </div>
-            </div>
-            <a href="{% url 'product_catalog' %}" class="nav-item nav-link">Products</a>
-            <a href="https://www.stotpharma.com.tr/en/index.html" class="nav-item nav-link">STOT PHARMA</a>
-            <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
-            <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+            </a>
           </div>
+          {% empty %}
+          <div class="col-12 text-center">
+            <p class="text-muted">{% trans "No job vacancies available at the moment." %}</p>
+          </div>
+          {% endfor %}
         </div>
-      </nav>
+      </div>
+  
+      <!-- Pagination -->
+      {% if jobs.has_other_pages %}
+      <div class="row mt-5">
+        <div class="col-12">
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+              {% if jobs.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ jobs.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if department %}&department={{ department }}{% endif %}" aria-label="{% trans 'Previous' %}">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              {% endif %}
+  
+              {% for i in jobs.paginator.page_range %}
+              <li class="page-item {% if jobs.number == i %}active{% endif %}">
+                <a class="page-link" href="?page={{ i }}{% if search_query %}&search={{ search_query }}{% endif %}{% if department %}&department={{ department }}{% endif %}">{{ i }}</a>
+              </li>
+              {% endfor %}
+  
+              {% if jobs.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ jobs.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if department %}&department={{ department }}{% endif %}" aria-label="{% trans 'Next' %}">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+      {% endif %}
     </div>
   </div>
-    <!-- Jobs Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">Job Vacancies</h1>
-                <p>Explore career opportunities at RevaPharma</p>
-                
-                <!-- Search and Filter Section -->
-                
+  <!-- Jobs End -->
+  
+  <div class="text-center mt-4">
+    <p class="text-muted">{% trans "Didn't find a suitable position?" %}</p>
+    <a href="{% url 'job_apply' %}" class="btn btn-outline-primary">
+      <i class="fas fa-paper-plane me-2"></i> {% trans "Submit Your CV Anyway" %}
+    </a>
+  </div>
+  
+  <footer class="container-fluid pt-5 pb-0 mt-5" style="font-family:'Open Sans','Roboto',sans-serif; background: linear-gradient(120deg, #1e2a3a 70%, #143161 100%);">
+    <div class="container pb-3">
+      <div class="row g-4">
+        <!-- Brand and Contact Info -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <div class="footer-minicard">
+            <div class="d-flex align-items-center mb-3">
+              <img src="{% static 'img/icon.svg' %}" alt="{% trans 'REVA PHARMA Logo' %}" class="footer-logo-img me-2">
+              <span class="footer-logo-text">{% trans "REVA PHARMA" %}</span>
             </div>
-            
-            <!-- Jobs Grid -->
-            <div class="row g-4">
-                <style>
-                    .job-card {
-                      transition: all 0.3s ease;
-                      border-left: 3px solid #0d6efd;
-                    }
-                    .job-card:hover {
-                      transform: translateY(-4px);
-                      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-                      background-color: #fdfdfd;
-                    }
-                    .job-description {
-                      overflow: hidden;
-                      text-overflow: ellipsis;
-                      display: -webkit-box;
-                      -webkit-line-clamp: 1; /* عدد الأسطر */
-                      -webkit-box-orient: vertical;
-                    }
-                  </style>
-                  
-                  <div class="row justify-content-center">
-                    {% for job in jobs %}
-<div class="col-md-10 col-lg-8 mb-4">
-  <a href="{% url 'job_detail' job.id %}" class="text-decoration-none text-dark">
-    <div class="bg-white rounded job-card shadow-sm p-4 d-flex flex-column gap-2 hover-shadow transition">
-      <h5 class="fw-bold text-primary mb-2">{{ job.job_title }}</h5>
-      <div class="text-muted">
-        <p class="mb-1">
-          <i class="fas fa-building me-2 text-secondary"></i>
-          <strong>Department:</strong> {{ job.job_department }}
-        </p>
-        <p class="mb-1">
-          <i class="fas fa-map-marker-alt me-2 text-secondary"></i>
-          <strong>Location:</strong> {{ job.job_location }}
-        </p>
-        <p class="mb-0 job-description text-truncate">
-          <i class="fas fa-align-left me-2 text-secondary"></i>
-          <strong>Description:</strong> {{ job.job_description }}
-        </p>
-      </div>
-    </div>
-  </a>
-</div>
-{% empty %}
-<div class="col-12 text-center">
-  <p class="text-muted">No job vacancies available at the moment.</p>
-</div>
-{% endfor %}
-                  </div>
-
-            </div>
-
-            <!-- Pagination -->
-            {% if jobs.has_other_pages %}
-            <div class="row mt-5">
-                <div class="col-12">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination justify-content-center">
-                            {% if jobs.has_previous %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ jobs.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if department %}&department={{ department }}{% endif %}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            {% endif %}
-
-                            {% for i in jobs.paginator.page_range %}
-                            <li class="page-item {% if jobs.number == i %}active{% endif %}">
-                                <a class="page-link" href="?page={{ i }}{% if search_query %}&search={{ search_query }}{% endif %}{% if department %}&department={{ department }}{% endif %}">{{ i }}</a>
-                            </li>
-                            {% endfor %}
-
-                            {% if jobs.has_next %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ jobs.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if department %}&department={{ department }}{% endif %}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                            {% endif %}
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            {% endif %}
-        </div>
-    </div>
-    <!-- Jobs End -->
-
-    <div class="text-center mt-4">
-        <p class="text-muted">Didn't find a suitable position?</p>
-        <a href="{% url 'job_apply' %}" class="btn btn-outline-primary">
-          <i class="fas fa-paper-plane me-2"></i> Submit Your CV Anyway
-        </a>        
-      </div>
-
-      <footer class="container-fluid pt-5 pb-0 mt-5" style="font-family:'Open Sans','Roboto',sans-serif; background: linear-gradient(120deg, #1e2a3a 70%, #143161 100%);">
-        <div class="container pb-3">
-          <div class="row g-4">
-            <!-- Brand and Contact Info -->
-            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-              <div class="footer-minicard">
-                <div class="d-flex align-items-center mb-3">
-                  <img src="{% static 'img/icon.svg' %}" alt="REVA PHARMA Logo" class="footer-logo-img me-2">
-                  <span class="footer-logo-text">REVA PHARMA</span>
-                </div>
-                <div class="footer-contact"><i class="fas fa-map-marker-alt footer-contact-icon me-2"></i>Syria, Aleppo</div>
-                <div class="footer-contact"><i class="fas fa-phone-alt footer-contact-icon me-2"></i>+90 537 868 0830</div>
-                <div class="footer-contact"><i class="fas fa-envelope footer-contact-icon me-2"></i>info@e-revapharma.com</div>
-                <div class="d-flex mt-3">
-                  <a href="https://x.com/revapharma__" class="footer-social-min" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                  <a href="https://www.facebook.com/revapharma/" class="footer-social-min" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                  <a href="https://www.instagram.com/revapharma_/" class="footer-social-min" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.linkedin.com/company/e-reva-pharma/" class="footer-social-min" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-            </div>
-            <!-- Services -->
-            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-              <div class="footer-minicard">
-                <div class="footer-title-alt">Services</div>
-                <a class="footer-link-min" href="{% url 'job_catalog' %}">Job Vacancies</a>
-                <a class="footer-link-min" href="{% url 'report' %}">Submit a Complaint</a>
-              </div>
-            </div>
-            <!-- Quick Links -->
-            <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-              <div class="footer-minicard">
-                <div class="footer-title-alt">Quick Links</div>
-                <a class="footer-link-min" href="{% url 'about' %}">About Us</a>
-                <a class="footer-link-min" href="{% url 'contact' %}">Contact Us</a>
-                <a class="footer-link-min" href="#">Support</a>
-              </div>
-            </div>
-            <!-- Mission -->
-            <div class="col-lg-4 col-md-6">
-              <div class="footer-minicard">
-                <div class="footer-title-alt">Our Mission</div>
-                <blockquote class="footer-mission-alt">
-                  Manufacturing high-quality medicines to ensure better health for all.</blockquote>
-              </div>
+            <div class="footer-contact"><i class="fas fa-map-marker-alt footer-contact-icon me-2"></i>{% trans "Syria, Aleppo" %}</div>
+            <div class="footer-contact"><i class="fas fa-phone-alt footer-contact-icon me-2"></i>+90 537 868 0830</div>
+            <div class="footer-contact"><i class="fas fa-envelope footer-contact-icon me-2"></i>info@e-revapharma.com</div>
+            <div class="d-flex mt-3">
+              <a href="https://x.com/revapharma__" class="footer-social-min" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.facebook.com/revapharma/" class="footer-social-min" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/revapharma_/" class="footer-social-min" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/e-reva-pharma/" class="footer-social-min" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
           </div>
-          <hr class="footer-divider my-4">
-          <div class="row align-items-center text-center text-md-start pb-2">
-            <div class="footer-copyright">
-              &copy; <span class="footer-brand">REVA PHARMA</span> . All Rights Reserved.
-            </div>          
+        </div>
+        <!-- Services -->
+        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+          <div class="footer-minicard">
+            <div class="footer-title-alt">{% trans "Services" %}</div>
+            <a class="footer-link-min" href="{% url 'job_catalog' %}">{% trans "Job Vacancies" %}</a>
+            <a class="footer-link-min" href="{% url 'report' %}">{% trans "Submit a Complaint" %}</a>
           </div>
         </div>
-      </footer>
+        <!-- Quick Links -->
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <div class="footer-minicard">
+            <div class="footer-title-alt">{% trans "Quick Links" %}</div>
+            <a class="footer-link-min" href="{% url 'about' %}">{% trans "About Us" %}</a>
+            <a class="footer-link-min" href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
+            <a class="footer-link-min" href="#">{% trans "Support" %}</a>
+          </div>
+        </div>
+        <!-- Mission -->
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-minicard">
+            <div class="footer-title-alt">{% trans "Our Mission" %}</div>
+            <blockquote class="footer-mission-alt">
+              {% trans "Manufacturing high-quality medicines to ensure better health for all." %}
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-divider my-4">
+      <div class="row align-items-center text-center text-md-start pb-2">
+        <div class="footer-copyright">
+          &copy; <span class="footer-brand">{% trans "REVA PHARMA" %}</span> . {% trans "All Rights Reserved." %}
+        </div>          
+      </div>
+    </div>
+  </footer>
+  
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

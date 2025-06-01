@@ -290,46 +290,52 @@
 </div>
 </div>
 
-<!-- Main Navbar -->
 <div class="container-fluid bg-white shadow-sm" style="z-index: 1030;">
-<div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light py-3 px-2">
-    <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
-      <img src="{% static 'img/icon.svg' %}" alt="{% trans 'REVA PHARMA Logo' %}" style="height: 55px; margin-right: 10px;">
-      <h1 class="m-0 text-primary" style="font-size: 26px;">{% trans "REVA" %} <span style="color: #3d3e40;">{% trans "PHARMA" %}</span></h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-      <div class="navbar-nav gap-2 text-uppercase fw-semibold">
-        <a href="{% url 'home' %}" class="nav-item nav-link">{% trans "Home" %}</a>
-        <div class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{% trans "Services" %}</a>
-          <div class="dropdown-menu rounded-0 m-0">
-            <a href="{% url 'job_catalog' %}" class="dropdown-item">{% trans "Job Vacancies" %}</a>
-            <a href="{% url 'report' %}" class="dropdown-item">{% trans "Submit a complaint" %}</a>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light py-3 px-2">
+      <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+        <img src="{% static 'img/icon.svg' %}" alt="{% trans 'REVA PHARMA Logo' %}" style="height: 55px; margin-right: 10px;">
+        <h1 class="m-0 text-primary" style="font-size: 26px;"> {% trans "REVA" %} <span style="color: #3d3e40;">{% trans "PHARMA" %}</span></h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="navbar-nav gap-2 text-uppercase fw-semibold align-items-center">
+          <a href="{% url 'home' %}" class="nav-item nav-link active">{% trans "Home" %}</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{% trans "Services" %}</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="{% url 'job_catalog' %}" class="dropdown-item">{% trans "Job Vacancies" %}</a>
+              <a href="{% url 'report' %}" class="dropdown-item">{% trans "Submit a complaint" %}</a>
+            </div>
           </div>
+          <a href="{% url 'product_catalog' %}" class="nav-item nav-link">{% trans "Products" %}</a>
+          <a href="https://www.stotpharma.com.tr/en/index.html" class="nav-item nav-link">STOT PHARMA</a>
+          <a href="{% url 'about' %}" class="nav-item nav-link">{% trans "About" %}</a>
+          <a href="{% url 'contact' %}" class="nav-item nav-link">{% trans "Contact" %}</a>
         </div>
-        <a href="{% url 'product_catalog' %}" class="nav-item nav-link">{% trans "Products" %}</a>
-        <a href="https://www.stotpharma.com.tr/en/index.html" class="nav-item nav-link">STOT PHARMA</a>
-        <a href="{% url 'about' %}" class="nav-item nav-link">{% trans "About" %}</a>
-        <a href="{% url 'contact' %}" class="nav-item nav-link active">{% trans "Contact" %}</a>
-
-          <!-- Language Switcher: يكون خارج .navbar-nav لكن جوات collapse -->
-          <form action="{% url 'set_language' %}" method="post" class="ms-3 d-flex align-items-center" style="min-width: 120px;">
+      
+        <!-- Language Switcher خارج navbar-nav بمسافة كافية -->
+        <div class="d-flex align-items-center" style="margin-inline-start: 48px;">
+          <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center m-0 p-0">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.get_full_path }}">
-            <select name="language" onchange="this.form.submit()" class="form-select border-0 py-1 px-2" style="background: #f8f9fa; width: 110px; font-size: 1rem;">
-                <option value="en" {% if LANGUAGE_CODE == "en" %}selected{% endif %}>🌐 English</option>
-                <option value="ar" {% if LANGUAGE_CODE == "ar" %}selected{% endif %}>🌐 العربية</option>
-            </select>
-        </form>
-        
+            <button type="submit" name="language" value="ar"
+              class="btn btn-link p-0 text-secondary {% if LANGUAGE_CODE == 'ar' %}fw-bold text-primary{% endif %}"
+              style="text-decoration: none;">العربية</button>
+            <span class="mx-2">|</span>
+            <button type="submit" name="language" value="en"
+              class="btn btn-link p-0 text-secondary {% if LANGUAGE_CODE == 'en' %}fw-bold text-primary{% endif %}"
+              style="text-decoration: none;">Eng</button>
+          </form>
+        </div>
       </div>
-    </div>
-  </nav>
-</div>
+      
+      
+      </div>
+    </nav>
+  </div>
 </div>
 
 <!-- Contact Page Start -->
@@ -384,13 +390,14 @@
     <div class="col-lg-6">
       <div class="rounded-4 overflow-hidden shadow-sm border" style="background:#fff; height: 100%;">
         <iframe class="w-100"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.2556755366985!2d37.13970227574753!3d36.721376071862794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152fd8c01a6b9c51%3A0x97d144c6c47c3ed4!2sReva%20Pharma!5e0!3m2!1sen!2str!4v1710305948621!5m2!1sen!2str"
+          src="https://www.google.com/maps?q=36.19242,36.76192&hl=ar&z=16&output=embed"
           style="height: 350px; border:0;"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
+    
     <!-- Contact Form -->
     <div class="col-lg-6">
       <div class="rounded-4 shadow-sm border bg-white p-4 p-lg-5 h-100">
