@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 16:06+0300\n"
+"POT-Creation-Date: 2025-06-02 18:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgid "RevaPharma-General"
 msgstr ""
 
 #: .\templates\General.html:166 .\templates\benicillins.html:166
-#: .\templates\cephalosporins.html:167 .\templates\contact.html:268
+#: .\templates\cephalosporins.html:167 .\templates\contact.html:439
 #: .\templates\index.html:204 .\templates\job_catalog.html:192
 #: .\templates\report.html:183
 msgid "Loading..."
@@ -32,26 +32,27 @@ msgstr "جاري التحميل..."
 
 #: .\templates\General.html:201 .\templates\benicillins.html:201
 #: .\templates\car-finder-about.html:199 .\templates\cephalosporins.html:198
-#: .\templates\contact.html:298 .\templates\index.html:235
-#: .\templates\job_catalog.html:226 .\templates\product_catalog2.html:230
-#: .\templates\report.html:214
+#: .\templates\contact.html:469 .\templates\index.html:235
+#: .\templates\job_catalog.html:226 .\templates\pro_info.html:412
+#: .\templates\product_catalog2.html:230 .\templates\report.html:214
 msgid "REVA"
 msgstr "ريفا"
 
 #: .\templates\General.html:201 .\templates\benicillins.html:201
 #: .\templates\car-finder-about.html:199 .\templates\cephalosporins.html:198
-#: .\templates\contact.html:298 .\templates\index.html:235
-#: .\templates\job_catalog.html:226 .\templates\product_catalog2.html:230
-#: .\templates\report.html:214
+#: .\templates\contact.html:469 .\templates\index.html:235
+#: .\templates\job_catalog.html:226 .\templates\pro_info.html:412
+#: .\templates\product_catalog2.html:230 .\templates\report.html:214
 msgid "PHARMA"
 msgstr "فارما"
 
 #: .\templates\General.html:208 .\templates\General.html:232
 #: .\templates\benicillins.html:208 .\templates\benicillins.html:251
 #: .\templates\car-finder-about.html:206 .\templates\cephalosporins.html:205
-#: .\templates\cephalosporins.html:237 .\templates\contact.html:305
+#: .\templates\cephalosporins.html:237 .\templates\contact.html:476
 #: .\templates\index.html:242 .\templates\job_catalog.html:233
-#: .\templates\product_catalog2.html:237 .\templates\report.html:221
+#: .\templates\pro_info.html:419 .\templates\product_catalog2.html:237
+#: .\templates\report.html:221
 msgid "Home"
 msgstr "الصفحة الرئيسية"
 
@@ -59,10 +60,11 @@ msgstr "الصفحة الرئيسية"
 #: .\templates\benicillins.html:210 .\templates\benicillins.html:416
 #: .\templates\car-finder-about.html:208 .\templates\car-finder-about.html:322
 #: .\templates\cephalosporins.html:207 .\templates\cephalosporins.html:396
-#: .\templates\contact.html:307 .\templates\contact.html:454
-#: .\templates\index.html:244 .\templates\index.html:506
+#: .\templates\contact.html:478 .\templates\contact.html:642
+#: .\templates\index.html:244 .\templates\index.html:522
 #: .\templates\job_catalog.html:235 .\templates\job_catalog.html:397
-#: .\templates\product_catalog2.html:239 .\templates\product_catalog2.html:581
+#: .\templates\pro_info.html:421 .\templates\pro_info.html:603
+#: .\templates\product_catalog2.html:239 .\templates\product_catalog2.html:615
 #: .\templates\report.html:223 .\templates\report.html:361
 msgid "Services"
 msgstr "الخدمات"
@@ -71,43 +73,45 @@ msgstr "الخدمات"
 #: .\templates\benicillins.html:212 .\templates\benicillins.html:417
 #: .\templates\car-finder-about.html:210 .\templates\car-finder-about.html:323
 #: .\templates\cephalosporins.html:209 .\templates\cephalosporins.html:397
-#: .\templates\contact.html:309 .\templates\contact.html:455
-#: .\templates\index.html:246 .\templates\index.html:507
+#: .\templates\contact.html:480 .\templates\contact.html:643
+#: .\templates\index.html:246 .\templates\index.html:523
 #: .\templates\job_catalog.html:237 .\templates\job_catalog.html:273
-#: .\templates\job_catalog.html:398 .\templates\product_catalog2.html:241
-#: .\templates\product_catalog2.html:582 .\templates\report.html:225
+#: .\templates\job_catalog.html:398 .\templates\pro_info.html:423
+#: .\templates\pro_info.html:604 .\templates\product_catalog2.html:241
+#: .\templates\product_catalog2.html:616 .\templates\report.html:225
 #: .\templates\report.html:362
 msgid "Job Vacancies"
 msgstr "الوظائف الشاغرة"
 
 #: .\templates\General.html:213 .\templates\benicillins.html:213
 #: .\templates\car-finder-about.html:211 .\templates\cephalosporins.html:210
-#: .\templates\contact.html:310 .\templates\index.html:247
-#: .\templates\job_catalog.html:238 .\templates\report.html:226
+#: .\templates\contact.html:481 .\templates\index.html:247
+#: .\templates\job_catalog.html:238 .\templates\pro_info.html:424
+#: .\templates\report.html:226
 msgid "Submit a complaint"
 msgstr "تقديم شكوى"
 
 #: .\templates\General.html:216 .\templates\benicillins.html:216
 #: .\templates\car-finder-about.html:214 .\templates\cephalosporins.html:213
-#: .\templates\contact.html:313 .\templates\index.html:250
-#: .\templates\job_catalog.html:241 .\templates\product_catalog2.html:245
-#: .\templates\report.html:229
+#: .\templates\contact.html:484 .\templates\index.html:250
+#: .\templates\job_catalog.html:241 .\templates\pro_info.html:427
+#: .\templates\product_catalog2.html:245 .\templates\report.html:229
 msgid "Products"
 msgstr "المنتجات"
 
 #: .\templates\General.html:218 .\templates\benicillins.html:218
 #: .\templates\car-finder-about.html:216 .\templates\cephalosporins.html:215
-#: .\templates\contact.html:315 .\templates\index.html:252
-#: .\templates\job_catalog.html:243 .\templates\product_catalog2.html:247
-#: .\templates\report.html:231
+#: .\templates\contact.html:486 .\templates\index.html:252
+#: .\templates\job_catalog.html:243 .\templates\pro_info.html:429
+#: .\templates\product_catalog2.html:247 .\templates\report.html:231
 msgid "About"
 msgstr "من نحن ؟"
 
 #: .\templates\General.html:219 .\templates\benicillins.html:219
 #: .\templates\car-finder-about.html:217 .\templates\cephalosporins.html:216
-#: .\templates\contact.html:316 .\templates\index.html:253
-#: .\templates\job_catalog.html:244 .\templates\product_catalog2.html:248
-#: .\templates\report.html:232
+#: .\templates\contact.html:487 .\templates\index.html:253
+#: .\templates\job_catalog.html:244 .\templates\pro_info.html:430
+#: .\templates\product_catalog2.html:248 .\templates\report.html:232
 msgid "Contact"
 msgstr "اتصل بنا"
 
@@ -167,7 +171,7 @@ msgid "Discover our range of high-quality General products"
 msgstr "اكتشف مجموعتنا من المنتجات العامة عالية الجودة"
 
 #: .\templates\General.html:302 .\templates\benicillins.html:323
-#: .\templates\cephalosporins.html:306 .\templates\product_catalog2.html:517
+#: .\templates\cephalosporins.html:306 .\templates\product_catalog2.html:551
 #, fuzzy
 #| msgid "Previous"
 msgid "Prev"
@@ -175,87 +179,89 @@ msgstr "السابق"
 
 #: .\templates\General.html:322 .\templates\benicillins.html:343
 #: .\templates\cephalosporins.html:326 .\templates\index.html:361
-#: .\templates\job_catalog.html:352 .\templates\product_catalog2.html:539
+#: .\templates\job_catalog.html:352 .\templates\product_catalog2.html:573
 msgid "Next"
 msgstr "التالي"
 
 #: .\templates\General.html:379 .\templates\General.html:422
 #: .\templates\benicillins.html:443 .\templates\car-finder-about.html:306
 #: .\templates\car-finder-about.html:349 .\templates\cephalosporins.html:380
-#: .\templates\cephalosporins.html:423 .\templates\contact.html:438
-#: .\templates\contact.html:481 .\templates\index.html:490
-#: .\templates\index.html:534 .\templates\job_catalog.html:381
-#: .\templates\job_catalog.html:424 .\templates\report.html:345
+#: .\templates\cephalosporins.html:423 .\templates\contact.html:626
+#: .\templates\contact.html:669 .\templates\index.html:506
+#: .\templates\index.html:550 .\templates\job_catalog.html:381
+#: .\templates\job_catalog.html:424 .\templates\pro_info.html:587
+#: .\templates\pro_info.html:630 .\templates\report.html:345
 #: .\templates\report.html:388
 msgid "REVA PHARMA"
 msgstr "ريفا فارما"
 
 #: .\templates\General.html:381 .\templates\car-finder-about.html:308
-#: .\templates\cephalosporins.html:382 .\templates\contact.html:440
-#: .\templates\index.html:492 .\templates\job_catalog.html:383
-#: .\templates\report.html:347
+#: .\templates\cephalosporins.html:382 .\templates\contact.html:628
+#: .\templates\index.html:508 .\templates\job_catalog.html:383
+#: .\templates\pro_info.html:589 .\templates\report.html:347
 msgid "Syria, Aleppo"
 msgstr "سوريا , حلب"
 
 #: .\templates\General.html:397 .\templates\benicillins.html:418
 #: .\templates\car-finder-about.html:324 .\templates\cephalosporins.html:398
-#: .\templates\contact.html:456 .\templates\index.html:508
-#: .\templates\job_catalog.html:399 .\templates\product_catalog2.html:242
-#: .\templates\product_catalog2.html:583 .\templates\report.html:363
+#: .\templates\contact.html:644 .\templates\index.html:524
+#: .\templates\job_catalog.html:399 .\templates\pro_info.html:605
+#: .\templates\product_catalog2.html:242 .\templates\product_catalog2.html:617
+#: .\templates\report.html:363
 msgid "Submit a Complaint"
 msgstr "تقديم شكوى"
 
 #: .\templates\General.html:403 .\templates\benicillins.html:424
 #: .\templates\car-finder-about.html:330 .\templates\cephalosporins.html:404
-#: .\templates\contact.html:462 .\templates\index.html:514
-#: .\templates\job_catalog.html:405 .\templates\product_catalog2.html:589
-#: .\templates\report.html:369
+#: .\templates\contact.html:650 .\templates\index.html:530
+#: .\templates\job_catalog.html:405 .\templates\pro_info.html:611
+#: .\templates\product_catalog2.html:623 .\templates\report.html:369
 msgid "Quick Links"
 msgstr "روابط سريعة"
 
 #: .\templates\General.html:404 .\templates\benicillins.html:425
 #: .\templates\car-finder-about.html:331 .\templates\cephalosporins.html:405
-#: .\templates\contact.html:463 .\templates\index.html:515
-#: .\templates\job_catalog.html:406 .\templates\product_catalog2.html:590
-#: .\templates\report.html:370
+#: .\templates\contact.html:651 .\templates\index.html:531
+#: .\templates\job_catalog.html:406 .\templates\pro_info.html:612
+#: .\templates\product_catalog2.html:624 .\templates\report.html:370
 msgid "About Us"
 msgstr "نبذة عنا"
 
 #: .\templates\General.html:405 .\templates\benicillins.html:426
 #: .\templates\car-finder-about.html:332 .\templates\cephalosporins.html:406
-#: .\templates\contact.html:464 .\templates\index.html:516
-#: .\templates\job_catalog.html:407 .\templates\product_catalog2.html:591
-#: .\templates\report.html:371
+#: .\templates\contact.html:652 .\templates\index.html:532
+#: .\templates\job_catalog.html:407 .\templates\pro_info.html:613
+#: .\templates\product_catalog2.html:625 .\templates\report.html:371
 msgid "Contact Us"
 msgstr "اتصل بنا"
 
 #: .\templates\General.html:406 .\templates\benicillins.html:427
 #: .\templates\car-finder-about.html:333 .\templates\cephalosporins.html:407
-#: .\templates\contact.html:465 .\templates\index.html:518
-#: .\templates\job_catalog.html:408 .\templates\product_catalog2.html:592
-#: .\templates\report.html:372
+#: .\templates\contact.html:653 .\templates\index.html:534
+#: .\templates\job_catalog.html:408 .\templates\pro_info.html:614
+#: .\templates\product_catalog2.html:626 .\templates\report.html:372
 msgid "Support"
 msgstr "الدعم"
 
 #: .\templates\General.html:412 .\templates\benicillins.html:433
 #: .\templates\car-finder-about.html:339 .\templates\cephalosporins.html:413
-#: .\templates\contact.html:471 .\templates\index.html:524
-#: .\templates\job_catalog.html:414 .\templates\product_catalog2.html:598
-#: .\templates\report.html:378
+#: .\templates\contact.html:659 .\templates\index.html:540
+#: .\templates\job_catalog.html:414 .\templates\pro_info.html:620
+#: .\templates\product_catalog2.html:632 .\templates\report.html:378
 msgid "Our Mission"
 msgstr "رسالتنا"
 
 #: .\templates\General.html:414 .\templates\benicillins.html:435
 #: .\templates\car-finder-about.html:341 .\templates\cephalosporins.html:415
-#: .\templates\contact.html:473 .\templates\index.html:526
-#: .\templates\job_catalog.html:416 .\templates\product_catalog2.html:600
-#: .\templates\report.html:380
+#: .\templates\contact.html:661 .\templates\index.html:542
+#: .\templates\job_catalog.html:416 .\templates\pro_info.html:622
+#: .\templates\product_catalog2.html:634 .\templates\report.html:380
 msgid "Manufacturing high-quality medicines to ensure better health for all."
 msgstr "صناعة أدوية عالية الجودة لضمان صحة أفضل للجميع."
 
 #: .\templates\General.html:422 .\templates\car-finder-about.html:349
-#: .\templates\cephalosporins.html:423 .\templates\contact.html:481
-#: .\templates\index.html:534 .\templates\job_catalog.html:424
+#: .\templates\cephalosporins.html:423 .\templates\contact.html:669
+#: .\templates\index.html:550 .\templates\job_catalog.html:424
 #: .\templates\report.html:388
 msgid "All Rights Reserved."
 msgstr "جميع الحقوق محفوظة."
@@ -464,8 +470,8 @@ msgstr ""
 
 #: .\templates\benicillins.html:200 .\templates\car-finder-about.html:198
 #: .\templates\car-finder-about.html:305 .\templates\cephalosporins.html:197
-#: .\templates\cephalosporins.html:379 .\templates\contact.html:297
-#: .\templates\contact.html:437 .\templates\index.html:234
+#: .\templates\cephalosporins.html:379 .\templates\contact.html:468
+#: .\templates\contact.html:625 .\templates\index.html:234
 #: .\templates\job_catalog.html:225 .\templates\job_catalog.html:380
 #: .\templates\product_catalog2.html:229 .\templates\report.html:213
 #: .\templates\report.html:344
@@ -509,7 +515,8 @@ msgstr "خط إنتاج البنسلين"
 msgid "Discover our range of high-quality Penicillins products"
 msgstr "اكتشف مجموعتنا من منتجات البنسيلينات عالية الجودة"
 
-#: .\templates\benicillins.html:443 .\templates\product_catalog2.html:608
+#: .\templates\benicillins.html:443 .\templates\pro_info.html:630
+#: .\templates\product_catalog2.html:642
 #, fuzzy
 #| msgid "All Rights Reserved."
 msgid "All Rights Reserved"
@@ -544,14 +551,14 @@ msgid ""
 msgstr "الأدوية، صحة، سوريا، ريفا فارما، أدوية، صناعة الأدوية"
 
 #: .\templates\car-finder-about.html:179 .\templates\cephalosporins.html:178
-#: .\templates\contact.html:279 .\templates\index.html:215
+#: .\templates\contact.html:450 .\templates\index.html:215
 #: .\templates\job_catalog.html:204 .\templates\product_catalog2.html:210
 #: .\templates\report.html:194
 msgid "Call Us"
 msgstr "اتصل بنا"
 
 #: .\templates\car-finder-about.html:186 .\templates\cephalosporins.html:185
-#: .\templates\contact.html:286 .\templates\index.html:222
+#: .\templates\contact.html:457 .\templates\index.html:222
 #: .\templates\job_catalog.html:212 .\templates\product_catalog2.html:217
 #: .\templates\report.html:201
 #, fuzzy
@@ -752,39 +759,43 @@ msgid ""
 "for inquiries and support."
 msgstr "صفحة التواصل مع ريفا فارما. تواصل معنا لأي استفسار أو دعم."
 
-#: .\templates\contact.html:352
+#: .\templates\contact.html:521
 msgid "Address"
 msgstr "العنوان"
 
-#: .\templates\contact.html:366
-msgid "Call Us Now"
-msgstr "اتصل بنا الآن"
+#: .\templates\contact.html:539
+msgid "Export Department"
+msgstr "قسم التصدير"
 
-#: .\templates\contact.html:379
+#: .\templates\contact.html:550
+msgid "Purchasing Department"
+msgstr "قسم المشتريات"
+
+#: .\templates\contact.html:566
 msgid "Mail Us Now"
 msgstr "راسلنا الآن"
 
-#: .\templates\contact.html:403
+#: .\templates\contact.html:589
 msgid "Send Us a Message"
 msgstr "ارسل لنا رسالة"
 
-#: .\templates\contact.html:406
+#: .\templates\contact.html:594
 msgid "Your Name"
 msgstr "اسمك"
 
-#: .\templates\contact.html:410
+#: .\templates\contact.html:598
 msgid "Your Email"
 msgstr "ايميلك"
 
-#: .\templates\contact.html:414
+#: .\templates\contact.html:602
 msgid "Subject"
 msgstr "الموضوع"
 
-#: .\templates\contact.html:418
+#: .\templates\contact.html:606
 msgid "Message"
 msgstr "الرسالة"
 
-#: .\templates\contact.html:421
+#: .\templates\contact.html:609
 msgid "Send Message"
 msgstr "ارسال رسالة"
 
@@ -858,56 +869,51 @@ msgstr "السابق"
 msgid "Production lines"
 msgstr "خطوط الانتاج"
 
-#: .\templates\index.html:377
+#: .\templates\index.html:378
 msgid "Penicillin Production Line"
 msgstr "خط البنسلين"
 
-#: .\templates\index.html:379
+#: .\templates\index.html:380
 msgid "Penicillin's Production Line"
 msgstr "خط إنتاج البنسلين"
 
-#: .\templates\index.html:380 .\templates\index.html:389
-#: .\templates\index.html:398
-msgid "Read More"
-msgstr "اقرأ المزيد"
-
-#: .\templates\index.html:386 .\templates\index.html:388
+#: .\templates\index.html:392 .\templates\index.html:394
 msgid "General production line"
 msgstr "خط الإنتاج العام"
 
-#: .\templates\index.html:395 .\templates\index.html:397
+#: .\templates\index.html:406 .\templates\index.html:408
 msgid "Cephalosporins Production Line"
 msgstr "خط إنتاج السيفالوسبورين"
 
-#: .\templates\index.html:410
+#: .\templates\index.html:426
 msgid "Committed to Quality for Your Health"
 msgstr "ملتزمون بالجودة من أجل صحتكم"
 
-#: .\templates\index.html:415
+#: .\templates\index.html:431
 msgid "Administrators and supervisors"
 msgstr "الإداريون والمشرفون"
 
-#: .\templates\index.html:421
+#: .\templates\index.html:437
 msgid "Medical Products"
 msgstr "المنتجات الطبية"
 
-#: .\templates\index.html:427
+#: .\templates\index.html:443
 msgid "Pharmacist and Chemist"
 msgstr "صيدلي وكيميائي"
 
-#: .\templates\index.html:433
+#: .\templates\index.html:449
 msgid "worker and technician"
 msgstr "عامل وفني"
 
-#: .\templates\index.html:439
+#: .\templates\index.html:455
 msgid "Total WorkForce"
 msgstr "إجمالي عدد الموظفين"
 
-#: .\templates\index.html:461
+#: .\templates\index.html:477
 msgid "Why You Should Trust Us?"
 msgstr "لماذا يجب أن تثق بنا؟"
 
-#: .\templates\index.html:462
+#: .\templates\index.html:478
 msgid ""
 "Quality at Reva Pharma was not just a goal, but a belief we adopted in all "
 "stages of our work. At Reva Pharma, we realize the importance of quality in "
@@ -916,19 +922,19 @@ msgstr ""
 "الجودة في ريفا فارما ليست مجرد هدف، بل هي عقيدة نتبناها في جميع مراحل عملنا. "
 "ندرك في ريفا فارما أهمية الجودة في صناعة الأدوية."
 
-#: .\templates\index.html:465
+#: .\templates\index.html:481
 msgid "ISO 45001 Occupational Health and Safety Management Certification"
 msgstr "شهادة ISO 45001 لإدارة الصحة والسلامة المهنية"
 
-#: .\templates\index.html:469
+#: .\templates\index.html:485
 msgid "ISO 14001 Environmental Management Certification"
 msgstr "شهادة ISO 14001 للإدارة البيئية"
 
-#: .\templates\index.html:473
+#: .\templates\index.html:489
 msgid "ISO 9001 Certification in Quality Management"
 msgstr "شهادة ISO 9001 في إدارة الجودة"
 
-#: .\templates\index.html:517
+#: .\templates\index.html:533
 msgid "Terms & Conditions"
 msgstr "الشروط & الاحكام"
 
@@ -965,6 +971,48 @@ msgstr "لم تجد وظيفة مناسبة؟"
 #: .\templates\job_catalog.html:369
 msgid "Submit Your CV Anyway"
 msgstr "قدم سيرتك الذاتية على أي حال"
+
+#: .\templates\pro_info.html:428
+#, fuzzy
+#| msgid "PHARMA"
+msgid "STOT PHARMA"
+msgstr "فارما"
+
+#: .\templates\pro_info.html:471
+msgid "Download Product Leaflet"
+msgstr "تحميل النشرة الطبية"
+
+#: .\templates\pro_info.html:475
+msgid "Not Available"
+msgstr "النشرة الطبية غير متوفرة"
+
+#: .\templates\pro_info.html:513
+msgid "Share:"
+msgstr "المشاركة"
+
+#: .\templates\pro_info.html:520
+msgid "Ask about product"
+msgstr "اسأل عن المنتج"
+
+#: .\templates\pro_info.html:530 .\templates\pro_info.html:544
+msgid "Indications"
+msgstr "الاستطبابات"
+
+#: .\templates\pro_info.html:533 .\templates\pro_info.html:552
+msgid "Contraindications"
+msgstr "موانع الاستعمال"
+
+#: .\templates\pro_info.html:536 .\templates\pro_info.html:560
+msgid "Drug Interactions"
+msgstr "التّداخلات الدّوائيّة"
+
+#: .\templates\pro_info.html:539
+msgid "Pregnancy & Lactation"
+msgstr "الحمل والإرضاع"
+
+#: .\templates\pro_info.html:568
+msgid "Pregnancy and Lactation"
+msgstr "الحمل والإرضاع"
 
 #: .\templates\product_catalog2.html:10
 msgid "RevaPharma - Products"
@@ -1101,10 +1149,8 @@ msgid "Doctor"
 msgstr "طبيب"
 
 #: .\templates\report.html:310
-#, fuzzy
-#| msgid "Pharmacist and Chemist"
 msgid "Pharmacist"
-msgstr "صيدلي وكيميائي"
+msgstr "صيدلي"
 
 #: .\templates\report.html:311
 msgid "Patient"
@@ -1125,6 +1171,12 @@ msgstr "أدخل تفاصيل الشكوى هنا"
 #: .\templates\report.html:320
 msgid "Complaint Details"
 msgstr "تفاصيل الشكوى"
+
+#~ msgid "Call Us Now"
+#~ msgstr "اتصل بنا الآن"
+
+#~ msgid "Read More"
+#~ msgstr "اقرأ المزيد"
 
 #~ msgid "راسلنا"
 #~ msgstr "راسلنا"

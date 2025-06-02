@@ -218,12 +218,12 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
           <div class="navbar-nav gap-2 text-uppercase fw-semibold align-items-center">
-            <a href="{% url 'home' %}" class="nav-item nav-link active">{% trans "Home" %}</a>
+            <a href="{% url 'home' %}" class="nav-item nav-link">{% trans "Home" %}</a>
             <div class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{% trans "Services" %}</a>
+              <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">{% trans "Services" %}</a>
               <div class="dropdown-menu rounded-0 m-0">
                 <a href="{% url 'job_catalog' %}" class="dropdown-item">{% trans "Job Vacancies" %}</a>
-                <a href="{% url 'report' %}" class="dropdown-item">{% trans "Submit a complaint" %}</a>
+                <a href="{% url 'report' %}" class="dropdown-item active">{% trans "Submit a complaint" %}</a>
               </div>
             </div>
             <a href="{% url 'product_catalog' %}" class="nav-item nav-link">{% trans "Products" %}</a>

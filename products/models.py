@@ -2,6 +2,7 @@ from django.db import models
 
 class Products(models.Model):
     id_pro = models.BigAutoField(primary_key=True)
+
     PRODUCT_TYPES = [
         ('Oral Suspension', 'Oral Suspension'),
         ('Capsule', 'Capsule'),
@@ -38,7 +39,27 @@ class Products(models.Model):
         ('Other', 'Other'),
     ]
 
-    pro_name = models.CharField(max_length=100, verbose_name="Product Name")
+    # English fields
+    pro_name_en = models.CharField(max_length=100, verbose_name="Product Name (EN)")
+    pro_composition_en = models.TextField(verbose_name="Composition (EN)", null=True, blank=True)
+    pro_Indications_en = models.TextField(verbose_name="Indications (EN)", null=True, blank=True)
+    pro_Contraindications_en = models.TextField(verbose_name="Contraindications (EN)", null=True, blank=True)
+    pro_Drug_Interactions_en = models.TextField(verbose_name="Drug Interactions (EN)", null=True, blank=True)
+    pro_pregnancy_lactation_en = models.TextField(verbose_name="Pregnancy & Lactation (EN)", null=True, blank=True)
+    pro_dosage_administration_en = models.TextField(verbose_name="Dosage & Administration (EN)", null=True, blank=True)
+    pro_photo_en = models.ImageField(upload_to='products/en/', verbose_name="Image (EN)", null=True, blank=True)
+
+    # Arabic fields
+    pro_name_ar = models.CharField(max_length=100, verbose_name="اسم المنتج (AR)")
+    pro_composition_ar = models.TextField(verbose_name="التركيب (AR)", null=True, blank=True)
+    pro_Indications_ar = models.TextField(verbose_name="الاستطبابات (AR)", null=True, blank=True)
+    pro_Contraindications_ar = models.TextField(verbose_name="موانع الاستعمال (AR)", null=True, blank=True)
+    pro_Drug_Interactions_ar = models.TextField(verbose_name="التداخلات الدوائية (AR)", null=True, blank=True)
+    pro_pregnancy_lactation_ar = models.TextField(verbose_name="الحمل والرضاعة (AR)", null=True, blank=True)
+    pro_dosage_administration_ar = models.TextField(verbose_name="الجرعة وطريقة الاستعمال (AR)", null=True, blank=True)
+    pro_photo_ar = models.ImageField(upload_to='products/ar/', verbose_name="الصورة (AR)", null=True, blank=True)
+
+    # Common fields
     pro_type = models.CharField(max_length=50, choices=PRODUCT_TYPES, verbose_name="Product Type")
     pro_Therapeutic_Category = models.CharField(
         max_length=50, 
@@ -53,18 +74,10 @@ class Products(models.Model):
         verbose_name="Product Line",
         default='Other'
     )
-    pro_photo = models.ImageField(upload_to='products/', verbose_name="Product Photo", null=True, blank=True)
-    pro_composition = models.TextField(verbose_name="Product Composition", null=True, blank=True)
-    pro_Indications = models.TextField(verbose_name="Indications", null=True, blank=True)
-    pro_Contraindications = models.TextField(verbose_name="Contraindications", null=True, blank=True)
-    pro_Drug_Interactions = models.TextField(verbose_name="Drug Interactions", null=True, blank=True)
-    pro_pregnancy_lactation = models.TextField(verbose_name="Pregnancy and Lactation", null=True, blank=True)
-    pro_dosage_administration = models.TextField(verbose_name="Dosage and Administration", null=True, blank=True)
     pdf = models.FileField(upload_to='product_pdfs/', blank=True, null=True)
 
-
     def __str__(self):
-        return self.pro_name
+        return self.pro_name_en  # or switch based on lang context
 
     class Meta:
         verbose_name = "Product"
