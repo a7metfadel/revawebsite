@@ -2,6 +2,45 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from .models import Products
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+CATEGORY_TRANSLATIONS = {
+    "Analgesic Antipyretic and Muscle-Relaxants": "مسكنات وخافضات حرارة ومرخيات عضلية",
+    "Antibiotics": "المضادات الحيوية",
+    "Anti Cold and Cough": "مضادات الزكام والسعال",
+    "Antifungal": "مضادات الفطور",
+    "Antifungal Antiprotozoal": "مضادات الفطور والطفيليات",
+    "Bronchodilator": "موسعات الشعب الهوائية",
+    "Corticosteroids": "الكورتيكوستيرويدات",
+    "Vitamin Supplement": "مكملات الفيتامينات",
+    "Nonsteroidal anti-inflammatory drugs": "مضادات الالتهاب غير الستيروئيدية",
+    "Cardiovascular Drugs": "أدوية القلب والأوعية الدموية",
+    "Antihistamines": "مضادات الهيستامين",
+    "Antiseptics": "المطهرات",
+    "Fluid & Electrolyte replacement": "تعويض السوائل والشوارد",
+    "Gynecology and Genitourinary": "أمراض النساء والجهاز البولي التناسلي",
+    "Gastrointestinal Drugs": "أدوية الجهاز الهضمي",
+    "Hemorrhoids Medication": "أدوية البواسير",
+    "Anti-diabetic drugs": "أدوية السكري",
+}
+
+THERAPEUTIC_CATEGORY_FULLNAMES = {
+    "Analgesic": "Analgesic Antipyretic and Muscle-Relaxants",
+    "Antibiotics": "Antibiotics",
+    "Anti_Cold": "Anti Cold and Cough",
+    "Antifungal": "Antifungal",
+    "Antifungal_Antiprotozoal": "Antifungal Antiprotozoal",
+    "Bronchodilator": "Bronchodilator",
+    "Corticosteroids": "Corticosteroids",
+    "Vitamin": "Vitamin Supplement",
+    "NSAID": "Nonsteroidal anti-inflammatory drugs",
+    "Cardiovascular": "Cardiovascular Drugs",
+    "Antihistamines": "Antihistamines",
+    "Antiseptics": "Antiseptics",
+    "Fluid_Electrolyte": "Fluid & Electrolyte replacement",
+    "Gynecology": "Gynecology and Genitourinary",
+    "Gastrointestinal": "Gastrointestinal Drugs",
+    "Hemorrhoids": "Hemorrhoids Medication",
+    "Anti_diabetic": "Anti-diabetic drugs",
+}
 
 def product_catalog(request):
     lang = request.LANGUAGE_CODE
@@ -21,6 +60,26 @@ def product_catalog(request):
     if product_type:
         products_list = products_list.filter(pro_type=product_type)
 
+    # استخراج كل التصنيفات (المفتاح) الموجود فعلياً بالقاعدة
+    unique_categories = Products.objects.values_list('pro_Therapeutic_Category', flat=True).distinct()
+    unique_categories = [cat for cat in unique_categories if cat]
+
+    # تجهيز التصنيفات للعرض حسب اللغة
+    if lang == 'ar':
+        therapeutic_categories = [
+            (cat, CATEGORY_TRANSLATIONS.get(THERAPEUTIC_CATEGORY_FULLNAMES.get(cat, cat), THERAPEUTIC_CATEGORY_FULLNAMES.get(cat, cat)))
+            for cat in unique_categories
+        ]
+        all_categories = "جميع الفئات"
+        filter_title = "حسب الفئة العلاجية"
+    else:
+        therapeutic_categories = [
+            (cat, THERAPEUTIC_CATEGORY_FULLNAMES.get(cat, cat))
+            for cat in unique_categories
+        ]
+        all_categories = "All Categories"
+        filter_title = "By Therapeutic Category"
+
     # Pagination
     paginator = Paginator(products_list, 9)
     page = request.GET.get('page')
@@ -37,10 +96,14 @@ def product_catalog(request):
         'search_query': search_query,
         'selected_category': category,
         'selected_type': product_type,
-        'therapeutic_categories': Products.THERAPEUTIC_CATEGORIES,
+        'therapeutic_categories': therapeutic_categories,
+        'all_categories': all_categories,
+        'filter_title': filter_title,
         'product_types': Products.PRODUCT_TYPES,
     }
     return render(request, 'product_catalog2.html', context)
+
+
 
 
 def benicillins(request):

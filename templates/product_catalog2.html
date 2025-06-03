@@ -304,28 +304,29 @@
 
                 <!-- Categories -->
                 <div class="pb-4 mb-2">
-                  <h3 class="h6">{% trans "By Therapeutic Category" %}</h3>
+                  <h3 class="h6">{{ filter_title }}</h3>
                   <form id="categoryForm" method="get" action="">
                     {% if search_query %}
-                    <input type="hidden" name="search" value="{{ search_query }}">
+                      <input type="hidden" name="search" value="{{ search_query }}">
                     {% endif %}
                     <div class="overflow-auto" data-simplebar data-simplebar-auto-hide="false" style="height: 11rem;">
                       <div class="form-check">
                         <input type="checkbox" class="form-check-input category-checkbox" id="all" 
                                {% if not selected_category %}checked{% endif %}>
-                        <label class="form-check-label" for="all">{% trans "All Categories" %}</label>
+                        <label class="form-check-label" for="all">{{ all_categories }}</label>
                       </div>
                       {% for category, display_name in therapeutic_categories %}
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input category-checkbox" 
-                               name="category" value="{{ category }}" id="{{ category }}"
-                               {% if selected_category == category %}checked{% endif %}>
-                        <label class="form-check-label" for="{{ category }}">{{ display_name }}</label>
-                      </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input category-checkbox"
+                                 name="category" value="{{ category }}" id="{{ category }}"
+                                 {% if selected_category == category %}checked{% endif %}>
+                          <label class="form-check-label" for="{{ category }}">{{ display_name }}</label>
+                        </div>
                       {% endfor %}
                     </div>
                   </form>
                 </div>
+                
 
                 <!-- Pharmaceutical form -->
                 <div class="pb-4 mb-2">
