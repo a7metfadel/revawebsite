@@ -1,10 +1,27 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from import_export.admin import ImportExportModelAdmin
+from import_export import resources
 from .models import Products
 
+# 1. تعريف resource المخصص للمنتجات
+class ProductsResource(resources.ModelResource):
+    class Meta:
+        model = Products
+        import_id_fields = []
+        fields = (
+            "pro_name_en", "pro_composition_en", "pro_Indications_en", "pro_Contraindications_en",
+            "pro_Drug_Interactions_en", "pro_pregnancy_lactation_en", "pro_dosage_administration_en", "pro_photo_en",
+            "pro_name_ar", "pro_composition_ar", "pro_Indications_ar", "pro_Contraindications_ar",
+            "pro_Drug_Interactions_ar", "pro_pregnancy_lactation_ar", "pro_dosage_administration_ar", "pro_photo_ar",
+            "pro_type", "pro_Therapeutic_Category", "pro_line", "pdf"
+        )
+
 @admin.register(Products)
-class ProductsAdmin(admin.ModelAdmin):
-    # عرض الأعمدة في صفحة القائمة
+class ProductsAdmin(ImportExportModelAdmin):
+    # 2. فعّل resource_class
+    resource_class = ProductsResource
+
     list_display = ('id_pro', 'pro_name_en', 'pro_type', 'get_therapeutic_category', 'get_product_line')
     list_filter = ('pro_type', 'pro_Therapeutic_Category', 'pro_line')
     search_fields = ('id_pro', 'pro_name_en', 'pro_name_ar', 'pro_type', 'pro_Therapeutic_Category', 'pro_line')
@@ -29,7 +46,6 @@ class ProductsAdmin(admin.ModelAdmin):
         )
     get_product_line.short_description = 'Product Line'
 
-    # حقول الإدخال في النموذج
     fieldsets = (
         ('Basic Information', {
             'fields': (

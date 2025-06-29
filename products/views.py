@@ -22,6 +22,16 @@ CATEGORY_TRANSLATIONS = {
     "Anti-diabetic drugs": "أدوية السكري",
 }
 
+PRODUCT_TYPE_TRANSLATIONS = {
+    "Oral Suspension": "معلق فموي",
+    "Capsule": "كبسول",
+    "Tablets": "مضغوطات",
+    "Syrup": "شراب",
+    "Suppositories": "تحاميل",
+    "Oral Drops": "قطرات فموية",
+}
+
+
 THERAPEUTIC_CATEGORY_FULLNAMES = {
     "Analgesic": "Analgesic Antipyretic and Muscle-Relaxants",
     "Antibiotics": "Antibiotics",
@@ -42,43 +52,70 @@ THERAPEUTIC_CATEGORY_FULLNAMES = {
     "Anti_diabetic": "Anti-diabetic drugs",
 }
 
+PRODUCT_TYPE_FULLNAMES = {
+    "Oral Suspension": "Oral Suspension",
+    "Capsule": "Capsule",
+    "tablets": "Tablets",
+    "Syrup": "Syrup",
+    "Suppositories": "Suppositories",
+    "Oral Drops": "Oral Drops",
+}
+
+
 def product_catalog(request):
     lang = request.LANGUAGE_CODE
     products_list = Products.objects.all()
 
-    # Search
+    # البحث
     search_query = request.GET.get('search', '')
     if search_query:
         products_list = products_list.filter(pro_name_en__istartswith=search_query)
 
-    # Filters
+    # الفئة العلاجية
     category = request.GET.get('category', '')
     if category:
         products_list = products_list.filter(pro_Therapeutic_Category=category)
 
+    # الشكل الصيدلاني
     product_type = request.GET.get('type', '')
     if product_type:
         products_list = products_list.filter(pro_type=product_type)
 
-    # استخراج كل التصنيفات (المفتاح) الموجود فعلياً بالقاعدة
+    # استخراج الفئات العلاجية الحقيقية فقط
     unique_categories = Products.objects.values_list('pro_Therapeutic_Category', flat=True).distinct()
     unique_categories = [cat for cat in unique_categories if cat]
 
-    # تجهيز التصنيفات للعرض حسب اللغة
+    # استخراج الأشكال الصيدلانية الحقيقية فقط
+    unique_types = Products.objects.values_list('pro_type', flat=True).distinct()
+    unique_types = [typ for typ in unique_types if typ]
+
+    # تجهيز أسماء الفئات والأشكال حسب اللغة
     if lang == 'ar':
         therapeutic_categories = [
             (cat, CATEGORY_TRANSLATIONS.get(THERAPEUTIC_CATEGORY_FULLNAMES.get(cat, cat), THERAPEUTIC_CATEGORY_FULLNAMES.get(cat, cat)))
             for cat in unique_categories
         ]
+        product_types = [
+            (typ, PRODUCT_TYPE_TRANSLATIONS.get(PRODUCT_TYPE_FULLNAMES.get(typ, typ), PRODUCT_TYPE_FULLNAMES.get(typ, typ)))
+            for typ in unique_types
+        ]
         all_categories = "جميع الفئات"
+        all_types = "جميع الأشكال"
         filter_title = "حسب الفئة العلاجية"
+        form_filter_title = "حسب الشكل الصيدلاني"
     else:
         therapeutic_categories = [
             (cat, THERAPEUTIC_CATEGORY_FULLNAMES.get(cat, cat))
             for cat in unique_categories
         ]
+        product_types = [
+            (typ, PRODUCT_TYPE_FULLNAMES.get(typ, typ))
+            for typ in unique_types
+        ]
         all_categories = "All Categories"
+        all_types = "All Forms"
         filter_title = "By Therapeutic Category"
+        form_filter_title = "By pharmaceutical form"
 
     # Pagination
     paginator = Paginator(products_list, 9)
@@ -97,11 +134,14 @@ def product_catalog(request):
         'selected_category': category,
         'selected_type': product_type,
         'therapeutic_categories': therapeutic_categories,
+        'product_types': product_types,
         'all_categories': all_categories,
+        'all_types': all_types,
         'filter_title': filter_title,
-        'product_types': Products.PRODUCT_TYPES,
+        'form_filter_title': form_filter_title,
     }
     return render(request, 'product_catalog2.html', context)
+
 
 
 
@@ -175,12 +215,28 @@ def pro_info(request):
     if product_id:
         product = get_object_or_404(Products, id_pro=product_id)
         product_image = product.pro_photo_ar if lang == 'ar' else product.pro_photo_en
+
+        # إحضار النص الإنجليزي الظاهر للفئة العلاجية والشكل الصيدلاني
+        therapeutic_category_en = product.get_pro_Therapeutic_Category_display()
+        product_type_en = product.get_pro_type_display()
+
+        # الترجمة حسب اللغة
+        if lang == 'ar':
+            therapeutic_category_display = CATEGORY_TRANSLATIONS.get(therapeutic_category_en, therapeutic_category_en)
+            product_type_display = PRODUCT_TYPE_TRANSLATIONS.get(product_type_en, product_type_en)
+        else:
+            therapeutic_category_display = therapeutic_category_en
+            product_type_display = product_type_en
+
         return render(request, 'pro_info.html', {
             'product': product,
             'product_image': product_image,
             'lang': lang,
+            'therapeutic_category_display': therapeutic_category_display,
+            'product_type_display': product_type_display,
         })
     return redirect('product_catalog')
+
 
 
 

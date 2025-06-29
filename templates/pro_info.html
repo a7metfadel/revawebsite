@@ -524,55 +524,15 @@
         </div>
         <hr class="divider">
 
-        <!-- Tabs -->
-        <ul class="nav nav-tabs mb-0" id="productTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="indications-tab" data-bs-toggle="tab" data-bs-target="#indications" type="button" role="tab">{% trans "Indications" %}</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="contraindications-tab" data-bs-toggle="tab" data-bs-target="#contraindications" type="button" role="tab">{% trans "Contraindications" %}</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="interactions-tab" data-bs-toggle="tab" data-bs-target="#interactions" type="button" role="tab">{% trans "Drug Interactions" %}</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pregnancy-tab" data-bs-toggle="tab" data-bs-target="#pregnancy" type="button" role="tab">{% trans "Pregnancy & Lactation" %}</button>
-            </li>
-        </ul>
-        <div class="tab-content" id="productTabContent">
-            <section class="tab-section tab-pane fade show active" id="indications" role="tabpanel">
-                <h2>{% trans "Indications" %}</h2>
-                {% if lang == 'ar' and product.pro_Indications_ar %}
-                    <ul>{% for line in product.pro_Indications_ar.splitlines %}<li>{{ line }}</li>{% endfor %}</ul>
-                {% elif product.pro_Indications_en %}
-                    <ul>{% for line in product.pro_Indications_en.splitlines %}<li>{{ line }}</li>{% endfor %}</ul>
-                {% else %}<p>N/A</p>{% endif %}
-            </section>
-            <section class="tab-section tab-pane fade" id="contraindications" role="tabpanel">
-                <h2>{% trans "Contraindications" %}</h2>
-                {% if lang == 'ar' and product.pro_Contraindications_ar %}
-                    <ul>{% for line in product.pro_Contraindications_ar.splitlines %}<li>{{ line }}</li>{% endfor %}</ul>
-                {% elif product.pro_Contraindications_en %}
-                    <ul>{% for line in product.pro_Contraindications_en.splitlines %}<li>{{ line }}</li>{% endfor %}</ul>
-                {% else %}<p>N/A</p>{% endif %}
-            </section>
-            <section class="tab-section tab-pane fade" id="interactions" role="tabpanel">
-                <h2>{% trans "Drug Interactions" %}</h2>
-                {% if lang == 'ar' and product.pro_Drug_Interactions_ar %}
-                    <ul>{% for line in product.pro_Drug_Interactions_ar.splitlines %}<li>{{ line }}</li>{% endfor %}</ul>
-                {% elif product.pro_Drug_Interactions_en %}
-                    <ul>{% for line in product.pro_Drug_Interactions_en.splitlines %}<li>{{ line }}</li>{% endfor %}</ul>
-                {% else %}<p>N/A</p>{% endif %}
-            </section>
-            <section class="tab-section tab-pane fade" id="pregnancy" role="tabpanel">
-                <h2>{% trans "Pregnancy and Lactation" %}</h2>
-                {% if lang == 'ar' and product.pro_pregnancy_lactation_ar %}
-                    <ul>{% for line in product.pro_pregnancy_lactation_ar.splitlines %}<li>{{ line }}</li>{% endfor %}</ul>
-                {% elif product.pro_pregnancy_lactation_en %}
-                    <ul>{% for line in product.pro_pregnancy_lactation_en.splitlines %}<li>{{ line }}</li>{% endfor %}</ul>
-                {% else %}<p>N/A</p>{% endif %}
-            </section>
+        <div class="tab-section" style="background: #fdfdfe; border-radius: 1.1rem; margin: 1.2rem 0 0 0; padding: 1.0rem .7rem;">
+            <h2 style="color: #1d3662; font-size: 1.09rem; font-weight: 700;">{% if lang == "ar" %}الشكل الصيدلاني{% else %}Pharmaceutical Form{% endif %}</h2>
+            <p style="font-size:1.15rem; color:#22355a; font-weight:500;">{{ product_type_display|default:"-" }}</p>
+        
+            <h2 style="color: #1d3662; font-size: 1.09rem; font-weight: 700;">{% if lang == "ar" %}الفئة العلاجية{% else %}Therapeutic Category{% endif %}</h2>
+            <p style="font-size:1.15rem; color:#22355a; font-weight:500;">{{ therapeutic_category_display|default:"-" }}</p>
         </div>
+        
+        
     </div>
 
 
